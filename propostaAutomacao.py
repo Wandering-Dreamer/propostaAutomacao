@@ -6,7 +6,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 doc = Document()
 
 # Add a title
-title = doc.add_heading('Document Creation Example', level=1)
+title = doc.add_heading('Resposta para Canal de Hewlett Packard Enterprise', level=1)
 title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 # Add a paragraph with bold and italic text
