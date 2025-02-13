@@ -1,6 +1,7 @@
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+import ui
 
 # Create a new document
 doc = Document()
@@ -20,7 +21,7 @@ doc.add_heading('Section 1: Introduction', level=2)
 
 # Add a bulleted list
 list_paragraph = doc.add_paragraph()
-list_paragraph.add_run('Bullet 1').bold = True
+list_paragraph.add_run(ui.vendedor_final.get()).bold = True
 list_paragraph.add_run(' - This is the first bullet point.')
 list_paragraph.add_run('\n')
 list_paragraph.add_run('Bullet 2').bold = True

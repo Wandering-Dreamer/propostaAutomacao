@@ -5,6 +5,7 @@ import ttkbootstrap as tb
 from tkscrolledframe import ScrolledFrame
 
 root = Tk()
+vendedor_final = StringVar()
 
 logo = tk.PhotoImage(file="hp_logo.png").subsample(14, 15)
 tk.Label(root, image=logo).pack()
@@ -170,6 +171,8 @@ line.pack(fill="x", pady=10)
 
 def get_data():
     print(proposta_var.get())
+    x = vendedor.get()
+    vendedor_final.set(x)
     return
 
 
