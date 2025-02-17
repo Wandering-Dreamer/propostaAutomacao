@@ -1,20 +1,30 @@
 from docx import Document
 from docx.shared import Pt
+from docx.shared import RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from datetime import date
+import locale
 import ui
 
-# Create a new document
-doc = Document()
 
-# Add a title
-title = doc.add_heading('Resposta para Canal de Hewlett Packard Enterprise', level=1)
+doc = Document("Template Proposta Tecnica Comercial Servicos de Suporte_novo (003) (002).docx")
+
+title = doc.add_heading('Resposta para ', level=0)
+title.add_run(ui.cliente_final.get())
+title.add_run(" de Hewlett Packard Enterprise \n\n\n\n")
 title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+title2 = doc.add_heading('Projeto: ', level=0)
+title2.add_run(ui.num_contrato_final.get())
+title2.alignment = WD_ALIGN_PARAGRAPH.LEFT
+title2.add_run('\n\n\n\n\n\n\n\n')
 
-# Add a paragraph with bold and italic text
-paragraph = doc.add_paragraph('This is a sample document created using the python-docx library.')
-run = paragraph.runs[0]
-run.bold = True
-run.italic = True
+p = doc.add_paragraph('São Paulo, ')
+p.add_run(ui.str_dt)
+p = doc.add_paragraph('Proposta Técnica Comercial ')
+p.add_run(ui.ope_final.get())
+p.add_run('\n\n\n')
+doc.add_picture('image_page1.jpg', width=Pt(500))
+
 
 # Add a heading
 doc.add_heading('Section 1: Introduction', level=2)

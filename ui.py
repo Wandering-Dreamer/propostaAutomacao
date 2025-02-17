@@ -1,11 +1,31 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
 from tkinter import *
-import ttkbootstrap as tb
+from tkcalendar import DateEntry
 from tkscrolledframe import ScrolledFrame
+from datetime import date
+import locale
 
 root = Tk()
 vendedor_final = StringVar()
+proposta_final = IntVar()
+email_final = StringVar()
+telefone_final = StringVar()
+cliente_final = StringVar()
+ib_final = StringVar()
+num_contrato_final = StringVar()
+ope_final = StringVar()
+date_final = StringVar()
+estado_final = StringVar()
+vaidade_final = StringVar()
+contrato_final = IntVar()
+servico_final = IntVar()
+rts_final = IntVar()
+mv_final = IntVar()
+eosl_final = IntVar()
+rescisao_final = IntVar()
+pagamento_final = IntVar()
+
 
 logo = tk.PhotoImage(file="hp_logo.png").subsample(14, 15)
 tk.Label(root, image=logo).pack()
@@ -75,9 +95,9 @@ ope_label.pack(anchor="w", padx=10, pady=5)
 ope.pack(anchor="w", padx=10, pady=5)
 
 date_label = tk.Label(frame, text="Insira a data de criação da proposta:")
-date = tb.DateEntry(frame)
+date_var = DateEntry(frame, selectmode='day', date_pattern = 'dd-mm-yyyy')
 date_label.pack(anchor="w", padx=10, pady=5)
-date.pack(anchor="w", padx=10, pady=5)
+date_var.pack(anchor="w", padx=10, pady=5)
 
 estado_label = tk.Label(frame, text="Insira o estado de faturamento:")
 estado = ttk.Entry(frame)
@@ -85,7 +105,7 @@ estado_label.pack(anchor="w", padx=10, pady=5)
 estado.pack(anchor="w", padx=10, pady=5)
 
 validade_label = tk.Label(frame, text="Insira a validade da proposta:")
-validade = tb.DateEntry(frame)
+validade = DateEntry(frame, selectmode='day', date_pattern = 'dd-mm-yyyy')
 validade_label.pack(anchor="w", padx=10, pady=5)
 validade.pack(anchor="w", padx=10, pady=5)
 
@@ -169,10 +189,30 @@ for value, method in enumerate(root.pagamento):
 line = ttk.Separator(frame, orient=tk.HORIZONTAL)
 line.pack(fill="x", pady=10)  
 
+locale.setlocale(locale.LC_TIME, 'pt-BR')
+dt = date_var.get_date()
+str_dt = dt.strftime("%d de %B de %Y")
+print(str_dt)
+
 def get_data():
-    print(proposta_var.get())
-    x = vendedor.get()
-    vendedor_final.set(x)
+    vendedor_final.set(vendedor.get())
+    proposta_final.set(proposta_var.get())
+    email_final.set(email.get())
+    telefone_final.set(telefone.get())
+    cliente_final.set(cliente.get())
+    ib_final.set(ib_specialist.get())
+    num_contrato_final.set(num_contrato.get())
+    ope_final.set(ope.get())
+    estado_final.set(estado.get())
+    validade_final = validade.get_date()
+    contrato_final.set(contrato_var.get())
+    servico_final.set(servico_var.get())
+    rts_final.set(rts.get())
+    mv_final.set(mv.get())
+    eosl_final.set(eosl.get())
+    rescisao_final.set(rescisao.get())
+    pagamento_final.set(pagamento_var.get())
+
     return
 
 
