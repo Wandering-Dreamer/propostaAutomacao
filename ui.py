@@ -206,6 +206,7 @@ def get_data():
     estado_final.set(estado.get())
     validade_final = validade.get_date()
     contrato_final.set(contrato_var.get())
+    print(contrato_final.get())
     servico_final.set(servico_var.get())
     rts_final.set(rts.get())
     mv_final.set(mv.get())
