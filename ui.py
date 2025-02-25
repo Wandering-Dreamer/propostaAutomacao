@@ -7,7 +7,12 @@ from datetime import date
 import locale
 
 root = Tk()
+
+var_email = StringVar()
+var_telefone = StringVar()
 vendedor_final = StringVar()
+vendedor = StringVar(root)
+vendedor.set("Selecione o vendedor: ")
 proposta_final = IntVar()
 email_final = StringVar()
 telefone_final = StringVar()
@@ -34,10 +39,14 @@ root.title("Alteração de Proposta")
 root.proposta = ["Privada", "Pública"]
 root.pagamento = ["Parcela Mensal", "Parcela à vista", "Parcela Trimestral"]
 root.contrato = ["HPE Pointnext Tech Care", "HPE Pointnext Complete Care Starter Pack", "HPE Pointnext Complete Care Add-on"]
-        
+
+vendedor_list = ["Selecione o vendedor:", "Weidson Carolino", "Vagner Rocha", "Fabio Cavalheiro", "Luana Kanashiro", "Gustavo Lacerda", "Alan de Carvalho", "Augusto Cesar", "Jairo Mateus", "Vitor Ribeiro", "Alexandre Araujo"]
+vendedor_email = ["Selecione o vendedor para verificar o email:", "weidson-igor.carolino@hpe.com","vagner.da-rocha@hpe.com","cavalheiro@hpe.com", "kanashiro@hpe.com", "gustavo.sarceda@hpe.com", "alan.de-carvalho@hpe.com", "augusto-cesar.da-silva@hpe.com", "jairo.mat.junior@hpe.com", "vitor.ribeiro@hpe.com", "alexandre.araujo2@hpe.com"]
+vendedor_telefone = ["Selecione o vendedor para verificar o telefone:", "11 99577 1521", "11 94232 4333", "11 94380 2538", "11 91619 1691", "11 94190 7017", "11 97229 0223", "11 94159 7625", "11 94391 6613", "11 95042 6872", "11 94369 2905"]
 frame_top = tk.Frame(root, width=400, height=250)
 frame_top.pack(side="top", expand=1, fill="both")
-
+var_email.set(vendedor_email[0])
+var_telefone.set(vendedor_telefone[0])
 sf = ScrolledFrame(frame_top, width=380, height=240)
 sf.pack(side="top", expand=1, fill="both")
 
@@ -59,25 +68,29 @@ for value, method in enumerate(root.proposta):
 
 line = ttk.Separator(frame, orient=tk.HORIZONTAL)
 line.pack(fill="x", pady=15)
-vendedor_label = tk.Label(frame, text="Insira o nome do vendedor:")
-vendedor = ttk.Entry(frame)
+
+def update_label():  
+    var_email.set(vendedor_email[vendedor_menu.current()])
+    var_telefone.set(vendedor_telefone[vendedor_menu.current()])
+
+vendedor_label = tk.Label(frame, text="Vendedor:")
+vendedor_menu = ttk.Combobox(frame, textvariable=vendedor)
+vendedor_menu['values'] = ["Selecione o vendedor:", "Weidson Carolino", "Vagner Rocha", "Fabio Cavalheiro", "Luana Kanashiro", "Gustavo Lacerda", "Alan de Carvalho", "Augusto Cesar", "Jairo Mateus", "Vitor Ribeiro", "Alexandre Araujo"]
 vendedor_label.pack(anchor="w", padx=10, pady=5)
-vendedor.pack(anchor="w", padx=10, pady=5)
+vendedor_menu.pack(anchor="w", padx=10, pady=5)
+label_button = Button (frame, text="Selecionar", command=update_label, height=3, width=10)
+label_button.pack(anchor="w", padx=100, pady=20)
+
+email_label = Label(frame, textvariable=var_email)
+email_label.pack(anchor="w", padx=10, pady=5)
+
+telefone_label = Label(frame, textvariable=var_telefone)
+telefone_label.pack(anchor="w", padx=10, pady=5)
 
 cargo_label = tk.Label(frame, text="Insira o cargo do vendedor:")
 cargo = ttk.Entry(frame)
 cargo_label.pack(anchor="w", padx=10, pady=5)
 cargo.pack(anchor="w", padx=10, pady=5)
-
-email_label = tk.Label(frame, text="Insira o email do vendedor:")
-email = ttk.Entry(frame)
-email_label.pack(anchor="w", padx=10, pady=5)
-email.pack(anchor="w", padx=10, pady=5)
-
-telefone_label = tk.Label(frame, text="Insira o telefone corporativo do vendedor:")
-telefone = ttk.Entry(frame)
-telefone_label.pack(anchor="w", padx=10, pady=5)
-telefone.pack(anchor="w", padx=10, pady=5)
 
 cliente_label = tk.Label(frame, text="Insira o nome do cliente:")
 cliente = ttk.Entry(frame)
@@ -198,16 +211,16 @@ def get_data():
     vendedor_final.set(vendedor.get())
     cargo_final.set(cargo.get())
     proposta_final.set(proposta_var.get())
-    email_final.set(email.get())
-    telefone_final.set(telefone.get())
+    print(vendedor_menu.current())
     cliente_final.set(cliente.get())
     num_contrato_final.set(num_contrato.get())
     ope_final.set(ope.get())
     estado_final.set(estado.get())
     validade_final = validade.get_date()
     contrato_final.set(contrato_var.get())
-    print(contrato_final.get())
+    print(rts.get())
     servico_final.set(servico_var.get())
+    print(servico_final.get())
     rts_final.set(rts.get())
     mv_final.set(mv.get())
     eosl_final.set(eosl.get())
