@@ -2,6 +2,7 @@ from docx import *
 from docx.shared import Pt, Inches, Mm
 from docx.shared import RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_TABLE_ALIGNMENT
 from datetime import date
 import locale
 import ui
@@ -235,7 +236,7 @@ elif ui.contrato_final.get() == 2:
 
 
 # pag 12, 13, 14
-
+# if rts
 
 title8 = doc.add_heading(level=0)
 title8.add_run('\n\n2.4.	Vistoria de Hardware / RTS')
@@ -281,12 +282,11 @@ doc.add_page_break()
 
 # Pag 15
 
-title9 = doc.add_heading(level=0)
-title9.add_run("3.	Especificações dos Níveis de Serviços")
 
 if ui.servico_final.get() == 0:
     title91 = doc.add_heading(level=0)
-    title91.add_run("HPE Pointnext Tech Care")
+    title91.add_run("3.	Especificações dos Níveis de Serviços")
+    title91.add_run("\nHPE Pointnext Tech Care")
     p9 = doc.add_paragraph()
     p9.add_run("Aplicável aos contratos que contenham algum dos Números de produto abaixo: \nHU4A3AC; HU4A4AC; HU4A5AC; HU4A6AC; HU4A7AC; HU4A8AC; HU4A9AC; HU4B0AC; HU4B1AC; HU4B2AC; HU4B3AC; HU4B4AC; HU4B5AC; HU4B6AC; HU4B7AC; ")
     p9.add_run("\n\nRECURSOS GERAIS").bold = True
@@ -337,16 +337,16 @@ if ui.servico_final.get() == 0:
     title92 = doc.add_heading(level=0)
     title92.add_run("3.2.	ZONAS DE DESLOCAMENTO ")
     p92 = doc.add_paragraph()
-    p92.add_run("Todos os tempos de resposta do Serviço de Troca e com presença no local para hardware se aplicam somente a áreas situadas dentro de uma distância de 160 km de um centro de suporte designado pela HPE. A viagem de descolamento dentro de um raio de 320 km de distância de um centro de suporte designado pela HPE é oferecida sem custos adicionais. Se o local estiver situado a mais de 320 km do centro de suporte designado pela HPE, haverá uma cobrança adicional. As zonas de deslocamentos e os custos, se aplicáveis, podem variar em algumas regiões. Os custos de postagem (em caso de troca de peças), se aplicáveis,  podem variar em algumas regiões. Os tempos de resposta para locais situados a mais de 160 km de um centro de suporte designado pela HPE serão modificados para incluir o tempo de deslocamento, conforme mostra a tabela a seguir. ")
-    p92.add_run("\n\nTABELA 9.").bold = True
-    p92.add_run("Zonas de deslocamento (exceto nível de serviço crítico)")
+    p92.add_run("\n\nTodos os tempos de resposta do Serviço de Troca e com presença no local para hardware se aplicam somente a áreas situadas dentro de uma distância de 160 km de um centro de suporte designado pela HPE. A viagem de descolamento dentro de um raio de 320 km de distância de um centro de suporte designado pela HPE é oferecida sem custos adicionais. Se o local estiver situado a mais de 320 km do centro de suporte designado pela HPE, haverá uma cobrança adicional. As zonas de deslocamentos e os custos, se aplicáveis, podem variar em algumas regiões. Os custos de postagem (em caso de troca de peças), se aplicáveis,  podem variar em algumas regiões. Os tempos de resposta para locais situados a mais de 160 km de um centro de suporte designado pela HPE serão modificados para incluir o tempo de deslocamento, conforme mostra a tabela a seguir. ")
+    p92.add_run("\n\nTABELA 9. ").bold = True
+    p92.add_run("Zonas de deslocamento (exceto nível de serviço crítico)\n\n")
     table4 = doc.add_table(rows=6, cols=3)
     table4.style = 'Table Grid'
-    table4.autofit = False
-    table4.allow_autofit = False
+    table4.autofit = True
+    table4.allow_autofit = True
     for row4 in table4.rows:
         for cell4 in row4.cells:
-            cell4.width = Pt(180)
+            cell4.width = Pt(200)
     table4.cell(0, 0).text = "Distância do ponto de suporte determinado pela HPE"
     table4.cell(0, 1).text = "Tempo de resposta para Essencial/Essencial Exchange"
     table4.cell(0, 2).text = "Tempo de resposta para Basic/Basic Exchange"
@@ -367,8 +367,328 @@ if ui.servico_final.get() == 0:
     table4.cell(5, 2).text = "Estabelecido no momento do pedido e sujeito à disponibilidade"
     p93 = doc.add_paragraph()
     p93.add_run("\n\nO compromisso de tempo de reparo está disponível para localidades situados até 80 km de um centro de suporte designado pela HPE. Para locais entre 81 e 160 km de tal ponto de suporte, o compromisso de tempo de reparo de hardware será ajustado de acordo com a tabela a seguir. O compromisso de tempo de reparo de hardware não está disponível para locais a mais de 160 km de um ponto de suporte designado pela HPE.")
-    p93.add_run("\nTABELA 10").bold = True
-    p93.add_run("Zonas de deslocamento para nível de serviço crítico")
+    p93.add_run("\n\nTABELA 10. ").bold = True
+    p93.add_run("Zonas de deslocamento para nível de serviço crítico\n\n")
+    table5 = doc.add_table(rows=4, cols=2)
+    table5.style = 'Table Grid'
+    table5.autofit = False
+    table5.allow_autofit = False
+    for row5 in table5.rows:
+        for cell5 in row5.cells:
+            cell5.width = Pt(180)
+    table5.cell(0, 0).text = "Distância do ponto de suporte designado pela HPE"
+    table5.cell(1, 0).text = "0 a 80 km"
+    table5.cell(2, 0).text = "81 a 160 km"
+    table5.cell(3, 0).text = "Mais de 160 km"
+    table5.cell(0, 1).text = "Tempo de reparo crítico"
+    table5.cell(1, 1).text = "6 horas"
+    table5.cell(2, 1).text = "8 horas"
+    table5.cell(3, 1).text = "Não disponível"
+
+elif ui.servico_final.get() == 1:
+
+    section = doc.sections[-1]
+    section3 = doc.add_section()
+
+    section3.left_margin = Inches(0.75)
+    section3.right_margin = Inches(0.75)
+    section3.top_margin = Inches(1)
+    section3.bottom_margin = Inches(1)
+    
+    title93 = doc.add_heading(level = 0)
+    title93.add_run("3.	Especificações dos Níveis de Serviços")
+    title93.add_run("\nHPE Pointnext Complete Care Starter Pack ")
+    p94 = doc.add_paragraph()
+    p94.add_run("\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH2T12AC; H2T12BC;")
+    p94.add_run("\n\n3.3.1.	Destaques dos Entregáveis do Serviço ").bold = True
+    p94.add_run("\n\nO HPE Pointnext Complete Care Starter Pack oferece três níveis de experiência de gerenciamento e relacionamento, incluindo recursos HPE designados que compreendem os objetivos de negócios de TI do cliente e trabalham para garantir que essas necessidades sejam atendidas.")
+    p94.add_run("\nSujeitos a quaisquer limitações definidas neste documento, os serviços HPE Pointnext Complete Care Starter Pack Standard(padrão), básico e Entry(Inicial) estabelecem os seguintes entregáveis.")
+    p94.add_run("\nTABELA 1.").bold = True
+    p94.add_run("Destaques dos entregáveis do serviço HPE Pointnext Complete Care Starter Pack")
+    table6 = doc.add_table(rows=15, cols=4)
+    table6.style = 'Table Grid'
+    table6.autofit = True
+    table6.allow_autofit = True
+    for row6 in table6.rows:
+        for cell6 in row6.cells:
+            cell6.width = Pt(180)
+    table6.cell(0, 0).text = "\nEntregáveis\n"
+    table6.cell(0, 1).text = "\nEspecificações de fornecimento\n"
+    table6.cell(1, 0).text = "\nNível de experiência\n"
+    table6.cell(1, 1).text = "\nStandard (Padrão)\n"
+    table6.cell(1, 2).text = "\nBásico\n"
+    table6.cell(1, 3).text = "\nEntry (Inicial)\n"
+    table6.cell(2, 0).text = "\nEquipe de conta designada\n"
+    table6.cell(2, 1).text = "\nA equipe de conta designada pela HPE é o representante do cliente e o ponto focal técnico e/ou operacional para o HPE Pointnext Complete Care. Esses recursos coordenam os entregáveis do HPE Pointnext Complete Care. Isso inclui serviços proativos opcionais, bem como o monitoramento de problemas, correções e consultoria que possam impactar o ambiente do cliente. Além disso, esses recursos oferecem atividades determinadas conforme detalhado mais especificamente abaixo.\n"
+    a = table6.cell(2, 1)
+    b = table6.cell(2, 3)
+    c = table6.cell(2, 0)
+    d = table6.cell(3, 0)
+    a.merge(b)
+    c.merge(d)
+    table6.cell(3, 1).text = "\nA HPE designa os seguintes recursos de conta à organização do cliente:\n•	Gerente de suporte de conta (ASM)\n•	Gerente técnico de conta (TAM)\n•	Técnico designado ao cliente (ACE)\n"
+    table6.cell(3, 2).text = "\nA HPE designa os seguintes recursos de conta à organização do cliente:\n•	ASM\n•	Consultor de serviço (Service Advisor)\n"
+    table6.cell(3, 3).text = "\nA HPE designa o seguinte recurso de conta à organização do cliente:\n•	Consultor de serviço(Service Advisor)\n"
+    table6.cell(4, 0).text = "\nPlanejamento de suporte à conta\n"
+    table6.cell(4, 1).text = "\nEsse recurso de serviço oferece o desenvolvimento de um plano de suporte da conta (ASP) pelo ASM em parceria com a equipe de TI do cliente. \nO ASP documenta os suportes reativo e proativo adquiridos, os dispositivos, a cobertura geográfica e quaisquer outros aspectos do suporte. \nO ASP também detalha os contatos,  as funções, responsabilidades dos recursos envolvidos e fluxo de informações, que serão confirmadas com o cliente. O ASP receberá atualizações  proativamente pelo ASM conforme requirido.\n"
+    table6.cell(4, 2).text = "\nIgual ao HPE Pointnext Complete Care padrão exceto pela frequência de atualização do ASP  semestralmente.\n"
+    table6.cell(4, 3).text = "\nIgual ao HPE Pointnext Complete Care padrão exceto que o ASP é desenvolvido pelo Consultor do Serviço e atualizado semestralmente.\n"
+    table6.cell(5, 0).text = "\nGerenciamento da implementação do serviço\n"
+    table6.cell(5, 1).text = "\nNo começo do período de cobertura do suporte do serviço HPE Pointnext Complete Care, um gerente de implementação gerencia a implmentação do serviço. \nIsso pode incluir o contato com o cliente e a apresentação do cliente à equipe de conta designada, ou a equipe da conta pode agir como facilitadora enquanto o gerente de implementação coordena as atividades em segundo  plano.\n"
+    table6.cell(5, 2).text = "\nMesmo que o HPE Pointnext Complete Care padrão.\n"
+    table6.cell(5, 3).text = "\nMesmo que o HPE Pointnext Complete Care padrão.\n"
+    table6.cell(6, 0).text = "\nGerenciamento de inventário\n"
+    table6.cell(6, 1).text = "\nNo começo do período de cobertura do serviço HPE Pointnext Complete Care, a equipe de conta designada vai desenvolver e documentar um inventário com todos os produtos cobertos no ambiente do HPE Pointnext Complete Care do cliente. \nA equipe de conta da HPE designada ajudará a gerenciar as alterações com o cliente continuamente para manter atualizado esse inventário durante o período de cobertura  do serviço. Isso foi pensado para ajudar o cliente a garantir que todos os produtos para os quais o cliente deseja ter suporte no ambiente do serviço HPE Pointnext Complete Care sejam cobertos.\n"
+    table6.cell(6, 2).text = "\nMesmo que o HPE Pointnext Complete Care padrão, fornecido pela equipe de conta designada.\n"
+    table6.cell(6, 3).text = "\nMesmo que o HPE Pointnext Complete Care padrão, fornecido pelo Consultor do Serviço.\n"
+    table6.cell(7, 0).text = "\nPlanejamento e revisão do serviço\n"
+    table6.cell(7, 1).text = "\nEssas sessões trimestrais de análise fornecem um fórum aberto de comunicação para ajudar o cliente a compartilhar os objetivos de negócios e TI de sua organização. Durante essas sessões de análise, os recursos de conta da HPE podem compartilhar as melhores práticas da HPE e fornecer conselhos relacionados às necessidades e projetos operacionais atuais e futuros do cliente. \nOutros recursos HPE podem participar dessas reuniões conforme determinado pelo ASM ou Consultor do Serviço.\n"
+    table6.cell(7, 2).text = "\nEssas sessões de análise semestrais fornecem um fórum aberto de comunicação para ajudar o cliente a compartilhar os objetivos de negócios e TI de sua organização. Durante essas sessões de análise, os recursos de conta da HPE podem compartilhar as melhores práticas da HPE e fornecer conselhos relacionados às necessidades e projetos operacionais atuais e futuros do cliente. \nOutros recursos HPE podem participar dessas reuniões conforme determinado pelo ASM ou Consultor do Serviço.\n"
+    table6.cell(7, 3).text = "\nEssas sessões de análise semestrais fornecem um fórum aberto de comunicação para ajudar o cliente a compartilhar os objetivos de negócios e TI de sua organização. Durante essas sessões de análise, os recursos de conta da HPE podem compartilhar as melhores práticas da HPE e fornecer conselhos relacionados às necessidades e projetos operacionais atuais e futuros do cliente. \nOutros recursos HPE podem participar dessas reuniões conforme determinado pelo Consultor do Serviço.\n"
+    table6.cell(8, 1).text = "\nEssas sessões de análise fornecem um fórum aberto de comunicação para ajudar o cliente a compartilhar os objetivos de negócios e TI de sua organização. Durante essas sessões de análise, os recursos de conta da HPE podem compartilhar as melhores práticas da HPE e fornecer conselhos relacionados às necessidades e projetos operacionais atuais e futuros do cliente. \nOutros recursos HPE podem participar dessas reuniões conforme determinado pelo ASM ou Consultor do Serviço.\n"
+    a = table6.cell(7, 0)
+    b = table6.cell(8, 0)
+    c = table6.cell(8, 1)
+    d = table6.cell(8, 3)
+    a.merge(b)
+    c.merge(d)
+    table6.cell(9, 0).text = "\nAnálise das atividades de suporte\n"
+    table6.cell(9, 1).text = "\nA HPE fornece ao cliente um relatório trimestral de revisão das atividades de suporte que documenta as informações de incidente de suporte reativo durante esse período específico.\nO relatório também pode destacar os fatores de risco potenciais e incluir recomendações sugeridas pela HPE.\n"
+    table6.cell(9, 2).text = "\nN/D (ver Relatório de incidente)\n"
+    table6.cell(9, 3).text = "\nN/D\n"
+    table6.cell(10, 0).text = "\nRelatório de incidente\n"
+    table6.cell(10, 1).text = "\nN/D (essas informações são incluídas no Relatório de revisão da atividade de suporte)\n"
+    table6.cell(10, 2).text = "\nA HPE oferece um relatório de incidente semestral que documenta as informações de incidente de suporte reativo durante o período especificado.\n"
+    table6.cell(10, 3).text = "\nN/D\n"
+    table6.cell(11, 0).text = "\nConsultoria técnica e operacional\n"
+    table6.cell(11, 1).text = "\nTrabalhando com o cliente, a equipe de conta designada da HPE tem uma função ativa no fornecimento de consultoria e orientação relacionadas ao fornecimento rotineiro dos serviços relacionados ao ambiente do cliente coberto pelo HPE Pointnext Complete Care. \nEsse entregável de serviço destina-se a fornecer uma breve orientação aos clientes. Solicitações substanciais de assistência, conforme determinada pela HPE a seu critério, estão fora do escopo desse serviço, mas podem ser adquiridas usando os Créditos de Serviço HPE ou Dia Técnico(Team Day). \nO ASM informará o cliente quando  uma solicitação exigir créditos ou dias técnicos e o valor necessário.\n"
+    table6.cell(11, 2).text = "\nN/D (ver Assistência operacional)\n"
+    table6.cell(11, 3).text = "\nN/D (ver Assistência operacional)\n"
+    table6.cell(12, 0).text = "\nAssistência operacional\n"
+    table6.cell(12, 1).text = "\nN/D (incluído como parte da Consultoria operacional e técnica)"
+    table6.cell(12, 2).text = "\nTrabalhando com o cliente, a equipe de conta designada da HPE fornecerá assistência operacional básica ao fornecimento rotineiro dos serviços relacionados ao ambiente do cliente coberto pelo HPE Pointnext Complete Care. Esse recurso de serviço destina-se a fornecer uma breve orientação aos clientes. \nSolicitações substanciais de assistência, conforme determinadas pela HPE a seu critério, estão fora do escopo desse serviço, mas podem ser adquiridas usando os Créditos  de Serviço HPE. O Consultor do Serviço informará o cliente quando uma solicitação exigir créditos e a quantia necessária.\n"
+    table6.cell(12, 3).text = "\nMesmo que o HPE Pointnext Complete Care básico.\n"
+    table6.cell(13, 0).text = "\nCentro de Suporte HPE\n"
+    table6.cell(13, 1).text = "\nA HPE oferece um abrangente recurso on-line para serviços, ferramentas e conhecimento disponíveis. Esse ponto único completo de TI oferece ferramentas de autodiagnóstico, assistência personalizada, ajuda e fóruns on-line, além de acesso a determinados conteúdos abrangentes de TI multifornecedores e multiplataformas.\n"
+    a = table6.cell(13, 1)
+    b = table6.cell(13, 3)
+    a.merge(b)
+    table6.cell(14, 0).text = "\nAssistência e planejamento educacionais HPE\n"
+    table6.cell(14, 1).text = "\nMediante requisição do cliente, o ASM pode conduzir uma análise de alto nível das necessidades de treinamento e desenvolvimento do cliente. \nO ASM também pode fornecer assistência para entrar em contato com a equipe da HPE Education Services. O cliente pode acessar currículos de treinamento e descrições detalhadas do curso no site dos HPE Education Services na web em hpe.com/ww/learn.\n"
+    table6.cell(14, 2).text = "\nMesmo que o HPE Pointnext Complete Care padrão.\n"
+    table6.cell(14, 3).text = "\nMesmo que o HPE Pointnext Complete Care padrão exceto que a assistência é fornecida pelo Consultor do Serviço\n"
+
+    p95 = doc.add_paragraph()
+    p95.add_run("\n\n3.3.2.	Créditos de Serviço e Dias Técnicos ")
+    p95.add_run("\nAplicavel aos contratos que contenham algum dos Números de produto abaixo (Sendo “X” a quantidade de anos”)\n• HPE Service Credit Service 10 Credits SVC: H0JD4Ax \n• HPE Service Credit Service 30 Credits SVC: H0JD5Ax")
+    p95.add_run("\nSujeitos a quaisquer limitações estabelecidas neste documento, os seguintes recursos adquiríveis separadamente estão disponíveis com o serviço HPE Pointnext Complete Care Starter Pack.")
+    p95.add_run("\nTABELA 2. ").bold = True
+    p95.add_run("Créditos de Serviço HPE e Dia Técnico HPE\n")
+    table7 = doc.add_table(rows=3, cols=2)
+    table7.style = 'Table Grid'
+    table7.autofit = True
+    table7.allow_autofit = True
+    for row7 in table7.rows:
+        for cell7 in row7.cells:
+            cell7.width = Pt(180)
+    table7.cell(0, 0).text = "Recurso"
+    table7.cell(0, 1).text = "Especificações de fornecimento"
+    table7.cell(1, 0).text = "Créditos de Serviço HPE"
+    table7.cell(1, 1).text = "Os clientes do serviço HPE Pointnext Complete Care Starter Pack podem adquirir separadamente os Créditos de Serviço HPE, que podem ser usados para uma variedade de serviços técnicos ajudando a manter e otimizar proativamente os produtos no ambiente do serviço HPE Pointnext Complete Care Starter Pack. \nO cliente tem a flexibilidade de escolher uma atividade do menu de Créditos de Serviço técnico pré-definido ou de trabalhar com o recurso da conta atribuído (seja ASM ou Consultor de Serviço, como aplicável) para definir uma atividade personalizada baseada nas necessidades do cliente. \nMais informações sobre limitações de serviço, responsabilidades do cliente, disposições gerais, exclusões, termos e condições podem ser encontradas na Ficha técnica dos Créditos de Serviço HPE. A ficha técnica será aplicada a qualquer compra de tais créditos e é incorporada a este documento como referência. \nOs Créditos de Serviço HPE elegíveis para aquisição, para complementarem os serviços HPE Pointnext Complete Care Starter Pack, são oferecidos blocos de dez(10) crédito. Os clientes podem ampliar o número de créditos necessários para atender às necessidades de sua organização adquirindo vários blocos de dez (10) créditos e os períodos de duração associados a eles."
+    table7.cell(2, 0).text = "Dia Técnico HPE"
+    table7.cell(2, 1).text = "Esse recurso de serviço opcional é encomendado por quantidade de dias técnicos necessários para o cliente. O serviço Dia Técnico HPE oferece ao cliente a flexibilidade de personalizar as tarefas além do escopo dos serviços técnicos padrão. \nEspecialistas em serviços técnicos altamente treinados podem ajudar o cliente com uma variedade de atividades de operações, otimizações e avaliações. Para mais informações, consulte a Ficha técnica do Dia Técnico HPE. A ficha técnica do Dia Técnico HPE será aplicada a qualquer compra de dias da equipe e é incorporada neste documento como referência."
+
+    p96 = doc.add_paragraph()
+    p96.add_run("\n\n3.3.3.	Limitações do Serviço ").bold = True
+    p96.add_run("\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH2T12AC; H2T12BC;")
+    p96.add_run("\n\nOs serviços HPE Pointnext Complete Care Starter Pack são um conjunto de ofertas de preço fixo que fornecem os recursos de ambiente e gerenciamento de relacionamento do HPE Pointnext Complete Care estabelecidos nesta ficha técnica. \nEsses serviços não incluem nenhum recurso de suporte reativo ou serviços proativos técnicos específicos do produto. O cliente deve adquirir esses serviços separadamente por meio dos serviços do HPE Pointnext Complete Care Add-on e dos Créditos de Serviço HPE, respectivamente.")
+    p96.add_run("\n\nOs serviços HPE Pointnext Complete Care foram criados para serem vendidos juntos a ou antes da aquisição do HPE Pointnext Complete Care Add-on. Consulte a seção Limitações do serviço da ficha técnica do HPE Pointnext Complete Care Add-on para ver quais  as ações necessárias quando o período de cobertura da extensão for diferente do período de cobertura do serviço Starter Pack e ver qual o impacto nesse suporte caso essas ações não sejam realizadas.")
+    p96.add_run("\n\nO escopo do ambiente dos serviços HPE Pointnext Complete Care Starter Pack é restrito ao ambiente de TI sob o gerenciamento diário direto de uma organização de TI em um país.")
+    p96.add_run("\nOs Créditos de Serviço HPE, especificamente as ofertas de 10 créditos, estão disponíveis para aquisição com o serviço HPE Pointnext Complete Care Starter Pack. Se o termo de cobertura dos Créditos de Serviço HPE ultrapassar o prazo de cobertura do serviço Starter Pack, os clientes terão o direito de resgatar seus créditos restantes até o final do termo de duração associado aos créditos de serviço. Entretanto, o recurso da conta designado fornecido sob o serviço HPE Pointnext Complete Care Starter Pack adquirido (seja ASM ou Consultor de Serviço, conforme aplicável) não estará mais disponível para ajudar os clientes a planejarem o uso dos créditos deles. Os clientes podem gerenciar por conta própria os saldos de crédito e selecionar itens no Centro de Suporte HPE. \nOs clientes que precisarem de assistência no planejamento de crédito de um ASM devem resgatar o Serviço de planejamento de crédito no local no menu de Créditos de Serviço.")
+    p96.add_run("\n\nOs Créditos de Serviço HPE estão disponíveis apenas para determinados servidores, software, dispositivos de armazenamento, arrays de armazenamento, redes e SANs HPE. Os recursos desse serviço podem variar ou serem limitados com base em dispositivos ou software específicos. Consulte um representante de vendas da HPE para solicitar informações sobre limitações específicas e disponibilidade local.")
+    p96.add_run("\n\nOs recursos da conta designados pela HPE fornecem os produtos proativos necessários durante os dias úteis e horários comerciais padrão da HPE, excluindo os feriados da HPE, remotamente ou no local, a critério da HPE. O fornecimento de suporte proativo fora do horário comercial padrão da HPE em dias úteis padrão pode ser adquirido separadamente e está sujeito à disponibilidade local.")
+
+elif ui.servico_final.get() == 2: 
+
+    title94 = doc.add_heading(level=0)
+    title94.add_run("3.	Especificações dos Níveis de Serviços")
+    title94.add_run("\n3.4.	HPE Pointnext Complete Care Add-on ")
+    p97 = doc.add_paragraph()
+    p97.add_run("\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH2T05AC; H0GT7AC; HA158AC; HA156AC; HL935AC; HA162AC; HA167AC; H7G18AC; H0JC1AC; HA360AC; H2T05AC; HU4A2AC")
+    p97.add_run("\n\n3.4.1.	Destaques dos Recursos do Serviço ").bold = True
+    p97.add_run("\nTABELA 1. ")
+    p97.add_run("Recursos Proativos\n")
+    table8 = doc.add_table(rows=1, cols=2)
+    table8.style = 'Table Grid'
+    table8.autofit = True
+    table8.allow_autofit = True
+    for row8 in table8.rows:
+        for cell8 in row8.cells:
+            cell8.width = Pt(180)
+    table8.cell(0, 0).text = "\nSujeito a quaisquer limitações, conforme definidas neste documento, o serviço HPE Pointnext Complete Care Add-on estende os seguintes recursos proativos para o novo produto conforme descrito mais especificamente no contrato(SOW) do cliente ou na ficha técnica do serviço HPE Pointnext Complete Care Starter Pack.\nEsses recursos são descritos em um nível alto. Consulte seu contrato ou ficha técnica do HPE Pointnext Complete Care Starter Pack para obter mais detalhes sobre esses recursos de serviço.\n\nO SRM inclui os seguintes itens:\n•	Equipe de conta designada\n•	Gerenciamento da implementação do serviço\n•	Planejamento de suporte à conta\n•	Gerenciamento de inventário\n•	Planejamento e revisão do serviço\n•	Análise de atividade de suporte ou relatório de incidente\n•	Consultoria operacional e técnica ou assistência operacional\n•	Acesso ao Centro de Suporte HPE\n•	Assistência e planejamento para contratação de Serviços Educacionais HPE\n"
+    table8.cell(0, 1).text = "\nRecursos proativos para todo ambiente de IT, que podem incluir:\n•	Acesso multicanal a especialistas que conhecem o cliente\n•	Resposta remota 24x7\n•	Acesso e roteamento de incidents prioritário\n•	Ligação direta com a equipe de conta HPE designada\n•	Gerenciamento de escalação acelerada\n•	Experiência digital personalizada\n•	Análise e relatório de incidente\n•	Opções de cobertura expandida\n•	Gerenciamento de chamada global (opcional)\n"
+    p98 = doc.add_paragraph()
+    p98.add_run("\n\nTABELA 2. ").bold = True
+    p98.add_run("Recursos proativos específicos de produto\n")
+    table9 = doc.add_table(rows=1, cols=2)
+    table9.style = 'Table Grid'
+    table9.autofit = True
+    table9.allow_autofit = True
+    for row9 in table9.rows:
+        for cell9 in row9.cells:
+            cell9.width = Pt(180)
+    table9.cell(0, 0).text = "\nSujeito a quaisquer limitações, conforme definidas neste documento, o serviço de HPE Pointnext Complete Care Add-on pode estender os seguintes recursos proativos específicos do produto para o novo produto se esses recursos específicos do produto estiverem incluídos no seu contrato personalizado (SOW) ou se forem adquiridos por meio do uso dos Créditos de Serviço HPE.\nNota: Os serviços proativos não estão disponíveis em todos os produtos. A equipe da conta designada do HPE Pointnext Complete Care trabalhará com o cliente para determinar quais atividades proativas são as melhores para os produtos no ambiente do cliente.\nServiços de computação, que podem incluir o seguinte:\n•	Análise e gerenciamento de firmware e software de servidor\n•	Verificação de integridade do sistema\n•	Recomendações de implementação – computação\nServiços de armazenamento, que podem incluir o seguinte:\n•	Avaliação da capacidade de suporte da SAN\n•	Análise e gerenciamento de firmware e software de armazenamento/SAN\n•	Avaliação técnica da alta disponibilidade do armazenamento\n•	Recomendações de implementação – armazenamento\n"
+    table9.cell(0, 1).text = "\nServiços de rede, que podem incluir o seguinte:\n•	Análise e gerenciamento de firmware e software da rede\n•	Recomendações de implementação – rede\nServiços de ambiente\n•	Créditos de Serviço HPE\n•	Créditos de Treinamento HPE\n•	Dia da Equipe HPE\n•	Dia do engenheiro designado ao cliente (ACE, assigned customer engineer) (disponível somente com o nível de experiência padrão)\n•	Gerenciamento de projetos (disponível somente com o nível de experiência padrão)\nConsulte o seus contrato personalizado (SOW) do HPE Pointnext Complete Care para informações sobre os recursos proativos específicos do produto ou fale com a equipe de conta designada sobre os recursos proativos específicos do produto disponíveis para aquisição usando-se os Créditos de Serviço HPE ou o Dia da Equipe HPE.\n"
+    p99 = doc.add_paragraph()
+    p99.add_run("\n\nTABELA 3. ").bold = True
+    p99.add_run("Recursos Reativos\n")
+    table10 = doc.add_table(rows=2, cols=2)
+    table10.style = 'Table Grid'
+    table10.autofit = True
+    table10.allow_autofit = True
+    for row10 in table10.rows:
+        for cell10 in row10.cells:
+            cell10.width = Pt(180)
+    table10.cell(0, 0).text = "\nO serviço de HPE Pointnext Complete Care Add-on inclui o suporte reativo HPE Pointnext Tech Care. Alguns recursos de destaque desse suporte são:\nOpções de suporte reativo de hardware HPE Pointnext Tech Care em três níveis\n•	HPE Pointnext Complete Care Add-on Básico\n•	HPE Pointnext Complete Care Add-on Essencial\n•	HPE Pointnext Complete Care Add-on Crítico\nSuporte reativo de software:\n•	Suporte de software 24x7\n"
+    table10.cell(0, 1).text = "\nRecursos do serviço de software\n•	Licença para usar atualizações de software se adquiridas da HPE\n•	Atualizações de produto de software e documentação\n•	Suporte consultivo para instalação\nRecursos opcionais\n•	Retenção de mídia defeituosa\n•	Retenção abrangente de material defeituoso\n"
+    table10.cell(1, 0).text = "\nPara mais informações relacionadas ao suporte reativo incluído, com os recursos disponíveis e as opções de nível de serviço, consulte a Ficha técnica do HPE Pointnext Tech Care.\n"
+    a = table10.cell(1, 0)
+    b = table10.cell(1, 1)
+    a.merge(b)
+    p90 = doc.add_paragraph()
+    p90.add_run("\n\n3.4.2.	Limitações do Serviço ").bold = True
+    p90.add_run("\n\nO serviço HPE Pointnext Complete Care Add-on é uma oferta de preço fixo disponível na hora da aquisição do produto pelo cliente. As extensões disponíveis têm preço separado do hardware e devem ser adquiridas no mesmo pedido com o hardware. Quando adquiridos com os produtos de hardware, os produtos receberão a cobertura dos serviços de suporte de hardware (prazo fixo de 3, 4 ou 5 anos), com base na opção adquirida.")
+    p90.add_run("\n\nO cliente deve ter um contrato ativo (SOW) ativa dos serviços HPE Pointnext Complete Care ou do serviço HPE Pointnext Complete Care Starter Pack   estabelecida para o ambiente onde os novos produtos vão residir com a HPE ou um revendedor HPE autorizado para ser elegível para      comprar qualquer oferta de HPE Pointnext Complete Care Add-on. Além disso, as restrições e limitações a seguir se aplicam a essas extensões conforme detalhado abaixo. O cliente deve levar em consideração essas condições e limitações ao determinar a duração da cobertura de suporte para suas compras de extensões HPE Pointnext Complete Care.")
+    p90.add_run("\n\nSe o período da cobertura do  HPE Pointnext Complete Care Add-on para qualquer produto terminar antes do contrato (SOW) do HPE Pointnext Complete Care ou do serviço HPE Pointnext Complete Care Starter Pack, o cliente precisará renovar os produtos do serviço HPE Pointnext Complete Care Add-on para que a duração de tal contrato termine juntamente à duração do Contrato Principal seja contrato (SOW) do HPE Pointnext Complete Care ou do serviço HPE Pointnext Complete Care Starter Pack, conforme aplicável. Isso é necessário para ajudar a garantir suporte ininterrupto e evitar o retorno às cobranças de suporte. Isso pode ser feito por meio do processo de ajuste ou renovação do HPE Pointnext Complete Care. Para mais informações, entre em contato com um representante HPE ou revendedor HPE autorizado.")
+    p90.add_run("\n\nSe quaisquer termos de cobertura do HPE Pointnext Complete Care ultrapassarem o contrato (SOW) do HPE Pointnext Complete Care ou do serviço HPE Pointnext Complete Care Starter Pack e não for renovada sob a cobertura do HPE Pointnext Complete Care antes do vencimento, os recursos proativos do HPE Pointnext Complete Care fornecidos com a aquisição do HPE Pointnext Complete Care Add-on, conforme descrito na Tabela 1, não serão mais estendidos a tais produtos e cessarão após o término do contrato HPE Pointnext Complete Care. Nesse momento, você receberá apenas a cobertura de suporte ao produto reativa adquirida ao longo do termo de cobertura da HPE Pointnext Complete Care Add-on ou HPE Pointnext Complete Care Starter Pack. Nenhum reembolso será fornecido para os recursos de serviço reduzidos como resultado da não renovação do contrato ou do serviço Starter Pack.")
+    p90.add_run("\n\n3.4.3.	Pré-Requisitos do Serviço ").bold = True
+    p90.add_run("\n\nPara ser elegível ao serviço de HPE Pointnext Complete Care Add-on, o cliente já deve ter um contrato do HPE Pointnext Complete Care com a HPE ou um revendedor autorizado da HPE conforme mencionado em Limitações de serviço.")
+    p90.add_run("\n\n3.4.4.	Disposições Gerais ").bold = True
+    p90.add_run("\n\nConsulte as disposições gerais listadas no contrato (SOW) ou, se estiver comprando com o HPE Pointnext Complete Care Starter Pack, consulte a seção Provisões gerais da ficha técnica do HPE Pointnext Complete Care, que é incorporada a este documento como referência.")
+    p90.add_run("\n\nO cliente reconhece e concorda que a HPE pode usar recursos fora do país da aquisição, para fornecimento desses serviços, a menos que seja especificado de outra forma como parte da descrição do recurso do serviço.")
+
+# if mv
+title10 = doc.add_heading(level=0)
+title10.add_run("4.	Suporte a Produtos Multivendor outras marcas")
+title10.add_run("4.1 Detalhes deste Serviço")
+p10 = doc.add_paragraph()
+p10.add_run("\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH7J32AC, H7J34AC, H7J36AC")
+p10.add_run("\nOs serviços de suporte de vários fornecedores HPE fornecem diagnóstico de produto, suporte de hardware no local e suporte de software para produtos selecionados. Você tem a flexibilidade de escolher tempos de resposta e opções de janela de cobertura para atender às suas necessidades específicas de suporte.\n•	Diagnóstico e suporte remotos de problemas \n•	Suporte de hardware no local \n•	Peças e materiais de reposição \n•	Tempo de resposta no local para suporte de hardware")
+p10.add_run("\n\n4.1.2 Tempo de Resposta").bold = True
+p10.add_run("\nÉ o prazo compreendido entre o horário de abertura do chamado na Central de Atendimento da HEWLETT PACKARD ENTERPRISE  Brasil até a chegada do técnico ao local, dentro da janela de cobertura.\n•	9x5 – Next Business Day: Cobertura de peças, mão-de-obra e atendimento on-site, 9 horas por dia (das 8:00 às 17:00 horas), 5 dias úteis por semana, excluindo-se os feriados, com tempo de resposta no local até o dia útil seguinte. H7J32AC\n•	24x7 – 4 horas de Resposta: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias úteis por semana, incluindo feriados, com tempo de resposta no local em até 4 horas. H7J34AC")
+p10.add_run("\n4.1.3 Tempo de Solução / Call-to-Repair\n").bold = True
+p10.add_run("\nO serviço assegura acesso direto a uma equipe de suporte especializada, disponível 24 horas por dia 7 dias por semana, que imediatamente começa a estudar o problema. A HEWLETT PACKARD ENTERPRISE  assume o compromisso de restaurar o hardware em no máximo 6 horas contado do momento em que a chamada é registrada na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE  até o momento que o produto seja restaurado o seu nível normal de funcionalidade de hardware. \n•	24x7 – 6 horas Call-to-Repair: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias por semana, incluindo feriados, com solução on-site em até 6 horas. H7J36AC")
+p10.add_run("\n\n4.1.4 Limitações Gerais do Serviço ")
+p10.add_run("\n•	HPE reserva-se o direito de encerrar este serviço sem aviso prévio se o serviço continuado não for razoavelmente viável.\n•	A menos que especificamente solicitado e contratado, este serviço é limitado apenas ao reparo de hardware e não inclui atualizações. O  de nenhuma forma (incluindo firmware, software incorporado ao hardware, sistema operacional, aplicativos ou qualquer outro tipo de software) ou suporte de engenharia do fabricante. ")
+p10.add_run("\n•	Este serviço não inclui atualizações de código de software, patches, correções de bugs, produtos em camadas ou quaisquer atualizações de software fornecidas pelo fabricante do produto subjacente (OEM), incluindo material protegido por direitos autorais, ferramentas de diagnóstico e documentos. \n•	A critério da HPE, este serviço é fornecido usando uma combinação de diagnóstico e suporte remotos, serviços prestados no local e outros métodos de prestação de serviços. \n•	HPE se reserva o direito de fornecer o suporte por meio de um parceiro terceirizado que usa processos de qualidade como HPE. \n•	Os tempos de resposta no local podem ser atrasados se o diagnóstico remoto identificar uma peça específica necessária para o reparo do produto e essa peça estiver sob encomenda e/ou não estiver disponível. \n•	A menos que especificamente solicitado e contratado, o gerenciamento técnico de elevação do OEM não estará disponível. ")
+p10.add_run("\n\nAs seguintes atividades estão excluídas deste serviço e são de responsabilidade do Cliente: \n•	Backup, recuperação e suporte do sistema operacional, software aplicativo e dados \n•	Teste operacional de aplicativos ou testes adicionais solicitados ou exigidos pelo Cliente \n•	Suporte para problemas relacionados à rede fora do hardware suportado \n•	Serviços necessários devido à falha do Cliente em incorporar qualquer correção, reparo, patch ou modificação do sistema fornecido ao Cliente pela HPE \n•	Serviços necessários devido à falha do Cliente em tomar medidas preventivas previamente aconselhados pela HPE \n•	Serviços necessários devido a tentativas não autorizadas de terceiros para instalar, reparar, manter ou modificar hardware, firmware ou software \n•	Serviços necessários devido ao tratamento ou uso inadequado dos produtos ou equipamentos\n•	Não estão previstas e incluídas trocas gratuitas tanto da peça quanto da mão de obra de itens considerados consumíveis do produto (baterias, filtros, fitas magnéticas, entre outros) durante a vigência do Contrato. Estes itens devem ser cotados e adquiridos a parte, de acordo com a necessidade e solicitação do cliente.")
+p10.add_run("\n\n4.1 Pré-requisitos deste Serviço").bold = True
+p10.add_run("\nUma vez aceita esta proposta, a HEWLETT PACKARD ENTERPRISE  executará o levantamento e validação do parque de equipamentos a serem suportados através de um processo de diligência. O objetivo é analisar riscos, melhorias e divergências em relação aos baselines definidos nesta proposta, para posterior negociação e resolução de pontos críticos para o desenvolvimento nas fases de Transição, Transformação e Ongoing, gerando transparência e clara definição do escopo contratado, trazendo benefícios na prestação dos serviços.\nSe durante o processo de diligência for constatado defeitos pré-existentes ao contrato, a HEWLETT PACKARD ENTERPRISE  e o cliente negociarão o reparo do equipamento na modalidade de chamado faturado")
+p10.add_run("\n\nAtividades a serem realizadas\n•	Realizar o levantamento (físico e/ou lógico) detalhado dos equipamentos atuais.\n•	Levantar os planos e as necessidades de crescimento.\n•	Realizar o levantamento dos processos operacionais atuais.\n•	Realizar o levantamento das políticas de segurança do(a) ")
+p10.add_run(ui.cliente_final.get())
+p10.add_run("\nResponsabilidades da Hewlett Packard Enterprise\n•	Realizar o levantamento (físico e/ou lógico) detalhado dos equipamentos atuais.\n•	Provisionar kit de peças baseado no levantamento detalhado dos equipamentos para atender o SLA contratado.\n•	Produzir um documento com os resultados dos levantamentos em classificação de potenciais riscos, lacunas e recomendações de soluções para minimizar tais itens.")
+p10.add_run("\nResponsabilidades do(a) ")
+p10.add_run(ui.cliente_final.get())
+p10.add_run("\n•	Fornecer as informações necessárias do ambiente atual em tempo hábil.\n•	Validar e aprovar a documentação entregue. \n•	Liberação de acesso ao site/Datacenter onde se encontram os equipamentos\n•	Envio dos logs solicitados durante a fase de diligência e ao longo do período de contrato para a análise e prestação do serviço de suporte. O atraso e/ou o não envio dos logs solicitados, pode acarretar no não cumprimento dos níveis de serviço acordado.")
+
+# pag 30
+# if eosl
+
+title11 = doc.add_heading(level=0)
+title11.add_run("5.	Suporte para produtos HPE que atingiram a data de “fim da Vida Útil – EoSL ")
+title11.add_run("\n5.1	Detalhes deste Serviço")
+p11 = doc.add_paragraph()
+p11.add_run("\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH7J32AC, H7J34AC, H7J36AC")
+p11.add_run("\nA seguir, descrevem-se o serviço de suporte reativo fornecido pela HPE para produtos de vários fornecedores (dispositivos HPE que atingiram a data de “Fim da Vida Útil – EoSL”), fim do período de suporte da HPE e/ou dispositivos de terceiros) incluídos nesta proposta.\nAs solicitações de suporte para equipamentos cobertos por este serviço serão tratadas na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE. \n\nEsses serviços são oferecidos como uma conveniência para o cliente e não são uma continuação da garantia padrão da HPE ou dos serviços de suporte da HPE.")
+p11.add_run("\n\n5.1.4	Tempo de Resposta").bold = True
+p11.add_run("\nÉ o prazo compreendido entre o horário de abertura do chamado na Central de Atendimento da HEWLETT PACKARD ENTERPRISE  Brasil até a chegada do técnico ao local, dentro da janela de cobertura.\n•	9x5 – Next Business Day: Cobertura de peças, mão-de-obra e atendimento on-site, 9 horas por dia (das 8:00 às 17:00 horas), 5 dias úteis por semana, excluindo-se os feriados, com tempo de resposta no local até o dia útil seguinte. H7J32AC\n•	24x7 – 4 horas de Resposta: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias úteis por semana, incluindo feriados, com tempo de resposta no local em até 4 horas. H7J34AC")
+p11.add_run("\n\n5.1.5	Tempo de Solução / Call-to-Repair").bold = True
+p11.add_run("\nO serviço assegura acesso direto a uma equipe de suporte especializada, disponível 24 horas por dia 7 dias por semana, que imediatamente começa a estudar o problema. A HEWLETT PACKARD ENTERPRISE  assume o compromisso de restaurar o hardware em no máximo 6 horas contado do momento em que a chamada é registrada na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE  até o momento que o produto seja restaurado o seu nível normal de funcionalidade de hardware. \n•	24x7 – 6 horas Call-to-Repair: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias por semana, incluindo feriados, com solução on-site em até 6 horas. H7J36AC")
+p11.add_run("\n\n5.1.6	Limitações Gerais do Serviço ").bold = True
+p11.add_run("\n•	Os serviços são limitados apenas ao reparo de hardware. As atualizações de firmware e software da HPE não estão mais disponíveis para esses produtos. \n•	Devido à idade do equipamento envolvido e seu status HPE EOSL, as peças de reposição podem não ser novas e podem ser provenientes de equipamentos usados. \n•	Os tempos de resposta e solução não são garantidos e podem variar de acordo com a disponibilidade de peças de reposição. \n•	A HPE reserva-se o direito de cancelar este serviço se as peças de reposição não estiverem mais disponíveis.")
+p11.add_run("\n•	Devido ao seu status como EOSL da HPE, suporte de engenharia e elevação não estão disponíveis para produtos HPE EOSL; as peças de reposição são fornecidas no estado em que se encontram; e nenhuma garantia de interoperabilidade é fornecida. \n•	Os recursos de monitoramento remoto e ferramentas podem não estar disponíveis para produtos HPE EOSL.\n•	Para os novos contratos, a HPE propõe um SLA de 30 dias para execução do processo de diligência e preparação dos processo operacionais para o atendimento do contrato de suporte.\n•	Em caso não realização do processo de diligência por pendência do cliente, não serão garantidos os cumprimentos dos níveis de serviços acordados.\n•	A HPE propõe uma reunião de kick-off para alinhamento das expectativas, apresentação dos Gerentes de Serviços.\n•	Não estão previstas e incluídas trocas gratuitas tanto da peça quanto da mão de obra de itens considerados consumíveis do produto (baterias, filtros, fitas magnéticas, entre outros) durante a vigência do Contrato. Estes itens devem ser cotados e adquiridos a parte, de acordo com a necessidade e solicitação do cliente.")
+doc.add_page_break()
+
+# pag 32
+
+title12 = doc.add_heading(level=0)
+title12.add_run("4.	Condições Comerciais")
+p12 = doc.add_paragraph()
+p12.add_run("\nConfiguração e Preços").bold = True
+p12.add_run("\nOs produtos (Hardware e Software) e seus respectivos níveis de serviço encontram-se detalhados no Anexo de Configuração e Preços.  (Opcional a critério de Vendas)")
+
+# adicionar tabela
+
+p13 = doc.add_paragraph()
+p13.add_run("\n\nO valor total desta proposta é de R$ (informar valor).")
+# adicionar valor da proposta? perguntar ao Weid depois
+p13.add_run("\n\nAjustes no calendário de faturamento (valor mensal), são aplicáveis desde que não haja alteração no valor total desta proposta e esteja em acordo com a cobertura de suporte e/ou garantia que cada equipamento possuir, além do firmado nesta proposta. De qualquer forma, toda e qualquer mudança no calendário de faturamento dependerá de aprovação prévia da HEWLETT PACKARD ENTERPRISE .")
+p13.add_run("\n\nAs condições comerciais aqui estabelecidas foram baseadas nas configurações e distribuição geográfica dos equipamentos, informados pelo cliente.  Quaisquer alterações, as quais deverão ser informadas previamente, com 30 (trinta) dias de antecedência, resultarão na revalidação das condições comerciais, técnicas e tributárias incluindo possível impacto no atendimento ao nível de serviço acordado e aumento dos preços originalmente contratados.")
+p13.add_run("\n\nOs preços, condições e valores desta proposta consideram que os equipamentos objeto dos serviços encontram-se em bom estado de conservação e em sua configuração original. A HPE durante o prazo de 30 (trinta) dias, contados do início dos serviços, efetuará a análise técnica, presencial ou remota, do parque de equipamentos objeto do contrato a fim de verificar se os equipamentos se encontram nas condições mínimas de prestação de serviços. Caso a HPE identifique que os equipamentos não são elegíveis aos serviços contratados, enviará ao cliente os custos dos reparos necessários aos equipamentos; e, caso o cliente não efetue o respectivo pagamento ou não autorize os serviços, os equipamentos serão automaticamente excluídos dos serviços. Ainda, durante a vigência dos serviços, caso a HPE identifique que ocorreram alterações das configurações do equipamento, incluindo suas peças, os mesmos serão (a) automaticamente excluídos dos serviços; ou (b) mantidos sob o escopo contratual, desde que o Cliente efetue o pagamento dos valores necessários para o reestabelecimento do equipamento.")
+p13.add_run("\n\nNão estão previstas e incluídas trocas gratuitas tanto da peça quanto da mão de obra de itens considerados consumíveis do produto (baterias, filtros, fitas magnéticas, entre outros) durante a vigência do Contrato. Estes itens devem ser cotados e adquiridos a parte, de acordo com a necessidade e solicitação do cliente. A substituição destes itens deve ser feita por produtos originais e compatíveis. A não utilização de produtos originais e compatíveis que venham a causar dano ao produto, exclui o mesmo do contrato até a sua adequação, eliminando-se o equipamento do suporte.")
+doc.add_page_break()
+
+# pag 33
+
+title13 = doc.add_heading(level=0)
+title13.add_run("Condições de Pagamento\n\n")
+
+if ui.pagamento_final.get() == 0:
+    p14 = doc.add_paragraph()
+    p14.add_run("A parcela mensal é devida no primeiro dia útil de cada mês de vigência do presente CONTRATO e deverá ser paga à HEWLETT PACKARD ENTERPRISE  em sua sede administrativa (ou a quem e onde a HEWLETT PACKARD ENTERPRISE  indicar), até o último dia útil do mesmo mês ou até a data de vencimento fixada na respectiva fatura. \n")
+    doc.add_page_break()
+elif ui.pagamento_final.get() == 1:
+    p15 = doc.add_paragraph()
+    p15.add_run("A parcela à vista é devida no primeiro dia útil do primeiro mês de vigência do presente CONTRATO e deverá ser paga à HEWLETT PACKARD ENTERPRISE  em sua sede administrativa (ou a quem e onde a HEWLETT PACKARD ENTERPRISE  indicar), até o último dia útil do mesmo mês ou até a data de vencimento fixada na respectiva fatura.\n")
+    doc.add_page_break()
+elif ui.pagamento_final.get() == 2:
+    p16 = doc.add_paragraph()
+    p16.add_run("A parcela trimestral é devida no primeiro dia útil de cada trimestre de vigência do presente CONTRATO e deverá ser paga à HEWLETT PACKARD ENTERPRISE  em sua sede administrativa (ou a quem e onde a HEWLETT PACKARD ENTERPRISE  indicar), até o último dia útil do mesmo mês ou até a data de vencimento fixada na respectiva fatura.\n")
+    doc.add_page_break()
+
+# pag 34
+
+title14 = doc.add_heading(level=0)
+title14.add_run("Tributos")
+p17 = doc.add_paragraph()
+p17.add_run("\n\nOs valores apresentados acima incluem todos os impostos e tributos incidentes sobre os serviços ou produtos objeto desta Proposta de acordo com a legislação em vigor aplicáveis ao local de prestação dos serviços e entrega de produtos, exceto ICMS diferencial de alíquota.")
+p17.add_run("\n\nNa eventualidade de ser devido diferencial de aliquota do ICMS ao Estado de destino, o pagamento do valor correspondente será de acordo com a legislação vigente. ")
+p17.add_run("\n\nCada espécie ou tipo de serviço ou produto previsto na presente Proposta será faturado de forma segregada a fim de atender a legislação do local da prestação dos serviços ou entrega de produtos, dessa forma, a Hewlett Packard Enterprise emitirá notas-fiscais específicas para cada serviço ou produto fornecido. O estabelecimento que emitir a fatura de serviços será o mesmo do prestador desse serviço, objeto da presente proposta. ")
+p17.add_run("\n\nOs serviços a serem prestados não constituem de qualquer forma cessão de mão-de-obra e não contemplam quaisquer retenções de tributos, impostos, contribuições ou taxas pelo Cliente, dessa forma, caso o Cliente efetue qualquer retenção, deverá informar previamente a Hewlett Packard Enterprise, bem como as condições e valores ora ofertados serão revistos diante do impacto ocasionado por eventual retenção. Ainda, o Cliente deverá enviar à Hewlett Packard Enterprise todos os comprovantes e guias de pagamentos da referida retenção.")
+p17.add_run("\n\nQuaisquer tributos ou encargos criados, alterados ou extintos, bem como a superveniência de disposições legais quando ocorridas após a data de apresentação da Proposta, e de comprovada repercussão nos preços ofertados, implicarão na revisão destes para mais ou para menos, conforme o caso.")
+doc.add_page_break()
+
+# pag 35
+
+title15 = doc.add_heading(level=0)
+title15.add_run("Condições para Aceitação do Pedido e Faturamento")
+p18 = doc.add_paragraph()
+p18.add_run("\n\nSujeitas à aprovação de crédito. \n\nPara clientes novos e/ou situação de renovação,solicitamos os seguintes documentos para análise:\n•	Cópia do Cartão de CNPJ\n•	Ficha cadastral atualizada\n•	Contrato Social e/ou Estatuto Social consolidado e/ou últimas alterações\n•	Relação de Faturamento de, no mínimo, dois últimos Exercícios.\n•	Balanços Patrimoniais e Demonstrações de Resultado dos 03 últimos Exercicios, preferencialmente auditados\n•	Notas explicativas de Balanço\n•	Balancete dos últimos 06 (seis) meses")
+p18.add_run("\n\nEstado de Faturamento: ")
+p18.add_run(ui.estado_final.get())
+p18.add_run("\nO faturamento poderá ser efetuado por uma das filiais da HEWLETT PACKARD ENTERPRISE  abaixo relacionadas.")
+p18.add_run("\n\nInício dos Serviços").bold = True
+p18.add_run("\n\nA vigência dos serviços dar-se-á de acordo com a data estabelecida no item Configuração e Preços desta proposta. \n\nConsiderando os trâmites administrativos para ativação da nova vigência, solicitamos que a presente proposta seja retornada para HEWLETT PACKARD ENTERPRISE  devidamente assinada em até 05 (cinco) dias úteis anteriores ao término da vigência do contrato ora renovado. O atraso deste retorno, que não poderá ser superior a 05 (cinco) dias úteis, poderá gerar o atraso proporcional no cadastro do novo período contratual, com eventuais reflexos na prestação de serviços de suporte contratados.")
+if ui.renovacao_final.get() == 1:
+    p19 = doc.add_paragraph()
+    p19.add_run("\n\nFindo o prazo de vigência ali indicado, o contrato será automaticamente renovado por iguais e sucessivos períodos, salvo expressa manifestação em contrário da parte interessada, com ao menos 30 (trinta) dias de antecedência ao término do período contratual então em vigor.")
+p20 = doc.add_paragraph()
+p20.add_run("\n\nConsiderando a necessidade de disponibilização logística dos kits para atendimento e contrato de parcerias, o compromisso de Tempo de Solução / Call-to-Repair, bem como suporte a equipamentos de outros fornecedores (Multivendor), iniciará após 30 dias a partir da assinatura desta proposta, todavia, durante este período, a HEWLETT PACKARD ENTERPRISE envidará todos os esforços para cumprimento dos níveis de serviço detalhados no item configuração e preços da proposta.")
+p20.add_run("\n\nReajuste de Preços").bold = True
+p20.add_run("\nEm caso de prorrogação contratual, a parcela mensal será reajustada a cada 12 (doze) meses a contar da data da apresentação da proposta, respeitando o interregno de 12 meses, pela variação do IGP-M (Índice Geral de Preços de Mercado, medido pela Fundação Getúlio Vargas), tendo como base o mês anterior ao da emissão do Anexo de Configuração e Preços, do Pedido de Compra ou da aceitação eletrônica, o que tiver ocorrido primeiro.\nCaso o índice no período esteja negativo, não haverá redução nos valores contratuais.")
+p20.add_run("\n\nPenalidades por não Cumprimento do Prazo de Pagamento").bold = True
+p20.add_run("\n\nEm caso de atraso no pagamento de qualquer quantia devida em decorrência dos Produtos e Serviços prestados, incluindo reembolso de despesas, referidos valores serão acrescidos de multa moratória no importe de 2% (dois por cento), juros de mora de 1% (um por cento) ao mês e correção monetária a ser calculada pela variação do IGP-M (FGV), estes últimos calculados pro rata temporis.")
+p20.add_run("\n\nNa hipótese de ser aceito pela HEWLETT PACKARD ENTERPRISE  o envio mensal, pelo cliente, de Pedidos de Compra relacionados a este contrato, o primeiro Pedido de Compra deverá ser encaminhado em até 30 dias da data de aceite desta proposta e os demais deverão ser encaminhados, sucessivamente, no prazo de 30 dias. Eventual atraso no recebimento de um Pedido de Compra, impactando o prazo de pagamento, ensejará a imediata aplicação da referida penalidade. ")
+doc.add_page_break()
+
+# Pag 37
+
+title16 = doc.add_heading(level=0)
+title16.add_run("Validade da Proposta")
+p23 = doc.add_paragraph()
+p23.add_run("\nVálida até ")
+p23.add_run(ui.str_vl)
+p23.add_run("\n\nDados Cadastrais\n").bold = True
 
 doc.add_heading('Section 1: Introduction', level=2)
 

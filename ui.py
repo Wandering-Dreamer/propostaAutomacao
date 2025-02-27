@@ -30,6 +30,7 @@ mv_final = IntVar()
 eosl_final = IntVar()
 rescisao_final = IntVar()
 pagamento_final = IntVar()
+renovacao_final = Intvar()
 
 
 logo = tk.PhotoImage(file="hp_logo.png").subsample(14, 15)
@@ -176,6 +177,14 @@ eosl_check = tk.Checkbutton(
 )
 eosl_check.pack(anchor="w", padx=10, pady=10)
 
+renovacao = tk.IntVar()
+renovacao_check = tk.Checkbutton(
+    frame,
+    text="Renovação Automática incluída",
+    variable=renovacao,
+)
+eosl_check.pack(anchor="w", padx=10, pady=10)
+
 rescisao_label = Label(frame, text="Data de rescisão:")
 rescisao_label.pack(anchor="w", padx=10, pady=5)
 rescisao = IntVar()
@@ -204,8 +213,11 @@ line.pack(fill="x", pady=10)
 
 locale.setlocale(locale.LC_TIME, 'pt-BR')
 dt = date_var.get_date()
+vl = validade.get_date()
 str_dt = dt.strftime("%d de %B de %Y")
+str_vl = vl.strftime("%d de %B de %Y")
 print(str_dt)
+print(str_vl)
 
 def get_data():
     vendedor_final.set(vendedor.get())
@@ -216,7 +228,6 @@ def get_data():
     num_contrato_final.set(num_contrato.get())
     ope_final.set(ope.get())
     estado_final.set(estado.get())
-    validade_final = validade.get_date()
     contrato_final.set(contrato_var.get())
     print(rts.get())
     servico_final.set(servico_var.get())
@@ -226,6 +237,7 @@ def get_data():
     eosl_final.set(eosl.get())
     rescisao_final.set(rescisao.get())
     pagamento_final.set(pagamento_var.get())
+    renovacao_final.set(renovacao.get())
 
     return
 
