@@ -689,6 +689,228 @@ p23 = doc.add_paragraph()
 p23.add_run("\nVálida até ")
 p23.add_run(ui.str_vl)
 p23.add_run("\n\nDados Cadastrais\n").bold = True
+table11 = doc.add_table(rows=4, cols=1)
+table11.style = 'Table Grid'
+table11.autofit = True
+table11.allow_autofit = True
+for row11 in table10.rows:
+    for cell11 in row11.cells:
+        cell11.width = Pt(180)
+table11.cell(0, 0).text = "Para Efeito de Faturamento"
+table11.cell(1, 0).text = "\nFilial Barueri\nHewlett-Packard Brasil Ltda. \nEndereço: Alameda Rio Negro, nº. 750, Térreo, Sala Rio de Janeiro\nCEP: 06454-000 – Alphaville  – Barueri – SP\nCNPJ: 61.797.924/0002-36\nInscrição Estadual: 206.203.581.118\nInscrição Municipal: 5.39.202-6\n"
+table11.cell(2, 0).text = "\nFilial Porto Alegre\nHewlett-Packard Brasil Ltda \nEndereço: Av. Ipiranga, 6681 – Prédio 91B – Azenha \nCEP: 90610-001 – Porto Alegre/ RS \nCNPJ: 61.797.924/0013-99 \nInscrição Estadual: 096/2962120\nInscr. Municipal: 20409524\n"
+table11.cell(3, 0).text = "\nFilial Rio de Janeiro\nHewlett-Packard Brasil Ltda\nEndereço: Avenida Almirante Barroso, 00081, SAL 33B113 PARTE 2, Centro\nCEP: 20031-004 - Rio de Janeiro – RJ \nCNPJ: 61.797.924/0016-31 \nInscrição Estadual: 77.496.980\nInscr. Municipal: 0.331.073-6\n"
+p24 = doc.add_paragraph()
+p24.add_run("\n\n\n")
+table12 = doc.add_table(rows=4, cols=2)
+table12.style = 'Table Grid'
+table12.autofit = True
+table12.allow_autofit = True
+for row12 in table12.rows:
+    for cell12 in row12.cells:
+        cell12.width = Pt(180)
+table12.cell(0, 0).text = "Descrição do serviço"
+table12.cell(0, 1).text = "Código de serviço da NF"
+table12.cell(1, 0).text = "Manutenção de equipamento para informática e automação"
+table12.cell(1, 1).text = "14.01.13214"
+table12.cell(2, 0).text = "Treinamento"
+table12.cell(2, 1).text = "08.02.14211"
+table12.cell(3, 0).text = "Software"
+table12.cell(3, 1).text = "01.07.01217"
+p25 = doc.add_paragraph()
+p25.add_run("\n\nOs produtos e serviços objeto da presente proposta poderão ser prestados dos estabelecimentos da Hewlett Packard Enterprise, e a Hewlett Packard Enterprise poderá, a seu exclusivo critério, executar os Serviços ou qualquer porção dos Serviços por meio de uma Afiliada da Hewlett Packard Enterprise ou empresa pertencente ao seu Grupo Econômico. As obrigações da Hewlett Packard Enterprise sob esta Proposta e futuro Contrato serão executadas pela própria Hewlett Packard Enterprise ou por suas subsidiárias ou afiliadas, sem qualquer limitação.")
+doc.add_page_break()
+
+# pag 38
+
+title17 = doc.add_heading(level=0)
+title17.add_run("5.	Condições Gerais")
+title17.add_run("Obrigações da Hewlett Packard Enterprise")
+p26 = doc.add_paragraph()
+p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  responsabiliza-se por todos os ônus e encargos trabalhistas e previdenciários resultantes da contratação e emprego de pessoas para a realização dos serviços objeto desta proposta, bem como pelos excessos e omissões praticados pelos mesmos, razão pela qual é a HEWLETT PACKARD ENTERPRISE  considerada empregadora autônoma, não existindo entre ela e seus empregados, vínculo de qualquer natureza com o Cliente.")
+p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  obriga-se a não divulgar, reproduzir, vender ou utilizar a favor de terceiros, os trabalhos e demais dados obtidos no Cliente, através da prestação dos serviços descriminados nesta proposta, sob a pena de responsabilidade civil e criminal.")
+p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  obriga-se, ainda, a executar os serviços, dentro das boas técnicas e dos costumes usuais em trabalho deste gênero, bem como a utilização de mão-de-obra qualificada.")
+p26.add_run("\n\nTodos os tributos (impostos, taxas e contribuições) de natureza federal, estadual e municipal, incidentes ou que venham a incidir sobre o objeto deste contrato serão de responsabilidade única da HEWLETT PACKARD ENTERPRISE .")
+# recisão check
+p27 = doc.add_paragraph()
+p27.add_run("\n\nRecisão").bold = True
+p27.add_run("\n\nQualquer das partes poderá rescindir este Contrato total ou parcialmente, mediante notificação por escrito à outra parte com 90 (noventa) dias de antecedência, exceto nos casos em que os equipamentos se tornarem obsoletos, hipótese em que este Contrato pode ser rescindido total ou parcialmente mediante notificação com 30 (trinta) dias de antecedência.  ")
+
+p28 = doc.add_paragraph()
+p28.add_run("\n\nTransferência").bold = True
+p28.add_run("\n\nEste acordo, bem como qualquer direito ou obrigação aqui estabelecidos, não poderão ser cedidos ou transferidos, no todo ou em parte, por qualquer uma das partes sem o prévio consentimento por escrito da outra. No entanto, a HEWLETT PACKARD ENTERPRISE  terá o direito de ceder ou transferir quaisquer dos seus direitos e obrigações decorrentes do presente contrato, caso ocorra qualquer alteração na estrutura societária da HEWLETT PACKARD ENTERPRISE , parcial ou total (por “spin-off”, cisão, alienação de bens ou mediante qualquer outra operação societária semelhante). A HEWLETT PACKARD ENTERPRISE  deverá notificar o Cliente, por escrito e em tempo razoável, após qualquer cessão ou transferência de quaisquer de suas obrigações ou direitos, conforme disposto acima. ")
+p28.add_run("\n\nTermos e Condições Contratuais").bold = True
+p28.add_run("\n\nAos Produtos e Serviços aqui ofertados aplicam-se o “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, registrado no Cartório Oficial de Registro de Títulos e Documentos da Comarca de Barueri – SP, protocolizado em títulos e documentos sob o nº 1774062 em 18 de outubro de 2021.\nCaso haja condições comerciais descritas nessa proposta divergentes das descritas no “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, prevalecem as condições da proposta.\nO Cliente, ao emitir um Pedido de Compra, formalizando a contratação com base nesta Proposta, aceita que:")
+p28.add_run("\n\n(i) os termos e condições constantes do “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)” são os únicos aplicáveis à contratação, excluindo-se expressamente todos os termos e condições padrão do Cliente que constem do referido Pedido, termos e condições estes que não produzirão quaisquer efeitos entre as partes, a qualquer título, mesmo que o Pedido do Cliente seja aceito pela HEWLETT PACKARD ENTERPRISE  e mesmo que haja disposição em contrário no referido Pedido de Compra. A HEWLETT PACKARD ENTERPRISE , ao apresentar esta Proposta e ao aceitar eventual Pedido de Compra, rejeita expressamente quaisquer termos e condições padrão do Cliente. \nEstes Termos constituem o acordo integral entre a HEWLETT PACKARD ENTERPRISE  e o Cliente a respeito da compra pelo Cliente de produtos e serviços da HEWLETT PACKARD ENTERPRISE , e substituem e cancelam quaisquer comunicações, declarações ou acordos anteriores, assim como quaisquer condições adicionais ou inconsistentes do Cliente, sejam verbais ou por escrito.")
+p28.add_run("\n\nAcordo Integral").bold = True
+p28.add_run("\n\nAo aceitar a presente Proposta, mediante assinatura deste instrumento e/ou emissão do Pedido de Compra, a mesma passa a ter força de contrato entre as partes.  Os Termos, referidos acima, constituem o acordo integral entre a HEWLETT PACKARD ENTERPRISE  e o Cliente a respeito da compra pelo Cliente de produtos e serviços da HEWLETT PACKARD ENTERPRISE , e substituem e cancelam quaisquer comunicações, declarações ou acordos anteriores, assim como quaisquer condições adicionais ou inconsistentes do Cliente, sejam verbais ou por escrito.")
+p28.add_run("\n\nRestrições de Uso e Divulgação da Proposta").bold = True
+p28.add_run("\n\nAs informações (dados) que constam de todas as folhas deste documento/cotação constituem informações confidenciais da Hewlett Packard Enterprise Ltda. (doravante referenciada “HEWLETT PACKARD ENTERPRISE ”). As informações fornecidas ao cliente não podem ser usadas ou divulgadas, sem a prévia autorização da HEWLETT PACKARD ENTERPRISE , para propósitos que não sejam os de avaliação da proposta.\nAs propostas da HEWLETT PACKARD ENTERPRISE  poderão ser submetidas via email e mídia eletrônica para sua conveniência. Se o conteúdo diferenciar entre as cópias impressas e mídia eletrônica, somente o conteúdo da impressa será garantido pela HEWLETT PACKARD ENTERPRISE.")
+doc.add_page_break()
+
+# pag 40
+
+title18 = doc.add_heading(level=0)
+title18.add_run("6.	Termo de Aceite da Proposta / Pedido de Compra")
+p29 = doc.add_paragraph()
+p29.add_run("A Hewlett Packard Enterprise.")
+p29.add_run("A/C:  Sr. (a) ")
+p29.add_run(ui.vendedor.get())
+p29.add_run("/ Tel: ")
+p29.add_run(ui.telefone_final.get())
+p29.add_run("\nEste documento tem como objetivo formalizar o aceite da proposta/cotação da Hewlett-Packard número OPE:")
+p29.add_run(ui.ope_final.get())
+p29.add_run(", referente ao projeto")
+p29.add_run(ui.num_contrato_final.get())
+p29.add_run(", datado de")
+p29.add_run(ui.str_dt)
+p29.add_run("\n\n")
+table13 = doc.add_table(rows=36, cols=3)
+table13.style = 'Table Grid'
+table13.autofit = True
+table13.allow_autofit = True
+for row13 in table13.rows:
+    for cell13 in row13.cells:
+        cell13.width = Pt(180)
+table13.cell(0, 0).text = "DECLARAÇÃO DE ACEITE DESTA PROPOSTA E ANEXOS"
+a = table13.cell(0, 0)
+b = table13.cell(0, 2)
+a.merge(b)
+table13.cell(1, 0).text = "Ao aceitar esta Proposta declaro estar ciente e de acordo com a proposta e todas as cláusulas e condições do “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, item Termos e Condições Contratuais desta proposta. "
+a = table13.cell(1, 0)
+b = table13.cell(1, 2)
+a.merge(b)
+table13.cell(2, 0).text = "RESPONSÁVEL PELO ACEITE DESTA PROPOSTA"
+a = table13.cell(2, 0)
+b = table13.cell(2, 2)
+a.merge(b)
+table13.cell(3, 0).text = "Nome:"
+a = table13.cell(3, 0)
+b = table13.cell(3, 1)
+a.merge(b)
+table13.cell(3, 2).text = "Cargo:"
+table13.cell(4, 0).text = "Departamento:"
+a = table13.cell(4, 0)
+b = table13.cell(4, 2)
+a.merge(b)
+table13.cell(5, 0).text = "Assinatura:"
+a = table13.cell(5, 0)
+b = table13.cell(5, 2)
+a.merge(b)
+table13.cell(6, 0).text = "Local e Data:"
+a = table13.cell(6, 0)
+b = table13.cell(6, 2)
+a.merge(b)
+table13.cell(7, 0).text = "Razão Social:"
+a = table13.cell(7, 0)
+b = table13.cell(7, 2)
+a.merge(b)
+table13.cell(8, 0).text = "INFORMAÇÃO DE FATURAMENTO"
+a = table13.cell(8, 0)
+b = table13.cell(8, 2)
+a.merge(b)
+table13.cell(9, 0).text = "Razão Social:"
+a = table13.cell(9, 0)
+b = table13.cell(9, 2)
+a.merge(b)
+table13.cell(10, 0).text = "Endereço de Faturamento:"
+a = table13.cell(10, 0)
+b = table13.cell(10, 2)
+a.merge(b)
+table13.cell(11, 0).text = "CNPJ:"
+a = table13.cell(11, 0)
+b = table13.cell(11, 1)
+a.merge(b)
+table13.cell(12, 0).text = "Inscr. Estadual:"
+a = table13.cell(12, 0)
+b = table13.cell(12, 2)
+a.merge(b)
+table13.cell(13, 0).text = "O faturamento da presente contratação não dependerá da emissão de Pedido de Compra e/ou Contrato específico, assim, a presente Proposta será o único instrumento contratual válido entre a HPE e o Cliente. Em caso de emissão de Pedido de Compra e/ou Contrato, solicitamos assinalarem o campo ao lado: (   )\n\n** a emissão de Pedido de Compra será entendida como o aceite integral dessa Proposta, sendo que os termos e condições deste documento prevalecem sobre quaisquer outras disposições anteriormente ou posteriormente emitidas e regem a presente relação comercial entre a HPE e o Cliente.   "
+a = table13.cell(13, 0)
+b = table13.cell(13, 2)
+a.merge(b)
+table13.cell(14, 0).text = "Aceita faturamento parcial:     (   ) sim          (    ) não"
+a = table13.cell(14, 0)
+b = table13.cell(14, 2)
+a.merge(b)
+table13.cell(15, 0).text = "Aceita diferença de centavos:     (   ) sim          (    ) não"
+a = table13.cell(15, 0)
+b = table13.cell(15, 2)
+a.merge(b)
+table13.cell(16, 0).text = "Possui janela de faturamento:     (   ) sim          (    ) não \n\nCaso positivo informar data limite mensal para recebimento das notas fiscais: _____________"
+a = table13.cell(16, 0)
+b = table13.cell(16, 2)
+a.merge(b)
+table13.cell(17, 0).text = "INFORMAÇÃO E LOCAL DE ENTREGA"
+a = table13.cell(17, 0)
+b = table13.cell(17, 2)
+a.merge(b)
+table13.cell(18, 0).text = "Razão Social:"
+a = table13.cell(18, 0)
+b = table13.cell(18, 2)
+a.merge(b)
+table13.cell(19, 0).text = "Endereço de entrega:"
+a = table13.cell(19, 0)
+b = table13.cell(19, 2)
+a.merge(b)
+table13.cell(20, 0).text = "CNPJ:"
+a = table13.cell(20, 0)
+b = table13.cell(20, 1)
+a.merge(b)
+table13.cell(21, 0).text = "Inscr. Estadual:"
+table13.cell(22, 0).text = "Contato:"
+a = table13.cell(22, 0)
+b = table13.cell(22, 1)
+a.merge(b)
+table13.cell(23, 0).text = "Telefone:"
+table13.cell(24, 0).text = "E-mail para envio da mídia eletrônica de software::"
+a = table13.cell(24, 0)
+b = table13.cell(24, 2)
+a.merge(b)
+table13.cell(25, 0).text = "*** (Caso o CNPJ do local de entrega seja diferente do CNPJ da empresa contratante, favor informar se é um operador logístico/filial ou um datacenter e o contato: \n\n"
+a = table13.cell(25, 0)
+b = table13.cell(25, 2)
+a.merge(b)
+table13.cell(26, 0).text = "Necessário pré-agendamento? (   ) sim          (    ) não"
+a = table13.cell(26, 0)
+b = table13.cell(26, 2)
+a.merge(b)
+table13.cell(27, 0).text = "Possuim restrição de horário para recebimento do produto? (   ) sim          (    ) não\nCaso positivo, informar os horários.:\n\n"
+a = table13.cell(27, 0)
+b = table13.cell(27, 2)
+a.merge(b)
+table13.cell(28, 0).text = "INFORMAÇÃO DE COBRANÇA:"
+a = table13.cell(28, 0)
+b = table13.cell(28, 2)
+a.merge(b)
+table13.cell(29, 0).text = "Endereço de Cobrança:"
+a = table13.cell(29, 0)
+b = table13.cell(29, 2)
+a.merge(b)
+table13.cell(30, 0).text = "CNPJ:"
+a = table13.cell(30, 0)
+b = table13.cell(30, 1)
+a.merge(b)
+table13.cell(31, 0).text = "Inscr. Estadual:"
+table13.cell(32, 0).text = "Contato:"
+a = table13.cell(32, 0)
+b = table13.cell(32, 1)
+a.merge(b)
+table13.cell(33, 0).text = "Telefone:"
+table13.cell(34, 0).text = "E-mail para envio da Nota Fiscal Eletrônica:"
+a = table13.cell(34, 0)
+b = table13.cell(34, 2)
+a.merge(b)
+table13.cell(35, 0).text = "Comentários Adicionais:"
+a = table13.cell(35, 0)
+b = table13.cell(35, 2)
+a.merge(b)
+
+doc.add_page_break()
+
+title19 = doc.add_heading(level=0)
+title19.add_run("7.	Anexos ")
+
 
 doc.add_heading('Section 1: Introduction', level=2)
 
