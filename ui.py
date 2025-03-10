@@ -30,7 +30,7 @@ mv_final = IntVar()
 eosl_final = IntVar()
 rescisao_final = IntVar()
 pagamento_final = IntVar()
-renovacao_final = Intvar()
+renovacao_final = IntVar()
 
 
 logo = tk.PhotoImage(file="hp_logo.png").subsample(14, 15)
@@ -40,7 +40,7 @@ root.title("Alteração de Proposta")
 root.proposta = ["Privada", "Pública"]
 root.pagamento = ["Parcela Mensal", "Parcela à vista", "Parcela Trimestral"]
 root.contrato = ["HPE Pointnext Tech Care", "HPE Pointnext Complete Care Starter Pack", "HPE Pointnext Complete Care Add-on"]
-
+root.checks = ["Sim", "Não"]
 vendedor_list = ["Selecione o vendedor:", "Weidson Carolino", "Vagner Rocha", "Fabio Cavalheiro", "Luana Kanashiro", "Gustavo Lacerda", "Alan de Carvalho", "Augusto Cesar", "Jairo Mateus", "Vitor Ribeiro", "Alexandre Araujo"]
 vendedor_email = ["Selecione o vendedor para verificar o email:", "weidson-igor.carolino@hpe.com","vagner.da-rocha@hpe.com","cavalheiro@hpe.com", "kanashiro@hpe.com", "gustavo.sarceda@hpe.com", "alan.de-carvalho@hpe.com", "augusto-cesar.da-silva@hpe.com", "jairo.mat.junior@hpe.com", "vitor.ribeiro@hpe.com", "alexandre.araujo2@hpe.com"]
 vendedor_telefone = ["Selecione o vendedor para verificar o telefone:", "11 99577 1521", "11 94232 4333", "11 94380 2538", "11 91619 1691", "11 94190 7017", "11 97229 0223", "11 94159 7625", "11 94391 6613", "11 95042 6872", "11 94369 2905"]
@@ -153,29 +153,41 @@ for value, method in enumerate(root.contrato):
 line = ttk.Separator(frame, orient=tk.HORIZONTAL)
 line.pack(fill="x", pady=10)
 
-rts = IntVar()
-rts_check = tk.Checkbutton(
-    frame,
-    text="RTS incluído",
-    variable=rts,
-)
-rts_check.pack(anchor="w", padx=10, pady=10)
+rts_label = tk.Label(frame, text="RTS Incluído?")
+rts_label.pack(anchor="w", padx=10, pady=5)
+rts_var = IntVar()
+rts_var.set(0)
+for value, method in enumerate(root.checks):
+    tk.Radiobutton(
+        frame,
+        text=method,
+        variable=rts_var,
+        value=value,
+    ).pack(anchor="w", padx=10, pady=5)
 
-mv = tk.IntVar()
-mv_check = tk.Checkbutton(
-    frame,
-    text="Equipamentos Multivendor (MV) incluído",
-    variable=mv,
-)
-mv_check.pack(anchor="w", padx=10, pady=10)
+mv_label = tk.Label(frame, text="Equipamento Multivendor (MV) Incluído?")
+mv_label.pack(anchor="w", padx=10, pady=5)
+mv_var = IntVar()
+mv_var.set(0)
+for value, method in enumerate(root.checks):
+    tk.Radiobutton(
+        frame,
+        text=method,
+        variable=mv_var,
+        value=value,
+    ).pack(anchor="w", padx=10, pady=5)
 
-eosl = tk.IntVar()
-eosl_check = tk.Checkbutton(
-    frame,
-    text="Equipamentos End of Support Life (EOSL) incluído",
-    variable=eosl,
-)
-eosl_check.pack(anchor="w", padx=10, pady=10)
+eosl_label = tk.Label(frame, text="Equipamento End Of Support Life (EOSL) Incluído?")
+eosl_label.pack(anchor="w", padx=10, pady=5)
+eosl_var = IntVar()
+eosl_var.set(0)
+for value, method in enumerate(root.checks):
+    tk.Radiobutton(
+        frame,
+        text=method,
+        variable=eosl_var,
+        value=value,
+    ).pack(anchor="w", padx=10, pady=5)
 
 renovacao = tk.IntVar()
 renovacao_check = tk.Checkbutton(
@@ -183,7 +195,6 @@ renovacao_check = tk.Checkbutton(
     text="Renovação Automática incluída",
     variable=renovacao,
 )
-eosl_check.pack(anchor="w", padx=10, pady=10)
 
 rescisao_label = Label(frame, text="Data de rescisão:")
 rescisao_label.pack(anchor="w", padx=10, pady=5)
@@ -229,16 +240,14 @@ def get_data():
     ope_final.set(ope.get())
     estado_final.set(estado.get())
     contrato_final.set(contrato_var.get())
-    print(rts.get())
     servico_final.set(servico_var.get())
     print(servico_final.get())
-    rts_final.set(rts.get())
-    mv_final.set(mv.get())
-    eosl_final.set(eosl.get())
+    rts_final.set(rts_var.get())
+    mv_final.set(mv_var.get())
+    eosl_final.set(eosl_var.get())
     rescisao_final.set(rescisao.get())
     pagamento_final.set(pagamento_var.get())
     renovacao_final.set(renovacao.get())
-
     return
 
 

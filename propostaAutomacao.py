@@ -238,47 +238,49 @@ elif ui.contrato_final.get() == 2:
 # pag 12, 13, 14
 # if rts
 
-title8 = doc.add_heading(level=0)
-title8.add_run('\n\n2.4.	Vistoria de Hardware / RTS')
-p8 = doc.add_paragraph()
-p8.add_run('\n\nEste serviço é aplicável a qualquer equipamento HEWLETT PACKARD ENTERPRISE  ou equipamento suportado pela HEWLETT PACKARD ENTERPRISE  que nunca tiveram seus equipamentos cobertos por contrato de suporte de hardware, ou que já tiveram e cancelaram seu contrato e que pretendem novamente assiná-lo.')
-p8.add_run('\n\nPara incluir equipamentos que estavam sem cobertura nos últimos 45 dias é necessário que se avalie a elegibilidade do equipamento, garantido:')
-p8.add_run('\n•	Não esteja obsoleto, seja produto suportado pela HEWLETT PACKARD ENTERPRISE  ')
-p8.add_run('\n•	Esteja atualizado com as últimas configurações e revisões')
-p8.add_run('\n•	Esteja operando sem falhas conforme determinado pela HPE')
-p8.add_run('\n\nPara incluir equipamentos que estavam sem cobertura nos últimos 45 dias é necessário que se avalie a elegibilidade do equipamento, garantido:')
-p8.add_run('\n•	Pagamento da taxa RTS')
-p8.add_run('\n•	Carência de 30 dias, isto é, o equipamento do cliente não estará suportado pelos serviços HEWLETT PACKARD ENTERPRISE ora contratados. Durante o período de carência, e uma vez evidenciado a necessidade, o cliente terá direito aos serviços de suporte mediante o pagamento de um “chamado avulso / per call service”, o qual será faturado em complemento ao(s) valore(s) especificado(s) nesta proposta e em estrita observância à lista de preços praticada pela HPE.')
-p8.add_run('\nO faturamento e pagamento referente ao valor do RTS deverá ser efetuado na sua totalidade no primeiro mês de vigência do contrato de suporte.')
-p8.add_run('\n\nCollaborative Support').bold = True
-p8.add_run('\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nHL935AC; HU4A1AC')
-p8.add_run('\nOs Serviços de Hardware da HEWLETT PACKARD ENTERPRISE fornecem assistência remota e se durante o atendimento, a HEWLETT PACKARD ENTERPRISE determinar que um problema é causado por software de terceiros e que não se aplica nenhuma da correções conhecidas e disponíveis conforme definido no Software Básico, o time de suporte, quando autorizado pelo Cliente, poderá chamar o fornecedor de software de terceiros seguindo os acordos de suporte contratado entre o cliente e o fornecedor.')
-p8.add_run('\nComo parte do processo de gerenciamento do chamado, a HEWLETT PACKARD ENTERPRISE fornecerá documentação e análise realizada para que o fornecedor siga com atendimento junto ao cliente.')
-p8.add_run('\nUma vez que o fornecedor do software está envolvido, o chamado aberto junto a HEWLETT PACKARD ENTERPRISE será fechado e poderá ser reaberto, se necessário a qualquer momento fazendo referência ao número original de identificação da chamada.')
-p8.add_run('\n\n2.5.	Suporte de Software').bold = True
-p8.add_run('\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nHA156AC; HU1R5AC; HV2X8AC; HA158AC')
-p8.add_run('\nO Suporte de Software da HEWLETT PACKARD ENTERPRISE  fornece serviços abrangentes para produtos de software HEWLETT PACKARD ENTERPRISE  e de terceiros selecionados. Com este serviço, sua equipe de TI conta com acesso rápido e confiável às Centrais de Atendimento da HEWLETT PACKARD ENTERPRISE . Os analistas da Central de Atendimento trabalharão com sua equipe para fornecer orientações sobre as características e utilização, diagnósticos e resolução de problemas, identificação de defeitos e acesso a patches dos produtos de software.')
-p8.add_run('\n\nO Serviço também disponibiliza atualizações de software para produtos da HEWLETT PACKARD ENTERPRISE  e de terceiros elegíveis suportados pela HEWLETT PACKARD ENTERPRISE , patches de software e manuais de referência, incluindo licença de uso e cópia de novas versões de produtos de software em todos os sistemas suportados e cobertos pela licença original do mesmo.')
-p8.add_run('\nO serviço também fornece acesso eletrônico às informações de suporte, permitindo que qualquer membro de sua equipe de TI localize informações essenciais disponíveis sobre produtos e suporte. Para produtos de terceiros, este acesso está sujeito à disponibilidade  de tais informações eletrônicas por parte do fornecedor.')
-p8.add_run('\n\nPrincipais Características dos Serviços de Software').bold = True
-p8.add_run('\n\n•	Suporte remoto\n•	Acesso a recursos técnicos\n•	Análise e resolução de problemas\n•	Gerenciamento de escalação\n•	Isolamento de problemas\n•	Suporte de orientação à instalação')
-p8.add_run('\n•	Atualizações de software da HEWLETT PACKARD ENTERPRISE  e de terceiros selecionados a um custo previsível\n•	Redução dos custos de aquisição de atualizações individuais de software, devido à economia substancial de assinaturas')
-p8.add_run('\n•	Notificações automáticas sobre a disponibilidade de novas versões de software\n•	Opção de janelas de cobertura\n•	Acesso a informações e serviços eletrônicos avançados de suporte que aumentam a produtividade:')
-p8.add_run('\n–	Hewlett Packard Enterprise Support Center (https://h20564.www2.hpe.com/ ): É um site de suporte inovador onde os profissionais de TI podem obter informações sobre software e documentações, abertura eletrônica e acompanhamento de chamados, chat direto com os engenheiros de suporte da HEWLETT PACKARD ENTERPRISE , dentre outros.')
-p8.add_run('\n\n2.5.1.	Serviços de Suporte de Software Limitado (por Incidentes)').bold = True
-p8.add_run('\n\nO Suporte Técnico de Software por Incidentes fornece serviços abrangentes de suporte remoto para produtos de software selecionados de terceiros (Microsoft, Linux Red Hat ou Suse Enterprise Edition e Novell).')
-p8.add_run('\nCom este serviço, sua equipe de TI conta com acesso rápido e confiável às Centrais de Atendimento da HEWLETT PACKARD ENTERPRISE . Os analistas da Central de Atendimento trabalharão com sua equipe para fornecer orientações sobre as características e utilização, diagnósticos e resolução de problemas, identificação de defeitos e acesso a patches dos produtos de software.')
-p8.add_run('\nAlém disso, esta modalidade permite que o serviço de suporte seja adequado às necessidades de cada ambiente com opções de 10, 25, 50 ou 75 incidentes por ano, que podem ser utilizados para diversos equipamentos. ')
-p8.add_run('\n\n2.6.	Atualização de Software / RTS ').bold = True
-p8.add_run('\\n serviço é aplicável a qualquer equipamento HEWLETT PACKARD ENTERPRISE  e foi desenvolvido especificamente para clientes HEWLETT PACKARD ENTERPRISE  que nunca tiveram seus equipamentos cobertos por contrato de suporte de software, ou que já tiveram e cancelaram seu contrato e que pretendem novamente assiná-lo.')
-p8.add_run('\n\nO Serviço de Atualização de Software HEWLETT PACKARD ENTERPRISE  (RTS - Return-to-Support) é destinado a atualizar a versão de software de qualquer produto HEWLETT PACKARD ENTERPRISE  para a última versão corrente. Após o recebimento  e instalação desta nova versão, o equipamento estará qualificado para que seja feito um contrato de manutenção de software.')
-p8.add_run('\n\nA HEWLETT PACKARD ENTERPRISE  irá prover ao cliente a versão atualmente suportada, de sistema operacional, subsistemas ou softwares aplicativos HEWLETT PACKARD ENTERPRISE . A versão corrente suportada é definida como versão de software que consta na lista de preços HEWLETT PACKARD ENTERPRISE  no momento da compra do serviço RTS. O cliente deve optar para quais produtos deseja receber a atualização, e caso a versão do sistema operacional instalada no seu equipamento apareça como a mais atual, ele deve optar somente pelos subsistemas ou softwares aplicativos.')
-p8.add_run('\n\nComprando o RTS o cliente irá receber atualização dos softwares constantes no item Configuração e Preços.')
-p8.add_run('\nOs serviços de RTS deverão estar incluídos no item Configuração e Preços através dos códigos de produtos UC255AC ou UC256AC descritos como SW Updates Return to Support.')
-p8.add_run('\n\nServiços não incluídos:	\n•	Manuais de software ou atualização de manuais.\n•	Software Status Bulletins não recebidos.\n•	Auxílio na instalação das novas versões ')
-p8.add_run('\nTanto o serviço de instalação das novas versões quanto os manuais devem ser adquiridos a parte, aos preços vigentes da época da compra do Serviço HEWLETT PACKARD ENTERPRISE -RTS. ')
-p8.add_run('\nO faturamento e pagamento referente ao valor do RTS deverá ser efetuado na sua totalidade no primeiro mês de vigência do contrato de suporte.')
-doc.add_page_break()
+if ui.rts_final.get() == 1:
+
+    title8 = doc.add_heading(level=0)
+    title8.add_run('\n\n2.4.	Vistoria de Hardware / RTS')
+    p8 = doc.add_paragraph()
+    p8.add_run('\n\nEste serviço é aplicável a qualquer equipamento HEWLETT PACKARD ENTERPRISE  ou equipamento suportado pela HEWLETT PACKARD ENTERPRISE  que nunca tiveram seus equipamentos cobertos por contrato de suporte de hardware, ou que já tiveram e cancelaram seu contrato e que pretendem novamente assiná-lo.')
+    p8.add_run('\n\nPara incluir equipamentos que estavam sem cobertura nos últimos 45 dias é necessário que se avalie a elegibilidade do equipamento, garantido:')
+    p8.add_run('\n•	Não esteja obsoleto, seja produto suportado pela HEWLETT PACKARD ENTERPRISE  ')
+    p8.add_run('\n•	Esteja atualizado com as últimas configurações e revisões')
+    p8.add_run('\n•	Esteja operando sem falhas conforme determinado pela HPE')
+    p8.add_run('\n\nPara incluir equipamentos que estavam sem cobertura nos últimos 45 dias é necessário que se avalie a elegibilidade do equipamento, garantido:')
+    p8.add_run('\n•	Pagamento da taxa RTS')
+    p8.add_run('\n•	Carência de 30 dias, isto é, o equipamento do cliente não estará suportado pelos serviços HEWLETT PACKARD ENTERPRISE ora contratados. Durante o período de carência, e uma vez evidenciado a necessidade, o cliente terá direito aos serviços de suporte mediante o pagamento de um “chamado avulso / per call service”, o qual será faturado em complemento ao(s) valore(s) especificado(s) nesta proposta e em estrita observância à lista de preços praticada pela HPE.')
+    p8.add_run('\nO faturamento e pagamento referente ao valor do RTS deverá ser efetuado na sua totalidade no primeiro mês de vigência do contrato de suporte.')
+    p8.add_run('\n\nCollaborative Support').bold = True
+    p8.add_run('\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nHL935AC; HU4A1AC')
+    p8.add_run('\nOs Serviços de Hardware da HEWLETT PACKARD ENTERPRISE fornecem assistência remota e se durante o atendimento, a HEWLETT PACKARD ENTERPRISE determinar que um problema é causado por software de terceiros e que não se aplica nenhuma da correções conhecidas e disponíveis conforme definido no Software Básico, o time de suporte, quando autorizado pelo Cliente, poderá chamar o fornecedor de software de terceiros seguindo os acordos de suporte contratado entre o cliente e o fornecedor.')
+    p8.add_run('\nComo parte do processo de gerenciamento do chamado, a HEWLETT PACKARD ENTERPRISE fornecerá documentação e análise realizada para que o fornecedor siga com atendimento junto ao cliente.')
+    p8.add_run('\nUma vez que o fornecedor do software está envolvido, o chamado aberto junto a HEWLETT PACKARD ENTERPRISE será fechado e poderá ser reaberto, se necessário a qualquer momento fazendo referência ao número original de identificação da chamada.')
+    p8.add_run('\n\n2.5.	Suporte de Software').bold = True
+    p8.add_run('\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nHA156AC; HU1R5AC; HV2X8AC; HA158AC')
+    p8.add_run('\nO Suporte de Software da HEWLETT PACKARD ENTERPRISE  fornece serviços abrangentes para produtos de software HEWLETT PACKARD ENTERPRISE  e de terceiros selecionados. Com este serviço, sua equipe de TI conta com acesso rápido e confiável às Centrais de Atendimento da HEWLETT PACKARD ENTERPRISE . Os analistas da Central de Atendimento trabalharão com sua equipe para fornecer orientações sobre as características e utilização, diagnósticos e resolução de problemas, identificação de defeitos e acesso a patches dos produtos de software.')
+    p8.add_run('\n\nO Serviço também disponibiliza atualizações de software para produtos da HEWLETT PACKARD ENTERPRISE  e de terceiros elegíveis suportados pela HEWLETT PACKARD ENTERPRISE , patches de software e manuais de referência, incluindo licença de uso e cópia de novas versões de produtos de software em todos os sistemas suportados e cobertos pela licença original do mesmo.')
+    p8.add_run('\nO serviço também fornece acesso eletrônico às informações de suporte, permitindo que qualquer membro de sua equipe de TI localize informações essenciais disponíveis sobre produtos e suporte. Para produtos de terceiros, este acesso está sujeito à disponibilidade  de tais informações eletrônicas por parte do fornecedor.')
+    p8.add_run('\n\nPrincipais Características dos Serviços de Software').bold = True
+    p8.add_run('\n\n•	Suporte remoto\n•	Acesso a recursos técnicos\n•	Análise e resolução de problemas\n•	Gerenciamento de escalação\n•	Isolamento de problemas\n•	Suporte de orientação à instalação')
+    p8.add_run('\n•	Atualizações de software da HEWLETT PACKARD ENTERPRISE  e de terceiros selecionados a um custo previsível\n•	Redução dos custos de aquisição de atualizações individuais de software, devido à economia substancial de assinaturas')
+    p8.add_run('\n•	Notificações automáticas sobre a disponibilidade de novas versões de software\n•	Opção de janelas de cobertura\n•	Acesso a informações e serviços eletrônicos avançados de suporte que aumentam a produtividade:')
+    p8.add_run('\n–	Hewlett Packard Enterprise Support Center (https://h20564.www2.hpe.com/ ): É um site de suporte inovador onde os profissionais de TI podem obter informações sobre software e documentações, abertura eletrônica e acompanhamento de chamados, chat direto com os engenheiros de suporte da HEWLETT PACKARD ENTERPRISE , dentre outros.')
+    p8.add_run('\n\n2.5.1.	Serviços de Suporte de Software Limitado (por Incidentes)').bold = True
+    p8.add_run('\n\nO Suporte Técnico de Software por Incidentes fornece serviços abrangentes de suporte remoto para produtos de software selecionados de terceiros (Microsoft, Linux Red Hat ou Suse Enterprise Edition e Novell).')
+    p8.add_run('\nCom este serviço, sua equipe de TI conta com acesso rápido e confiável às Centrais de Atendimento da HEWLETT PACKARD ENTERPRISE . Os analistas da Central de Atendimento trabalharão com sua equipe para fornecer orientações sobre as características e utilização, diagnósticos e resolução de problemas, identificação de defeitos e acesso a patches dos produtos de software.')
+    p8.add_run('\nAlém disso, esta modalidade permite que o serviço de suporte seja adequado às necessidades de cada ambiente com opções de 10, 25, 50 ou 75 incidentes por ano, que podem ser utilizados para diversos equipamentos. ')
+    p8.add_run('\n\n2.6.	Atualização de Software / RTS ').bold = True
+    p8.add_run('\\n serviço é aplicável a qualquer equipamento HEWLETT PACKARD ENTERPRISE  e foi desenvolvido especificamente para clientes HEWLETT PACKARD ENTERPRISE  que nunca tiveram seus equipamentos cobertos por contrato de suporte de software, ou que já tiveram e cancelaram seu contrato e que pretendem novamente assiná-lo.')
+    p8.add_run('\n\nO Serviço de Atualização de Software HEWLETT PACKARD ENTERPRISE  (RTS - Return-to-Support) é destinado a atualizar a versão de software de qualquer produto HEWLETT PACKARD ENTERPRISE  para a última versão corrente. Após o recebimento  e instalação desta nova versão, o equipamento estará qualificado para que seja feito um contrato de manutenção de software.')
+    p8.add_run('\n\nA HEWLETT PACKARD ENTERPRISE  irá prover ao cliente a versão atualmente suportada, de sistema operacional, subsistemas ou softwares aplicativos HEWLETT PACKARD ENTERPRISE . A versão corrente suportada é definida como versão de software que consta na lista de preços HEWLETT PACKARD ENTERPRISE  no momento da compra do serviço RTS. O cliente deve optar para quais produtos deseja receber a atualização, e caso a versão do sistema operacional instalada no seu equipamento apareça como a mais atual, ele deve optar somente pelos subsistemas ou softwares aplicativos.')
+    p8.add_run('\n\nComprando o RTS o cliente irá receber atualização dos softwares constantes no item Configuração e Preços.')
+    p8.add_run('\nOs serviços de RTS deverão estar incluídos no item Configuração e Preços através dos códigos de produtos UC255AC ou UC256AC descritos como SW Updates Return to Support.')
+    p8.add_run('\n\nServiços não incluídos:	\n•	Manuais de software ou atualização de manuais.\n•	Software Status Bulletins não recebidos.\n•	Auxílio na instalação das novas versões ')
+    p8.add_run('\nTanto o serviço de instalação das novas versões quanto os manuais devem ser adquiridos a parte, aos preços vigentes da época da compra do Serviço HEWLETT PACKARD ENTERPRISE -RTS. ')
+    p8.add_run('\nO faturamento e pagamento referente ao valor do RTS deverá ser efetuado na sua totalidade no primeiro mês de vigência do contrato de suporte.')
+    doc.add_page_break()
 
 # Pag 15
 
@@ -568,51 +570,56 @@ elif ui.servico_final.get() == 2:
     p90.add_run("\n\nO cliente reconhece e concorda que a HPE pode usar recursos fora do país da aquisição, para fornecimento desses serviços, a menos que seja especificado de outra forma como parte da descrição do recurso do serviço.")
 
 # if mv
-title10 = doc.add_heading(level=0)
-title10.add_run("4.	Suporte a Produtos Multivendor outras marcas")
-title10.add_run("4.1 Detalhes deste Serviço")
-p10 = doc.add_paragraph()
-p10.add_run("\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH7J32AC, H7J34AC, H7J36AC")
-p10.add_run("\nOs serviços de suporte de vários fornecedores HPE fornecem diagnóstico de produto, suporte de hardware no local e suporte de software para produtos selecionados. Você tem a flexibilidade de escolher tempos de resposta e opções de janela de cobertura para atender às suas necessidades específicas de suporte.\n•	Diagnóstico e suporte remotos de problemas \n•	Suporte de hardware no local \n•	Peças e materiais de reposição \n•	Tempo de resposta no local para suporte de hardware")
-p10.add_run("\n\n4.1.2 Tempo de Resposta").bold = True
-p10.add_run("\nÉ o prazo compreendido entre o horário de abertura do chamado na Central de Atendimento da HEWLETT PACKARD ENTERPRISE  Brasil até a chegada do técnico ao local, dentro da janela de cobertura.\n•	9x5 – Next Business Day: Cobertura de peças, mão-de-obra e atendimento on-site, 9 horas por dia (das 8:00 às 17:00 horas), 5 dias úteis por semana, excluindo-se os feriados, com tempo de resposta no local até o dia útil seguinte. H7J32AC\n•	24x7 – 4 horas de Resposta: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias úteis por semana, incluindo feriados, com tempo de resposta no local em até 4 horas. H7J34AC")
-p10.add_run("\n4.1.3 Tempo de Solução / Call-to-Repair\n").bold = True
-p10.add_run("\nO serviço assegura acesso direto a uma equipe de suporte especializada, disponível 24 horas por dia 7 dias por semana, que imediatamente começa a estudar o problema. A HEWLETT PACKARD ENTERPRISE  assume o compromisso de restaurar o hardware em no máximo 6 horas contado do momento em que a chamada é registrada na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE  até o momento que o produto seja restaurado o seu nível normal de funcionalidade de hardware. \n•	24x7 – 6 horas Call-to-Repair: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias por semana, incluindo feriados, com solução on-site em até 6 horas. H7J36AC")
-p10.add_run("\n\n4.1.4 Limitações Gerais do Serviço ")
-p10.add_run("\n•	HPE reserva-se o direito de encerrar este serviço sem aviso prévio se o serviço continuado não for razoavelmente viável.\n•	A menos que especificamente solicitado e contratado, este serviço é limitado apenas ao reparo de hardware e não inclui atualizações. O  de nenhuma forma (incluindo firmware, software incorporado ao hardware, sistema operacional, aplicativos ou qualquer outro tipo de software) ou suporte de engenharia do fabricante. ")
-p10.add_run("\n•	Este serviço não inclui atualizações de código de software, patches, correções de bugs, produtos em camadas ou quaisquer atualizações de software fornecidas pelo fabricante do produto subjacente (OEM), incluindo material protegido por direitos autorais, ferramentas de diagnóstico e documentos. \n•	A critério da HPE, este serviço é fornecido usando uma combinação de diagnóstico e suporte remotos, serviços prestados no local e outros métodos de prestação de serviços. \n•	HPE se reserva o direito de fornecer o suporte por meio de um parceiro terceirizado que usa processos de qualidade como HPE. \n•	Os tempos de resposta no local podem ser atrasados se o diagnóstico remoto identificar uma peça específica necessária para o reparo do produto e essa peça estiver sob encomenda e/ou não estiver disponível. \n•	A menos que especificamente solicitado e contratado, o gerenciamento técnico de elevação do OEM não estará disponível. ")
-p10.add_run("\n\nAs seguintes atividades estão excluídas deste serviço e são de responsabilidade do Cliente: \n•	Backup, recuperação e suporte do sistema operacional, software aplicativo e dados \n•	Teste operacional de aplicativos ou testes adicionais solicitados ou exigidos pelo Cliente \n•	Suporte para problemas relacionados à rede fora do hardware suportado \n•	Serviços necessários devido à falha do Cliente em incorporar qualquer correção, reparo, patch ou modificação do sistema fornecido ao Cliente pela HPE \n•	Serviços necessários devido à falha do Cliente em tomar medidas preventivas previamente aconselhados pela HPE \n•	Serviços necessários devido a tentativas não autorizadas de terceiros para instalar, reparar, manter ou modificar hardware, firmware ou software \n•	Serviços necessários devido ao tratamento ou uso inadequado dos produtos ou equipamentos\n•	Não estão previstas e incluídas trocas gratuitas tanto da peça quanto da mão de obra de itens considerados consumíveis do produto (baterias, filtros, fitas magnéticas, entre outros) durante a vigência do Contrato. Estes itens devem ser cotados e adquiridos a parte, de acordo com a necessidade e solicitação do cliente.")
-p10.add_run("\n\n4.1 Pré-requisitos deste Serviço").bold = True
-p10.add_run("\nUma vez aceita esta proposta, a HEWLETT PACKARD ENTERPRISE  executará o levantamento e validação do parque de equipamentos a serem suportados através de um processo de diligência. O objetivo é analisar riscos, melhorias e divergências em relação aos baselines definidos nesta proposta, para posterior negociação e resolução de pontos críticos para o desenvolvimento nas fases de Transição, Transformação e Ongoing, gerando transparência e clara definição do escopo contratado, trazendo benefícios na prestação dos serviços.\nSe durante o processo de diligência for constatado defeitos pré-existentes ao contrato, a HEWLETT PACKARD ENTERPRISE  e o cliente negociarão o reparo do equipamento na modalidade de chamado faturado")
-p10.add_run("\n\nAtividades a serem realizadas\n•	Realizar o levantamento (físico e/ou lógico) detalhado dos equipamentos atuais.\n•	Levantar os planos e as necessidades de crescimento.\n•	Realizar o levantamento dos processos operacionais atuais.\n•	Realizar o levantamento das políticas de segurança do(a) ")
-p10.add_run(ui.cliente_final.get())
-p10.add_run("\nResponsabilidades da Hewlett Packard Enterprise\n•	Realizar o levantamento (físico e/ou lógico) detalhado dos equipamentos atuais.\n•	Provisionar kit de peças baseado no levantamento detalhado dos equipamentos para atender o SLA contratado.\n•	Produzir um documento com os resultados dos levantamentos em classificação de potenciais riscos, lacunas e recomendações de soluções para minimizar tais itens.")
-p10.add_run("\nResponsabilidades do(a) ")
-p10.add_run(ui.cliente_final.get())
-p10.add_run("\n•	Fornecer as informações necessárias do ambiente atual em tempo hábil.\n•	Validar e aprovar a documentação entregue. \n•	Liberação de acesso ao site/Datacenter onde se encontram os equipamentos\n•	Envio dos logs solicitados durante a fase de diligência e ao longo do período de contrato para a análise e prestação do serviço de suporte. O atraso e/ou o não envio dos logs solicitados, pode acarretar no não cumprimento dos níveis de serviço acordado.")
+
+if ui.mv_final.get() == 1:
+
+    title10 = doc.add_heading(level=0)
+    title10.add_run("4.	Suporte a Produtos Multivendor outras marcas")
+    title10.add_run("\n\n4.1 Detalhes deste Serviço")
+    p10 = doc.add_paragraph()
+    p10.add_run("\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH7J32AC, H7J34AC, H7J36AC")
+    p10.add_run("\nOs serviços de suporte de vários fornecedores HPE fornecem diagnóstico de produto, suporte de hardware no local e suporte de software para produtos selecionados. Você tem a flexibilidade de escolher tempos de resposta e opções de janela de cobertura para atender às suas necessidades específicas de suporte.\n•	Diagnóstico e suporte remotos de problemas \n•	Suporte de hardware no local \n•	Peças e materiais de reposição \n•	Tempo de resposta no local para suporte de hardware")
+    p10.add_run("\n\n4.1.2 Tempo de Resposta").bold = True
+    p10.add_run("\n\nÉ o prazo compreendido entre o horário de abertura do chamado na Central de Atendimento da HEWLETT PACKARD ENTERPRISE  Brasil até a chegada do técnico ao local, dentro da janela de cobertura.\n•	9x5 – Next Business Day: Cobertura de peças, mão-de-obra e atendimento on-site, 9 horas por dia (das 8:00 às 17:00 horas), 5 dias úteis por semana, excluindo-se os feriados, com tempo de resposta no local até o dia útil seguinte. H7J32AC\n•	24x7 – 4 horas de Resposta: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias úteis por semana, incluindo feriados, com tempo de resposta no local em até 4 horas. H7J34AC")
+    p10.add_run("\n4.1.3 Tempo de Solução / Call-to-Repair\n").bold = True
+    p10.add_run("\n\nO serviço assegura acesso direto a uma equipe de suporte especializada, disponível 24 horas por dia 7 dias por semana, que imediatamente começa a estudar o problema. A HEWLETT PACKARD ENTERPRISE  assume o compromisso de restaurar o hardware em no máximo 6 horas contado do momento em que a chamada é registrada na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE  até o momento que o produto seja restaurado o seu nível normal de funcionalidade de hardware. \n•	24x7 – 6 horas Call-to-Repair: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias por semana, incluindo feriados, com solução on-site em até 6 horas. H7J36AC")
+    p10.add_run("\n\n4.1.4 Limitações Gerais do Serviço ").bold = True
+    p10.add_run("\n\n•	HPE reserva-se o direito de encerrar este serviço sem aviso prévio se o serviço continuado não for razoavelmente viável.\n•	A menos que especificamente solicitado e contratado, este serviço é limitado apenas ao reparo de hardware e não inclui atualizações. O  de nenhuma forma (incluindo firmware, software incorporado ao hardware, sistema operacional, aplicativos ou qualquer outro tipo de software) ou suporte de engenharia do fabricante. ")
+    p10.add_run("\n•	Este serviço não inclui atualizações de código de software, patches, correções de bugs, produtos em camadas ou quaisquer atualizações de software fornecidas pelo fabricante do produto subjacente (OEM), incluindo material protegido por direitos autorais, ferramentas de diagnóstico e documentos. \n•	A critério da HPE, este serviço é fornecido usando uma combinação de diagnóstico e suporte remotos, serviços prestados no local e outros métodos de prestação de serviços. \n•	HPE se reserva o direito de fornecer o suporte por meio de um parceiro terceirizado que usa processos de qualidade como HPE. \n•	Os tempos de resposta no local podem ser atrasados se o diagnóstico remoto identificar uma peça específica necessária para o reparo do produto e essa peça estiver sob encomenda e/ou não estiver disponível. \n•	A menos que especificamente solicitado e contratado, o gerenciamento técnico de elevação do OEM não estará disponível. ")
+    p10.add_run("\n\nAs seguintes atividades estão excluídas deste serviço e são de responsabilidade do Cliente: \n•	Backup, recuperação e suporte do sistema operacional, software aplicativo e dados \n•	Teste operacional de aplicativos ou testes adicionais solicitados ou exigidos pelo Cliente \n•	Suporte para problemas relacionados à rede fora do hardware suportado \n•	Serviços necessários devido à falha do Cliente em incorporar qualquer correção, reparo, patch ou modificação do sistema fornecido ao Cliente pela HPE \n•	Serviços necessários devido à falha do Cliente em tomar medidas preventivas previamente aconselhados pela HPE \n•	Serviços necessários devido a tentativas não autorizadas de terceiros para instalar, reparar, manter ou modificar hardware, firmware ou software \n•	Serviços necessários devido ao tratamento ou uso inadequado dos produtos ou equipamentos\n•	Não estão previstas e incluídas trocas gratuitas tanto da peça quanto da mão de obra de itens considerados consumíveis do produto (baterias, filtros, fitas magnéticas, entre outros) durante a vigência do Contrato. Estes itens devem ser cotados e adquiridos a parte, de acordo com a necessidade e solicitação do cliente.")
+    p10.add_run("\n\n4.1 Pré-requisitos deste Serviço").bold = True
+    p10.add_run("\n\nUma vez aceita esta proposta, a HEWLETT PACKARD ENTERPRISE  executará o levantamento e validação do parque de equipamentos a serem suportados através de um processo de diligência. O objetivo é analisar riscos, melhorias e divergências em relação aos baselines definidos nesta proposta, para posterior negociação e resolução de pontos críticos para o desenvolvimento nas fases de Transição, Transformação e Ongoing, gerando transparência e clara definição do escopo contratado, trazendo benefícios na prestação dos serviços.\nSe durante o processo de diligência for constatado defeitos pré-existentes ao contrato, a HEWLETT PACKARD ENTERPRISE  e o cliente negociarão o reparo do equipamento na modalidade de chamado faturado")
+    p10.add_run("\n\nAtividades a serem realizadas\n•	Realizar o levantamento (físico e/ou lógico) detalhado dos equipamentos atuais.\n•	Levantar os planos e as necessidades de crescimento.\n•	Realizar o levantamento dos processos operacionais atuais.\n•	Realizar o levantamento das políticas de segurança do(a) ")
+    p10.add_run(ui.cliente_final.get())
+    p10.add_run("\nResponsabilidades da Hewlett Packard Enterprise\n•	Realizar o levantamento (físico e/ou lógico) detalhado dos equipamentos atuais.\n•	Provisionar kit de peças baseado no levantamento detalhado dos equipamentos para atender o SLA contratado.\n•	Produzir um documento com os resultados dos levantamentos em classificação de potenciais riscos, lacunas e recomendações de soluções para minimizar tais itens.")
+    p10.add_run("\nResponsabilidades do(a) ")
+    p10.add_run(ui.cliente_final.get())
+    p10.add_run("\n•	Fornecer as informações necessárias do ambiente atual em tempo hábil.\n•	Validar e aprovar a documentação entregue. \n•	Liberação de acesso ao site/Datacenter onde se encontram os equipamentos\n•	Envio dos logs solicitados durante a fase de diligência e ao longo do período de contrato para a análise e prestação do serviço de suporte. O atraso e/ou o não envio dos logs solicitados, pode acarretar no não cumprimento dos níveis de serviço acordado.")
 
 # pag 30
 # if eosl
 
-title11 = doc.add_heading(level=0)
-title11.add_run("5.	Suporte para produtos HPE que atingiram a data de “fim da Vida Útil – EoSL ")
-title11.add_run("\n5.1	Detalhes deste Serviço")
-p11 = doc.add_paragraph()
-p11.add_run("\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH7J32AC, H7J34AC, H7J36AC")
-p11.add_run("\nA seguir, descrevem-se o serviço de suporte reativo fornecido pela HPE para produtos de vários fornecedores (dispositivos HPE que atingiram a data de “Fim da Vida Útil – EoSL”), fim do período de suporte da HPE e/ou dispositivos de terceiros) incluídos nesta proposta.\nAs solicitações de suporte para equipamentos cobertos por este serviço serão tratadas na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE. \n\nEsses serviços são oferecidos como uma conveniência para o cliente e não são uma continuação da garantia padrão da HPE ou dos serviços de suporte da HPE.")
-p11.add_run("\n\n5.1.4	Tempo de Resposta").bold = True
-p11.add_run("\nÉ o prazo compreendido entre o horário de abertura do chamado na Central de Atendimento da HEWLETT PACKARD ENTERPRISE  Brasil até a chegada do técnico ao local, dentro da janela de cobertura.\n•	9x5 – Next Business Day: Cobertura de peças, mão-de-obra e atendimento on-site, 9 horas por dia (das 8:00 às 17:00 horas), 5 dias úteis por semana, excluindo-se os feriados, com tempo de resposta no local até o dia útil seguinte. H7J32AC\n•	24x7 – 4 horas de Resposta: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias úteis por semana, incluindo feriados, com tempo de resposta no local em até 4 horas. H7J34AC")
-p11.add_run("\n\n5.1.5	Tempo de Solução / Call-to-Repair").bold = True
-p11.add_run("\nO serviço assegura acesso direto a uma equipe de suporte especializada, disponível 24 horas por dia 7 dias por semana, que imediatamente começa a estudar o problema. A HEWLETT PACKARD ENTERPRISE  assume o compromisso de restaurar o hardware em no máximo 6 horas contado do momento em que a chamada é registrada na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE  até o momento que o produto seja restaurado o seu nível normal de funcionalidade de hardware. \n•	24x7 – 6 horas Call-to-Repair: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias por semana, incluindo feriados, com solução on-site em até 6 horas. H7J36AC")
-p11.add_run("\n\n5.1.6	Limitações Gerais do Serviço ").bold = True
-p11.add_run("\n•	Os serviços são limitados apenas ao reparo de hardware. As atualizações de firmware e software da HPE não estão mais disponíveis para esses produtos. \n•	Devido à idade do equipamento envolvido e seu status HPE EOSL, as peças de reposição podem não ser novas e podem ser provenientes de equipamentos usados. \n•	Os tempos de resposta e solução não são garantidos e podem variar de acordo com a disponibilidade de peças de reposição. \n•	A HPE reserva-se o direito de cancelar este serviço se as peças de reposição não estiverem mais disponíveis.")
-p11.add_run("\n•	Devido ao seu status como EOSL da HPE, suporte de engenharia e elevação não estão disponíveis para produtos HPE EOSL; as peças de reposição são fornecidas no estado em que se encontram; e nenhuma garantia de interoperabilidade é fornecida. \n•	Os recursos de monitoramento remoto e ferramentas podem não estar disponíveis para produtos HPE EOSL.\n•	Para os novos contratos, a HPE propõe um SLA de 30 dias para execução do processo de diligência e preparação dos processo operacionais para o atendimento do contrato de suporte.\n•	Em caso não realização do processo de diligência por pendência do cliente, não serão garantidos os cumprimentos dos níveis de serviços acordados.\n•	A HPE propõe uma reunião de kick-off para alinhamento das expectativas, apresentação dos Gerentes de Serviços.\n•	Não estão previstas e incluídas trocas gratuitas tanto da peça quanto da mão de obra de itens considerados consumíveis do produto (baterias, filtros, fitas magnéticas, entre outros) durante a vigência do Contrato. Estes itens devem ser cotados e adquiridos a parte, de acordo com a necessidade e solicitação do cliente.")
-doc.add_page_break()
+if ui.eosl_final.get() == 1:
+
+    title11 = doc.add_heading(level=0)
+    title11.add_run("5.	Suporte para produtos HPE que atingiram a data de “fim da Vida Útil – EoSL ")
+    title11.add_run("\n\n5.1	Detalhes deste Serviço")
+    p11 = doc.add_paragraph()
+    p11.add_run("\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH7J32AC, H7J34AC, H7J36AC")
+    p11.add_run("\nA seguir, descrevem-se o serviço de suporte reativo fornecido pela HPE para produtos de vários fornecedores (dispositivos HPE que atingiram a data de “Fim da Vida Útil – EoSL”), fim do período de suporte da HPE e/ou dispositivos de terceiros) incluídos nesta proposta.\nAs solicitações de suporte para equipamentos cobertos por este serviço serão tratadas na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE. \n\nEsses serviços são oferecidos como uma conveniência para o cliente e não são uma continuação da garantia padrão da HPE ou dos serviços de suporte da HPE.")
+    p11.add_run("\n\n5.1.4	Tempo de Resposta").bold = True
+    p11.add_run("\n\nÉ o prazo compreendido entre o horário de abertura do chamado na Central de Atendimento da HEWLETT PACKARD ENTERPRISE  Brasil até a chegada do técnico ao local, dentro da janela de cobertura.\n•	9x5 – Next Business Day: Cobertura de peças, mão-de-obra e atendimento on-site, 9 horas por dia (das 8:00 às 17:00 horas), 5 dias úteis por semana, excluindo-se os feriados, com tempo de resposta no local até o dia útil seguinte. H7J32AC\n•	24x7 – 4 horas de Resposta: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias úteis por semana, incluindo feriados, com tempo de resposta no local em até 4 horas. H7J34AC")
+    p11.add_run("\n\n5.1.5	Tempo de Solução / Call-to-Repair").bold = True
+    p11.add_run("\n\nO serviço assegura acesso direto a uma equipe de suporte especializada, disponível 24 horas por dia 7 dias por semana, que imediatamente começa a estudar o problema. A HEWLETT PACKARD ENTERPRISE  assume o compromisso de restaurar o hardware em no máximo 6 horas contado do momento em que a chamada é registrada na Central de Atendimento ao Cliente da HEWLETT PACKARD ENTERPRISE  até o momento que o produto seja restaurado o seu nível normal de funcionalidade de hardware. \n•	24x7 – 6 horas Call-to-Repair: Cobertura de peças, mão-de-obra e atendimento on-site, 24 horas por dia, 7 dias por semana, incluindo feriados, com solução on-site em até 6 horas. H7J36AC")
+    p11.add_run("\n\n5.1.6	Limitações Gerais do Serviço ").bold = True
+    p11.add_run("\n\n•	Os serviços são limitados apenas ao reparo de hardware. As atualizações de firmware e software da HPE não estão mais disponíveis para esses produtos. \n•	Devido à idade do equipamento envolvido e seu status HPE EOSL, as peças de reposição podem não ser novas e podem ser provenientes de equipamentos usados. \n•	Os tempos de resposta e solução não são garantidos e podem variar de acordo com a disponibilidade de peças de reposição. \n•	A HPE reserva-se o direito de cancelar este serviço se as peças de reposição não estiverem mais disponíveis.")
+    p11.add_run("\n•	Devido ao seu status como EOSL da HPE, suporte de engenharia e elevação não estão disponíveis para produtos HPE EOSL; as peças de reposição são fornecidas no estado em que se encontram; e nenhuma garantia de interoperabilidade é fornecida. \n•	Os recursos de monitoramento remoto e ferramentas podem não estar disponíveis para produtos HPE EOSL.\n•	Para os novos contratos, a HPE propõe um SLA de 30 dias para execução do processo de diligência e preparação dos processo operacionais para o atendimento do contrato de suporte.\n•	Em caso não realização do processo de diligência por pendência do cliente, não serão garantidos os cumprimentos dos níveis de serviços acordados.\n•	A HPE propõe uma reunião de kick-off para alinhamento das expectativas, apresentação dos Gerentes de Serviços.\n•	Não estão previstas e incluídas trocas gratuitas tanto da peça quanto da mão de obra de itens considerados consumíveis do produto (baterias, filtros, fitas magnéticas, entre outros) durante a vigência do Contrato. Estes itens devem ser cotados e adquiridos a parte, de acordo com a necessidade e solicitação do cliente.")
+    doc.add_page_break()
 
 # pag 32
 
 title12 = doc.add_heading(level=0)
-title12.add_run("4.	Condições Comerciais")
+title12.add_run("Condições Comerciais")
 p12 = doc.add_paragraph()
 p12.add_run("\nConfiguração e Preços").bold = True
 p12.add_run("\nOs produtos (Hardware e Software) e seus respectivos níveis de serviço encontram-se detalhados no Anexo de Configuração e Preços.  (Opcional a critério de Vendas)")
@@ -691,9 +698,9 @@ p23.add_run(ui.str_vl)
 p23.add_run("\n\nDados Cadastrais\n").bold = True
 table11 = doc.add_table(rows=4, cols=1)
 table11.style = 'Table Grid'
-table11.autofit = True
-table11.allow_autofit = True
-for row11 in table10.rows:
+table11.autofit = False
+table11.allow_autofit = False
+for row11 in table11.rows:
     for cell11 in row11.cells:
         cell11.width = Pt(180)
 table11.cell(0, 0).text = "Para Efeito de Faturamento"
@@ -771,7 +778,7 @@ table13.autofit = True
 table13.allow_autofit = True
 for row13 in table13.rows:
     for cell13 in row13.cells:
-        cell13.width = Pt(180)
+        cell13.width = Pt(200)
 table13.cell(0, 0).text = "DECLARAÇÃO DE ACEITE DESTA PROPOSTA E ANEXOS"
 a = table13.cell(0, 0)
 b = table13.cell(0, 2)
@@ -909,41 +916,8 @@ a.merge(b)
 doc.add_page_break()
 
 title19 = doc.add_heading(level=0)
-title19.add_run("7.	Anexos ")
+title19.add_run("\n7.	Anexos ")
 
-
-doc.add_heading('Section 1: Introduction', level=2)
-
-# Add a bulleted list
-list_paragraph = doc.add_paragraph()
-list_paragraph.add_run(ui.vendedor_final.get()).bold = True
-list_paragraph.add_run(' - This is the first bullet point.')
-list_paragraph.add_run('\n')
-list_paragraph.add_run('Bullet 2').bold = True
-list_paragraph.add_run(' - This is the second bullet point.')
-
-# Add a table
-doc.add_heading('Section 2: Data', level=2)
-table = doc.add_table(rows=3, cols=3)
-table.style = 'Table Grid'
-table.autofit = False
-table.allow_autofit = False
-for row in table.rows:
-    for cell in row.cells:
-        cell.width = Pt(100)
-table.cell(0, 0).text = 'Name'
-table.cell(0, 1).text = 'Age'
-table.cell(0, 2).text = 'City'
-for i, data in enumerate([('Alice', '25', 'New York'), ('Bob', '30', 'San Francisco'), ('Charlie', '22', 'Los Angeles')], start=0):
-    table.cell(i, 0).text = data[0]
-    table.cell(i, 1).text = data[1]
-    table.cell(i, 2).text = data[2]
-
-# Add an image
-#doc.add_heading('Section 3: Image', level=2)
-#doc.add_paragraph('Here is an image:')
-#doc.add_picture('path_to_your_image.jpg', width=Pt(300))/
-
-# Save the document
+# Salvar o documento
 
 doc.save('example_document.docx')
