@@ -38,7 +38,7 @@ tk.Label(root, image=logo).pack()
 root.geometry("600x800+100-100")
 root.title("Alteração de Proposta")
 root.proposta = ["Privada", "Pública"]
-root.pagamento = ["Parcela Mensal", "Parcela à vista", "Parcela Trimestral"]
+root.pagamento = ["Parcela Mensal", "Parcela à vista", "Parcela Trimestral", "Parcela Anual"]
 root.contrato = ["HPE Pointnext Tech Care", "HPE Pointnext Complete Care Starter Pack", "HPE Pointnext Complete Care Add-on"]
 root.checks = ["Sim", "Não"]
 vendedor_list = ["Selecione o vendedor:", "Weidson Carolino", "Vagner Rocha", "Fabio Cavalheiro", "Luana Kanashiro", "Gustavo Lacerda", "Alan de Carvalho", "Augusto Cesar", "Jairo Mateus", "Vitor Ribeiro", "Alexandre Araujo"]
@@ -86,12 +86,7 @@ email_label = Label(frame, textvariable=var_email)
 email_label.pack(anchor="w", padx=10, pady=5)
 
 telefone_label = Label(frame, textvariable=var_telefone)
-telefone_label.pack(anchor="w", padx=10, pady=5)
-
-cargo_label = tk.Label(frame, text="Insira o cargo do vendedor:")
-cargo = ttk.Entry(frame)
-cargo_label.pack(anchor="w", padx=10, pady=5)
-cargo.pack(anchor="w", padx=10, pady=5)
+telefone_label.pack(anchor="w", padx=10, pady=5) 
 
 cliente_label = tk.Label(frame, text="Insira o nome do cliente:")
 cliente = ttk.Entry(frame)
@@ -232,7 +227,6 @@ print(str_vl)
 
 def get_data():
     vendedor_final.set(vendedor.get())
-    cargo_final.set(cargo.get())
     proposta_final.set(proposta_var.get())
     print(vendedor_menu.current())
     cliente_final.set(cliente.get())
@@ -248,6 +242,7 @@ def get_data():
     rescisao_final.set(rescisao.get())
     pagamento_final.set(pagamento_var.get())
     renovacao_final.set(renovacao.get())
+    
     return
 
 

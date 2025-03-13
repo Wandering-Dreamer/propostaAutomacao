@@ -1,14 +1,20 @@
-from tkinter import *
-master = Tk()
+import docx
+import pandas as pd
 
-def change_text():
-    my_var.set("Second click")
+df = pd.read_excel("BASE 2024.xlsx")
 
-my_var = StringVar()
-my_var.set("First click")
-label = Label(master,textvariable=my_var,fg="red")
-button = Button(master,text="Submit",command = change_text)
-button.pack()
-label.pack()
+doc = docx.Document()
 
-master.mainloop()
+t = doc.add_table(df.shape[0]+1, df.shape[1])
+t.style = 'Table Grid'
+# convert the RHS to str
+for j in range(df.shape[-1]):
+    t.cell(0,j).text = str(df.columns[j])
+
+# add the rest of the data frame
+for i in range(df.shape[0]):
+    for j in range(df.shape[-1]):
+        t.cell(i+1,j).text = str(df.values[i,j]) 
+
+# save the doc
+doc.save('./test.docx')

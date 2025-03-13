@@ -45,46 +45,86 @@ section2.right_margin = Inches(0.5)
 section2.top_margin = Inches(0.25)
 section2.bottom_margin = Inches(1)
 
-p2 = doc.add_paragraph('\n\n\nSão Paulo, ')
-p2.add_run(ui.str_dt)
-p2.add_run('\n\n\n')
-p2 = doc.add_paragraph(ui.cliente_final.get())
-p2.add_run(", ")
-p2.add_run('\n\n\n\n')
-vendedor = doc.add_paragraph()
-vendedor.add_run(ui.vendedor_final.get()).font.size = Pt(9)
-vendedor.add_run('\n').font.size = Pt(9)
-vendedor.add_run(ui.cargo_final.get()).font.size = Pt(9)
-vendedor.add_run('\n').font.size = Pt(9)
-vendedor.add_run(ui.telefone_final.get()).font.size = Pt(9)
-vendedor.add_run('\n').font.size = Pt(9)
-vendedor.add_run(ui.email_final.get()).font.size = Pt(9)
-vendedor.add_run('\n\n\n').font.size = Pt(9)
-vendedor.alignment = WD_ALIGN_PARAGRAPH.LEFT
-vendedor.paragraph_format.left_indent = Mm(-30.4)
-p21 = doc.add_paragraph('Prezados (as) Senhores(as):\n\n')
-p21.alignment = WD_ALIGN_PARAGRAPH.LEFT
-p22 = doc.add_paragraph('Temos o prazer de apresentar a nossa proposta técnico-comercial referente ao Projeto: ')
-p22.add_run(ui.num_contrato_final.get())
-p22.add_run("""\nEstamos confiantes que as informações contidas nesta proposta possam atender suas necessidades, demonstrando desta maneira a potencialidade de nossa empresa nos termos de qualidade de produtos e serviços.""")
-p22.add_run('\nEsta proposta foi desenvolvida por Hewlett Packard Enterprise, que analisou todos os aspectos necessários para uma implementação bem sucedida.')
-p22.add_run('\nEstamos confiantes em demonstrar os benefícios de valor agregado da proposta e construir um relacionamento de negócio sólido e benéfico para ambas as partes.')
-p22.add_run('\nColocamo-nos à disposição para quaisquer esclarecimentos que se faça necessário.')
-p22.add_run('\n\n\n\nAtenciosamente,')
-p22.add_run('\n\n\n\n\n _____________________________\n\n\n')
-p22.add_run(ui.vendedor_final.get())
-p22.add_run('\n')
-p22.add_run(ui.cargo_final.get())
-p22.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-hpe = doc.add_paragraph('\n\n\n\n')
-hpe.add_run('Hewlett Packard Enterprise').bold = True
-hpe.add_run('\nAlameda Rio Negro, 750')
-hpe.add_run('\nBarueri, SP, 06454-000')
-hpe.add_run('\nBrazil')
-hpe.add_run('\nwww.hpe.com')
-hpe.alignment = WD_ALIGN_PARAGRAPH.LEFT
-hpe.paragraph_format.left_indent = Mm(-30.4)
-doc.add_page_break()
+if ui.proposta_final.get() == 0:
+
+    p2 = doc.add_paragraph('\n\n\nSão Paulo, ')
+    p2.add_run(ui.str_dt)
+    p2.add_run('\n\n\n')
+    p2 = doc.add_paragraph(ui.cliente_final.get())
+    p2.add_run(", ")
+    p2.add_run('\n\n\n')
+    vendedor = doc.add_paragraph()
+    vendedor.add_run(ui.vendedor.get()).font.size = Pt(9)
+    vendedor.add_run('\n').font.size = Pt(9)
+    vendedor.add_run("Installed Base Specialist").font.size = Pt(9)
+    vendedor.add_run('\n').font.size = Pt(9)
+    vendedor.add_run(ui.var_telefone.get()).font.size = Pt(9)
+    vendedor.add_run('\n').font.size = Pt(9)
+    vendedor.add_run(ui.var_email.get()).font.size = Pt(9)
+    vendedor.add_run('\n\n\n').font.size = Pt(9)
+    vendedor.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    vendedor.paragraph_format.left_indent = Mm(-30.4)
+    p21 = doc.add_paragraph('Prezados (as) Senhores(as):\n\n')
+    p21.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    p22 = doc.add_paragraph('Temos o prazer de apresentar a nossa proposta técnico-comercial referente ao Projeto: ')
+    p22.add_run(ui.num_contrato_final.get())
+    p22.add_run("""\nEstamos confiantes que as informações contidas nesta proposta possam atender suas necessidades, demonstrando desta maneira a potencialidade de nossa empresa nos termos de qualidade de produtos e serviços.""")
+    p22.add_run('\nEsta proposta foi desenvolvida por Hewlett Packard Enterprise, que analisou todos os aspectos necessários para uma implementação bem sucedida.')
+    p22.add_run('\nEstamos confiantes em demonstrar os benefícios de valor agregado da proposta e construir um relacionamento de negócio sólido e benéfico para ambas as partes.')
+    p22.add_run('\nColocamo-nos à disposição para quaisquer esclarecimentos que se faça necessário.')
+    p22.add_run('\n\n\n\nAtenciosamente,')
+    p22.add_run('\n\n\n\n\n _____________________________\n\n\n')
+    p22.add_run(ui.vendedor.get())
+    p22.add_run('\n')
+    p22.add_run("Installed Base Specialist")
+    hpe = doc.add_paragraph('\n\n\n\n')
+    hpe.add_run('Hewlett Packard Enterprise').bold = True
+    hpe.add_run('\nAlameda Rio Negro, 750')
+    hpe.add_run('\nBarueri, SP, 06454-000')
+    hpe.add_run('\nBrazil')
+    hpe.add_run('\nwww.hpe.com')
+    hpe.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    hpe.paragraph_format.left_indent = Mm(-30.4)
+    doc.add_page_break()
+
+elif ui.proposta_final.get() == 1:
+
+    p2 = doc.add_paragraph('\n\n\nSão Paulo, ')
+    p2.add_run(ui.str_dt)
+    p2.add_run('\n\n\n')
+    p2 = doc.add_paragraph(ui.cliente_final.get())
+    p2.add_run(", ")
+    p2.add_run('\n\n\n')
+    vendedor = doc.add_paragraph()
+    vendedor.add_run(ui.vendedor.get()).font.size = Pt(9)
+    vendedor.add_run('\n').font.size = Pt(9)
+    vendedor.add_run("Installed Base Specialist").font.size = Pt(9)
+    vendedor.add_run('\n').font.size = Pt(9)
+    vendedor.add_run(ui.var_telefone.get()).font.size = Pt(9)
+    vendedor.add_run('\n').font.size = Pt(9)
+    vendedor.add_run(ui.var_email.get()).font.size = Pt(9)
+    vendedor.add_run('\n\n\n').font.size = Pt(9)
+    vendedor.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    vendedor.paragraph_format.left_indent = Mm(-30.4)
+    p21 = doc.add_paragraph('Prezados (as) Senhores(as):\n\n')
+    p21.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    p22 = doc.add_paragraph('A Hewlett Packard Brasil Ltda. (“HPE”) apresenta sua proposta técnica comercial referente ao Projeto de Suporte de Hardware e Software ')
+    p22.add_run(ui.num_contrato_final.get())
+    p22.add_run("\n\nEsta proposta foi desenvolvida pela HPE, que analisou todos os aspectos necessários para uma implementação e prestação de serviços, considerando o quanto requerido por este órgão.\n\nA HPE está confiante de que as informações contidas nesta proposta possam atender suas necessidades, demonstrando desta maneira a potencialidade da  empresa nos termos de qualidade de produtos e serviços.\n\nA HPE está confiante em demonstrar os benefícios de valor agregado da proposta e construir um relacionamento de negócio sólido e benéfico para ambas as partes, observadas as disposições contidas na Lei n ° 14.133/2021 no que tange a licitações e contratos da Administração Pública.\n\nColocamo-nos à disposição para quaisquer esclarecimentos que se faça necessário.")
+    p22.add_run('\n\n\n\nAtenciosamente,')
+    p22.add_run('\n\n\n\n\n _____________________________\n\n\n')
+    p22.add_run(ui.vendedor.get())
+    p22.add_run('\n')
+    p22.add_run("Installed Base Specialist")
+    hpe = doc.add_paragraph('\n\n\n\n')
+    hpe.add_run('Hewlett Packard Enterprise').bold = True
+    hpe.add_run('\nAlameda Rio Negro, 750')
+    hpe.add_run('\nBarueri, SP, 06454-000')
+    hpe.add_run('\nBrazil')
+    hpe.add_run('\nwww.hpe.com')
+    hpe.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    hpe.paragraph_format.left_indent = Mm(-30.4)
+    doc.add_page_break()
 
 # Pag 3
 
@@ -108,12 +148,11 @@ title4.add_run("Índice\n\n")
 p4 = doc.add_paragraph()
 p4.add_run('1. Resumo Executivo	                                                                                  5\n')
 p4.add_run('2. Serviços de Suporte	                                                                      7\n')
-p4.add_run('3. Especificações dos Níveis de Serviços	                                            13\n')
-p4.add_run('4. Suporte a Produtos Multivendor	                                                        24\n')
-p4.add_run('5. Condições Comerciais         	                                                        25\n')
-p4.add_run('6. Condições Gerais                	                                                        29\n')
-p4.add_run('7. Termo de Aceite da Proposta / Pedido de Compra                               31\n')
-p4.add_run('8. Anexos                	                                                                               32\n')
+p4.add_run('3. Especificações dos Níveis de Serviços	                                             11\n')
+p4.add_run('4. Condições Comerciais         	                                                        21\n')
+p4.add_run('5. Condições Gerais                	                                                        28\n')
+p4.add_run('6. Termo de Aceite da Proposta / Pedido de Compra                               30\n')
+p4.add_run('7. Anexos                	                                                                               32\n')
 doc.add_page_break()
 
 # Pag 5
@@ -134,7 +173,6 @@ p5.add_run('Nossa equipe de gerenciamento apresenta um histórico comprovado de 
 p5.add_run('\nUm parceiro de transformação com a visão e a abrangência para ajudar os clientes a alcançar ótimos resultados comerciais').font.size = Pt(10)
 p5.paragraph_format.line_spacing = Pt(13)
 doc.add_picture('image_page5.png', width=Pt(350))
-p5.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 doc.add_page_break()
 
 # Pag 6 
@@ -238,7 +276,7 @@ elif ui.contrato_final.get() == 2:
 # pag 12, 13, 14
 # if rts
 
-if ui.rts_final.get() == 1:
+if ui.rts_final.get() == 0:
 
     title8 = doc.add_heading(level=0)
     title8.add_run('\n\n2.4.	Vistoria de Hardware / RTS')
@@ -337,7 +375,7 @@ if ui.servico_final.get() == 0:
     table3.cell(7, 1).text = "Para produtos HPE compatíveis usando as ferramentas de serviço proprietárias HPE (incluindo o HPE InfoSight), e quando estiverem conectados, os dispositivos podem submeter os incidentes à HPE automaticamente, com informações diagnósticas que podem acelerar os diagnósticos e reparos\nOnde o monitoramento e submissão automática de incidentes identificar problemas críticos que exijam o envolvimento da HPE, a HPE procura responder ao contato do cliente previamente identificado dentro da janela de cobertura do serviço, de acordo com as definições do nível de serviço adquirido. \nCaso o cliente não esteja disponível no momento do contato, ou caso solicite, a HPE agendará o acompanhamento para o próximo dia útil. Todos os problemas não-críticos serão acompanhados no próximo dia útil. Os clientes podem, a qualquer momento, de acordo com o seu nível de serviço, entrar em contato com a HPE para solicitar a continuidade do diagnóstico e da resolução do problema.\nPara mais informações, visite hpe.com/services/getconnected.\n"
 
     title92 = doc.add_heading(level=0)
-    title92.add_run("3.2.	ZONAS DE DESLOCAMENTO ")
+    title92.add_run("\n3.2.	ZONAS DE DESLOCAMENTO ")
     p92 = doc.add_paragraph()
     p92.add_run("\n\nTodos os tempos de resposta do Serviço de Troca e com presença no local para hardware se aplicam somente a áreas situadas dentro de uma distância de 160 km de um centro de suporte designado pela HPE. A viagem de descolamento dentro de um raio de 320 km de distância de um centro de suporte designado pela HPE é oferecida sem custos adicionais. Se o local estiver situado a mais de 320 km do centro de suporte designado pela HPE, haverá uma cobrança adicional. As zonas de deslocamentos e os custos, se aplicáveis, podem variar em algumas regiões. Os custos de postagem (em caso de troca de peças), se aplicáveis,  podem variar em algumas regiões. Os tempos de resposta para locais situados a mais de 160 km de um centro de suporte designado pela HPE serão modificados para incluir o tempo de deslocamento, conforme mostra a tabela a seguir. ")
     p92.add_run("\n\nTABELA 9. ").bold = True
@@ -569,9 +607,8 @@ elif ui.servico_final.get() == 2:
     p90.add_run("\n\nConsulte as disposições gerais listadas no contrato (SOW) ou, se estiver comprando com o HPE Pointnext Complete Care Starter Pack, consulte a seção Provisões gerais da ficha técnica do HPE Pointnext Complete Care, que é incorporada a este documento como referência.")
     p90.add_run("\n\nO cliente reconhece e concorda que a HPE pode usar recursos fora do país da aquisição, para fornecimento desses serviços, a menos que seja especificado de outra forma como parte da descrição do recurso do serviço.")
 
-# if mv
 
-if ui.mv_final.get() == 1:
+if ui.mv_final.get() == 0:
 
     title10 = doc.add_heading(level=0)
     title10.add_run("4.	Suporte a Produtos Multivendor outras marcas")
@@ -597,12 +634,11 @@ if ui.mv_final.get() == 1:
     p10.add_run("\n•	Fornecer as informações necessárias do ambiente atual em tempo hábil.\n•	Validar e aprovar a documentação entregue. \n•	Liberação de acesso ao site/Datacenter onde se encontram os equipamentos\n•	Envio dos logs solicitados durante a fase de diligência e ao longo do período de contrato para a análise e prestação do serviço de suporte. O atraso e/ou o não envio dos logs solicitados, pode acarretar no não cumprimento dos níveis de serviço acordado.")
 
 # pag 30
-# if eosl
 
-if ui.eosl_final.get() == 1:
+if ui.eosl_final.get() == 0:
 
     title11 = doc.add_heading(level=0)
-    title11.add_run("5.	Suporte para produtos HPE que atingiram a data de “fim da Vida Útil – EoSL ")
+    title11.add_run("5.	Suporte para produtos HPE que atingiram a data de fim da Vida Útil – EoSL ")
     title11.add_run("\n\n5.1	Detalhes deste Serviço")
     p11 = doc.add_paragraph()
     p11.add_run("\n\nAplicavel aos contratos que contenham algum dos Números de produto abaixo:\nH7J32AC, H7J34AC, H7J36AC")
@@ -730,30 +766,68 @@ doc.add_page_break()
 
 # pag 38
 
-title17 = doc.add_heading(level=0)
-title17.add_run("5.	Condições Gerais")
-title17.add_run("Obrigações da Hewlett Packard Enterprise")
-p26 = doc.add_paragraph()
-p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  responsabiliza-se por todos os ônus e encargos trabalhistas e previdenciários resultantes da contratação e emprego de pessoas para a realização dos serviços objeto desta proposta, bem como pelos excessos e omissões praticados pelos mesmos, razão pela qual é a HEWLETT PACKARD ENTERPRISE  considerada empregadora autônoma, não existindo entre ela e seus empregados, vínculo de qualquer natureza com o Cliente.")
-p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  obriga-se a não divulgar, reproduzir, vender ou utilizar a favor de terceiros, os trabalhos e demais dados obtidos no Cliente, através da prestação dos serviços descriminados nesta proposta, sob a pena de responsabilidade civil e criminal.")
-p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  obriga-se, ainda, a executar os serviços, dentro das boas técnicas e dos costumes usuais em trabalho deste gênero, bem como a utilização de mão-de-obra qualificada.")
-p26.add_run("\n\nTodos os tributos (impostos, taxas e contribuições) de natureza federal, estadual e municipal, incidentes ou que venham a incidir sobre o objeto deste contrato serão de responsabilidade única da HEWLETT PACKARD ENTERPRISE .")
-# recisão check
-p27 = doc.add_paragraph()
-p27.add_run("\n\nRecisão").bold = True
-p27.add_run("\n\nQualquer das partes poderá rescindir este Contrato total ou parcialmente, mediante notificação por escrito à outra parte com 90 (noventa) dias de antecedência, exceto nos casos em que os equipamentos se tornarem obsoletos, hipótese em que este Contrato pode ser rescindido total ou parcialmente mediante notificação com 30 (trinta) dias de antecedência.  ")
+if ui.proposta_final.get() == 0:
 
-p28 = doc.add_paragraph()
-p28.add_run("\n\nTransferência").bold = True
-p28.add_run("\n\nEste acordo, bem como qualquer direito ou obrigação aqui estabelecidos, não poderão ser cedidos ou transferidos, no todo ou em parte, por qualquer uma das partes sem o prévio consentimento por escrito da outra. No entanto, a HEWLETT PACKARD ENTERPRISE  terá o direito de ceder ou transferir quaisquer dos seus direitos e obrigações decorrentes do presente contrato, caso ocorra qualquer alteração na estrutura societária da HEWLETT PACKARD ENTERPRISE , parcial ou total (por “spin-off”, cisão, alienação de bens ou mediante qualquer outra operação societária semelhante). A HEWLETT PACKARD ENTERPRISE  deverá notificar o Cliente, por escrito e em tempo razoável, após qualquer cessão ou transferência de quaisquer de suas obrigações ou direitos, conforme disposto acima. ")
-p28.add_run("\n\nTermos e Condições Contratuais").bold = True
-p28.add_run("\n\nAos Produtos e Serviços aqui ofertados aplicam-se o “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, registrado no Cartório Oficial de Registro de Títulos e Documentos da Comarca de Barueri – SP, protocolizado em títulos e documentos sob o nº 1774062 em 18 de outubro de 2021.\nCaso haja condições comerciais descritas nessa proposta divergentes das descritas no “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, prevalecem as condições da proposta.\nO Cliente, ao emitir um Pedido de Compra, formalizando a contratação com base nesta Proposta, aceita que:")
-p28.add_run("\n\n(i) os termos e condições constantes do “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)” são os únicos aplicáveis à contratação, excluindo-se expressamente todos os termos e condições padrão do Cliente que constem do referido Pedido, termos e condições estes que não produzirão quaisquer efeitos entre as partes, a qualquer título, mesmo que o Pedido do Cliente seja aceito pela HEWLETT PACKARD ENTERPRISE  e mesmo que haja disposição em contrário no referido Pedido de Compra. A HEWLETT PACKARD ENTERPRISE , ao apresentar esta Proposta e ao aceitar eventual Pedido de Compra, rejeita expressamente quaisquer termos e condições padrão do Cliente. \nEstes Termos constituem o acordo integral entre a HEWLETT PACKARD ENTERPRISE  e o Cliente a respeito da compra pelo Cliente de produtos e serviços da HEWLETT PACKARD ENTERPRISE , e substituem e cancelam quaisquer comunicações, declarações ou acordos anteriores, assim como quaisquer condições adicionais ou inconsistentes do Cliente, sejam verbais ou por escrito.")
-p28.add_run("\n\nAcordo Integral").bold = True
-p28.add_run("\n\nAo aceitar a presente Proposta, mediante assinatura deste instrumento e/ou emissão do Pedido de Compra, a mesma passa a ter força de contrato entre as partes.  Os Termos, referidos acima, constituem o acordo integral entre a HEWLETT PACKARD ENTERPRISE  e o Cliente a respeito da compra pelo Cliente de produtos e serviços da HEWLETT PACKARD ENTERPRISE , e substituem e cancelam quaisquer comunicações, declarações ou acordos anteriores, assim como quaisquer condições adicionais ou inconsistentes do Cliente, sejam verbais ou por escrito.")
-p28.add_run("\n\nRestrições de Uso e Divulgação da Proposta").bold = True
-p28.add_run("\n\nAs informações (dados) que constam de todas as folhas deste documento/cotação constituem informações confidenciais da Hewlett Packard Enterprise Ltda. (doravante referenciada “HEWLETT PACKARD ENTERPRISE ”). As informações fornecidas ao cliente não podem ser usadas ou divulgadas, sem a prévia autorização da HEWLETT PACKARD ENTERPRISE , para propósitos que não sejam os de avaliação da proposta.\nAs propostas da HEWLETT PACKARD ENTERPRISE  poderão ser submetidas via email e mídia eletrônica para sua conveniência. Se o conteúdo diferenciar entre as cópias impressas e mídia eletrônica, somente o conteúdo da impressa será garantido pela HEWLETT PACKARD ENTERPRISE.")
-doc.add_page_break()
+    title17 = doc.add_heading(level=0)
+    title17.add_run("5.	Condições Gerais")
+    title17.add_run("\n\nObrigações da Hewlett Packard Enterprise")
+    p26 = doc.add_paragraph()
+    p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  responsabiliza-se por todos os ônus e encargos trabalhistas e previdenciários resultantes da contratação e emprego de pessoas para a realização dos serviços objeto desta proposta, bem como pelos excessos e omissões praticados pelos mesmos, razão pela qual é a HEWLETT PACKARD ENTERPRISE  considerada empregadora autônoma, não existindo entre ela e seus empregados, vínculo de qualquer natureza com o Cliente.")
+    p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  obriga-se a não divulgar, reproduzir, vender ou utilizar a favor de terceiros, os trabalhos e demais dados obtidos no Cliente, através da prestação dos serviços descriminados nesta proposta, sob a pena de responsabilidade civil e criminal.")
+    p26.add_run("\n\nA HEWLETT PACKARD ENTERPRISE  obriga-se, ainda, a executar os serviços, dentro das boas técnicas e dos costumes usuais em trabalho deste gênero, bem como a utilização de mão-de-obra qualificada.")
+    p26.add_run("\n\nTodos os tributos (impostos, taxas e contribuições) de natureza federal, estadual e municipal, incidentes ou que venham a incidir sobre o objeto deste contrato serão de responsabilidade única da HEWLETT PACKARD ENTERPRISE .")
+
+
+    p27 = doc.add_paragraph()
+    p27.add_run("\n\nRecisão").bold = True
+    p27.add_run("\n\nQualquer das partes poderá rescindir este Contrato total ou parcialmente, mediante notificação por escrito à outra parte com 90 (noventa) dias de antecedência, exceto nos casos em que os equipamentos se tornarem obsoletos, hipótese em que este Contrato pode ser rescindido total ou parcialmente mediante notificação com 30 (trinta) dias de antecedência.  ")
+
+    if ui.rescisao_final.get() == 0:
+        p27.add_run("\nRescisão atual: 90 dias")
+    elif ui.rescisao_final.get() == 1:
+        p27.add_run("\nRescisão atual: 30 dias")
+
+    p28 = doc.add_paragraph()
+    p28.add_run("\n\nTransferência").bold = True
+    p28.add_run("\n\nEste acordo, bem como qualquer direito ou obrigação aqui estabelecidos, não poderão ser cedidos ou transferidos, no todo ou em parte, por qualquer uma das partes sem o prévio consentimento por escrito da outra. No entanto, a HEWLETT PACKARD ENTERPRISE  terá o direito de ceder ou transferir quaisquer dos seus direitos e obrigações decorrentes do presente contrato, caso ocorra qualquer alteração na estrutura societária da HEWLETT PACKARD ENTERPRISE , parcial ou total (por “spin-off”, cisão, alienação de bens ou mediante qualquer outra operação societária semelhante). A HEWLETT PACKARD ENTERPRISE  deverá notificar o Cliente, por escrito e em tempo razoável, após qualquer cessão ou transferência de quaisquer de suas obrigações ou direitos, conforme disposto acima. ")
+    p28.add_run("\n\nTermos e Condições Contratuais").bold = True
+    p28.add_run("\n\nAos Produtos e Serviços aqui ofertados aplicam-se o “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, registrado no Cartório Oficial de Registro de Títulos e Documentos da Comarca de Barueri – SP, protocolizado em títulos e documentos sob o nº 1774062 em 18 de outubro de 2021.\nCaso haja condições comerciais descritas nessa proposta divergentes das descritas no “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, prevalecem as condições da proposta.\nO Cliente, ao emitir um Pedido de Compra, formalizando a contratação com base nesta Proposta, aceita que:")
+    p28.add_run("\n\n(i) os termos e condições constantes do “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)” são os únicos aplicáveis à contratação, excluindo-se expressamente todos os termos e condições padrão do Cliente que constem do referido Pedido, termos e condições estes que não produzirão quaisquer efeitos entre as partes, a qualquer título, mesmo que o Pedido do Cliente seja aceito pela HEWLETT PACKARD ENTERPRISE  e mesmo que haja disposição em contrário no referido Pedido de Compra. A HEWLETT PACKARD ENTERPRISE , ao apresentar esta Proposta e ao aceitar eventual Pedido de Compra, rejeita expressamente quaisquer termos e condições padrão do Cliente. \nEstes Termos constituem o acordo integral entre a HEWLETT PACKARD ENTERPRISE  e o Cliente a respeito da compra pelo Cliente de produtos e serviços da HEWLETT PACKARD ENTERPRISE , e substituem e cancelam quaisquer comunicações, declarações ou acordos anteriores, assim como quaisquer condições adicionais ou inconsistentes do Cliente, sejam verbais ou por escrito.")
+    p28.add_run("\n\nAcordo Integral").bold = True
+    p28.add_run("\n\nAo aceitar a presente Proposta, mediante assinatura deste instrumento e/ou emissão do Pedido de Compra, a mesma passa a ter força de contrato entre as partes.  Os Termos, referidos acima, constituem o acordo integral entre a HEWLETT PACKARD ENTERPRISE  e o Cliente a respeito da compra pelo Cliente de produtos e serviços da HEWLETT PACKARD ENTERPRISE , e substituem e cancelam quaisquer comunicações, declarações ou acordos anteriores, assim como quaisquer condições adicionais ou inconsistentes do Cliente, sejam verbais ou por escrito.")
+    p28.add_run("\n\nRestrições de Uso e Divulgação da Proposta").bold = True
+    p28.add_run("\n\nAs informações (dados) que constam de todas as folhas deste documento/cotação constituem informações confidenciais da Hewlett Packard Enterprise Ltda. (doravante referenciada “HEWLETT PACKARD ENTERPRISE ”). As informações fornecidas ao cliente não podem ser usadas ou divulgadas, sem a prévia autorização da HEWLETT PACKARD ENTERPRISE , para propósitos que não sejam os de avaliação da proposta.\nAs propostas da HEWLETT PACKARD ENTERPRISE  poderão ser submetidas via email e mídia eletrônica para sua conveniência. Se o conteúdo diferenciar entre as cópias impressas e mídia eletrônica, somente o conteúdo da impressa será garantido pela HEWLETT PACKARD ENTERPRISE.")
+    doc.add_page_break()
+
+elif ui.proposta_final.get() == 1:
+
+    title17 = doc.add_heading(level=0)
+    title17.add_run("5.	Condições Gerais")
+    title17.add_run("Termos e Condições Contratuais")
+    p26 = doc.add_paragraph()
+    p26.add_run("\n\nAos Produtos e Serviços aqui ofertados aplicam-se o disposto na Lei nº 14.133/2021e demais legislações aplicáveis ao assunto. \n\nCaso haja condições comerciais descritas nessa proposta divergentes das descritas no contrato firmado entre as partes, prevalecem as condições da proposta.")
+    p26.add_run("\n\nAcordo Integral").bold = True
+    p26.add_run("\n\nEstes Termos constituem o acordo integral entre a HEWLETT PACKARD ENTERPRISE   e o Cliente a respeito da compra pelo Cliente de produtos e serviços da HEWLETT PACKARD ENTERPRISE, e substituem e cancelam quaisquer comunicações, declarações ou acordos anteriores, assim como quaisquer condições adicionais ou inconsistentes do Cliente, sejam verbais ou por escrito.")
+    p26.add_run("\n\nRestrições de Uso e Divulgação da Proposta").bold = True
+    p26.add_run("\n\nAs informações (dados) que constam de todas as folhas deste documento/cotação constituem informações confidenciais da Hewlett Packard Enterprise Ltda. (doravante referenciada “HEWLETT PACKARD ENTERPRISE  ”). As informações fornecidas ao cliente não podem ser usadas ou divulgadas, sem a prévia autorização da HEWLETT PACKARD ENTERPRISE, para propósitos que não sejam os de avaliação da proposta. \nAs propostas da HEWLETT PACKARD ENTERPRISE   poderão ser submetidas via email e mídia eletrônica para sua conveniência. Se o conteúdo diferenciar entre as cópias impressa e mídia eletrônica, somente o conteúdo da impressa será garantido pela HEWLETT PACKARD ENTERPRISE.")
+    p26.add_run("\n\nDeclaração de Anticorrupção").bold = True 
+    p26.add_run("\n\nAs partes declaram que seus empregados, representantes, dirigentes ou administradores, direta ou indiretamente, não efetuaram qualquer promessa, oferta, solicitação ou aceite de qualquer vantagem indevida, de qualquer natureza, para a execução desta Proposta ou que esteja sob qualquer forma conexa com a presente Proposta, bem como obrigam-se a cumprir, o disposto na Lei nº. 12.846/2013.")
+    p26.add_run("\n\nAs partes declaram, pelo presente, que não praticam ou praticarão qualquer atividade que viole qualquer legislação anticorrupção, incluindo, o US Foreign Corrupt Practices Act – FCPA, o UK Bribery Act, a Lei Federal nº. 12.846/13 e quaisquer Decretos, Leis Estaduais ou Municipais.")
+    p26.add_run("\n\nAs partes declaram que têm conhecimento da Lei nº. 12.846/2013, bem com comprometem-se a não praticar qualquer dos atos lesivos à Administração Pública elencados no Art. 5º, incisos e alíneas, seja durante o certame licitatório, seja no decorrer da execução do contrato, sob pena de responsabilização, independente da aferição de culpa. Declara, ainda, para os devidos fins, estar ciente das sanções previstas na referida legislação, além daquelas cominadas na Lei nº. 14.133/2021, demais normas de licitações e contratos da Administração Pública e normas correlatas.")
+    p26.add_run("\n\nObrigações da Hewlett Packard Enterprise").bold = True
+    p26.add_run("\n\nA HPE responsabiliza-se por todos os ônus e encargos trabalhistas e previdenciários resultantes da contratação e emprego de pessoas para a realização dos serviços objeto desta proposta, bem como pelos excessos e omissões praticados pelos mesmos, razão pela qual é a HPE considerada empregadora autônoma, não existindo entre ela e seus empregados, vínculo de qualquer natureza com o Cliente.")
+    p26.add_run("\n\nA HPE obriga-se a não divulgar, reproduzir, vender ou utilizar a favor de terceiros, os trabalhos e demais dados obtidos no Cliente, através da prestação dos serviços descriminados nesta proposta, sob a pena de responsabilidade civil e criminal.\n\nA HPE obriga-se, ainda, a executar os serviços, dentro das boas técnicas e dos costumes usuais em trabalho deste gênero, bem como a utilização de mão-de-obra qualificada.\n\nTodos os tributos (impostos, taxas e contribuições) de natureza federal, estadual e municipal, incidentes ou que venham a incidir sobre o objeto deste contrato serão de responsabilidade única da HPE.")
+
+    p27 = doc.add_paragraph()
+    p27.add_run("\n\nRecisão").bold = True
+    p27.add_run("\n\nQualquer das partes poderá rescindir este Contrato total ou parcialmente, mediante notificação por escrito à outra parte com 90 (noventa) dias de antecedência, exceto nos casos em que os equipamentos se tornarem obsoletos, hipótese em que este Contrato pode ser rescindido total ou parcialmente mediante notificação com 30 (trinta) dias de antecedência.  ")
+
+    if ui.rescisao_final.get() == 0:
+        p27.add_run("\nRescisão atual: 90 dias")
+    elif ui.rescisao_final.get() == 1:
+        p27.add_run("\nRescisão atual: 30 dias")
+
+    doc.add_page_break()
 
 # pag 40
 
@@ -761,10 +835,10 @@ title18 = doc.add_heading(level=0)
 title18.add_run("6.	Termo de Aceite da Proposta / Pedido de Compra")
 p29 = doc.add_paragraph()
 p29.add_run("A Hewlett Packard Enterprise.")
-p29.add_run("A/C:  Sr. (a) ")
+p29.add_run("\nA/C:  Sr. (a) ")
 p29.add_run(ui.vendedor.get())
 p29.add_run("/ Tel: ")
-p29.add_run(ui.telefone_final.get())
+p29.add_run(ui.var_telefone.get())
 p29.add_run("\nEste documento tem como objetivo formalizar o aceite da proposta/cotação da Hewlett-Packard número OPE:")
 p29.add_run(ui.ope_final.get())
 p29.add_run(", referente ao projeto")
@@ -778,7 +852,7 @@ table13.autofit = True
 table13.allow_autofit = True
 for row13 in table13.rows:
     for cell13 in row13.cells:
-        cell13.width = Pt(200)
+        cell13.width = Pt(250)
 table13.cell(0, 0).text = "DECLARAÇÃO DE ACEITE DESTA PROPOSTA E ANEXOS"
 a = table13.cell(0, 0)
 b = table13.cell(0, 2)
