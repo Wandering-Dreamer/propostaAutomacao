@@ -47,8 +47,8 @@ pagamento_final = IntVar()
 renovacao_final = IntVar()
 
 
-""" logo = tk.PhotoImage(file="hp_logo.png").subsample(14, 15)
-tk.Label(root, image=logo).pack() """
+logo = tk.PhotoImage(file="./_internal/hp_logo.png").subsample(14, 15)
+tk.Label(root, image=logo).pack()
 root.geometry("600x800+100-100")
 root.title("Alteração de Proposta")
 root.proposta = ["Privada", "Pública"]

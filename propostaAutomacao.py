@@ -11,7 +11,7 @@ import ui
 basedir = os.path.dirname(__file__)
 
 # Pag 1
-doc = Document("C:/Users/santosga/Documents/Python/output/propostaAutomacao/_internal/template.docx")
+doc = Document("./_internal/template.docx")
 
 section = doc.sections[0]
 
@@ -34,7 +34,7 @@ p.add_run(ui.str_dt)
 p = doc.add_paragraph('Proposta Técnica Comercial ')
 p.add_run(ui.ope_final.get())
 p.add_run('\n\n\n')
-doc.add_picture('C:/Users/santosga/Documents/Python/output/propostaAutomacao/_internal/image_page1.jpg', width=Pt(500))
+doc.add_picture('./_internal/image_page1.jpg', width=Pt(500))
 doc.add_page_break()
 
 
@@ -175,7 +175,7 @@ p5.add_run('\nEquipe de liderança experiente com histórico comprovado de desem
 p5.add_run('Nossa equipe de gerenciamento apresenta um histórico comprovado de desempenho e execução. Nossa equipe de gerenciamento sênior soma mais de 100 anos de experiência na área e possui amplo conhecimento e experiência no setor de TI comercial e nos mercados em que competimos. Além disso, possuímos um amplo banco de talentos em gerenciamento e tecnologia que — acreditamos — nos oferece pipeline sem precedentes para futuros líderes e inovadores.')
 p5.add_run('\nUm parceiro de transformação com a visão e a abrangência para ajudar os clientes a alcançar ótimos resultados comerciais').font.size = Pt(10)
 p5.paragraph_format.line_spacing = Pt(13)
-doc.add_picture('C:/Users/santosga/Documents/Python/output/propostaAutomacao/_internal/image_page5.png', width=Pt(350))
+doc.add_picture('./_internal/image_page5.png', width=Pt(350))
 doc.add_page_break()
 
 # Pag 6 
@@ -345,9 +345,9 @@ if ui.servico_final.get() == 0:
     table2.cell(0, 0).text = "(Critical) - PNs abaixo: \nHU4A3AC\nHU4A4AC\nHU4A5AC"
     table2.cell(1, 0).text = "(Essential) - PNs abaixo:\nHU4A6AC\nHU4A7AC\nHU4A8AC\nHU4A9AC\nHU4B0AC\nHU4B1AC"
     table2.cell(2, 0).text = "(Basic) - PNs abaixo: \nHU4B2AC\nHU4B3AC\nHU4B4AC\nHU4B5AC\nHU4B6AC\nHU4B7AC"
-    table2.cell(0, 1).text = "Resposta em 15 minutos, 24x7, para incidentes com severidade 1 (conecte-se diretamente aos especialistas nos produtos, quando houver disponibilidade) \nGerenciamento de interrupções para incidentes de severidade 1 Compromisso de reparo de hardware em 6 horas, 24x7 (se necessário)"
-    table2.cell(1, 1).text = "Resposta em 15 minutos, 24x7, para incidentes com severidade 1 (conecte-se diretamente aos especialistas nos produtos, quando houver disponibilidade) \nAtendimento no local em 4 horas, 24x7."
-    table2.cell(2, 1).text = "Resposta em 2 horas, 9x5 (horário comercial padrão) Atendimento no local no próximo dia útil."
+    table2.cell(0, 1).text = "\nResposta em 15 minutos, 24x7, para incidentes com severidade 1 (conecte-se diretamente aos especialistas nos produtos, quando houver disponibilidade) \nGerenciamento de interrupções para incidentes de severidade 1 Compromisso de reparo de hardware em 6 horas, 24x7 (se necessário)\n"
+    table2.cell(1, 1).text = "\nResposta em 15 minutos, 24x7, para incidentes com severidade 1 (conecte-se diretamente aos especialistas nos produtos, quando houver disponibilidade) \nAtendimento no local em 4 horas, 24x7.\n"
+    table2.cell(2, 1).text = "\nResposta em 2 horas, 9x5 (horário comercial padrão) Atendimento no local no próximo dia útil.\n"
     p91 = doc.add_paragraph()
     p91.add_run("\nTodos os níveis de serviço oferecem acesso 24x7 a recursos de autoatendimento e autorresolução de problemas, registro de incidentes 24x7 e, para os dispositivos compatíveis, análises HPE InfoSight e submissão automatizada de incidentes 24x7. As opções de nível de serviço HPE Pointnext Tech Care destacadas são dependentes do produto. A HPE fornecerá os recursos de suporte a hardware para os produtos de hardware cobertos e os recursos de suporte a software para os produtos de software cobertos.")
     p91.add_run("\nAlguns recursos dos serviços talvez não estejam disponíveis em alguns idiomas e localidades. Todos os períodos de cobertura estão sujeitos à disponibilidade local. A elegibilidade do produto pode variar. Entre em contato com um escritório local de vendas da HPE ou com o representante de vendas HPE para obter informações detalhadas sobre a disponibilidade do serviço e a elegibilidade do produto.")
@@ -369,13 +369,13 @@ if ui.servico_final.get() == 0:
     table3.cell(6, 0).text = "Alertas preventivos do HPE InfoSight"
     table3.cell(7, 0).text = "Registro automatizado de incidentes"
     table3.cell(0, 1).text = "Especificações de fornecimento"
-    table3.cell(1, 1).text = "Os clientes podem entrar em contato com o suporte HPE pelo telefone 24 horas por dia, 7 dias por semana, para registrar incidentes de suporte. O tempo de resposta dependerá do nível de serviço do produto coberto\nResposta aprimorada em 15 minutos, 24x7 (níveis de serviço Critical e Essential)\nPara incidentes de severidade 1, a HPE procura conectar o cliente a um especialista no produto ou ligar novamente para o cliente em até 15 minutos. Para outros incidentes, a HPE pode conectar o cliente a um especialista no produto ou ligar novamente para o cliente em até uma hora.\nResposta padrão em 2 horas (nível de serviço Basic)\nPara ligações sobre produtos cobertos por um contrato de serviço básico, a HPE fornecerá uma resposta por telefone em até 2 horas, realizada por um especialista durante a janela de cobertura. A disponibilidade pode variar para determinados produtos. Consulte hpe.com/services/expertchat para obter detalhes ou entre em contato com o representante de vendas HPE local.\n"
-    table3.cell(2, 1).text = "Os clientes podem iniciar um bate-papo online com um recurso técnico especialista para fazer perguntas, obter ajuda ou orientação técnica geral. O bate papo online com especialistas é oferecido para que os clientes obtenham respostas rápidas sobre questões técnicas relacionadas aos seus produtos HPE. \nQuestões complexas que exijam respostas detalhadas podem ser elevadas a incidentes de suporte conforme a necessidade. O bate-papo online com especialistas é limitado apenas ao idioma inglês e está disponível durante a janela de cobertura do serviço. A disponibilidade pode variar para determinados produtos. Consulte hpe.com/services/expertchat para obter detalhes ou entre em contato com o representante de vendas HPE local.\n"
-    table3.cell(3, 1).text = "Os clientes podem postar perguntas e problemas, ou discutir o uso dos produtos dentro dos fóruns da comunidade HPE. Os especialistas em produtos HPE respondem em dois dias úteis a qualquer questão não resolvida que for levantada dentro do fórum oficial da comunidade HPE para produtos cobertos pelos serviços de suporte da HPE. \nNos casos de postagens sobre tópicos que deveriam ser abordados por processos de suporte padrão, a HPE solicita que um incidente de suporte formal seja criado e segue os processos padrão de gerenciamento de incidentes da HPE. A resposta do recurso técnico especialista é limitada apenas ao idioma inglês e exige que o usuário seja registrado no HPE Support Center e esteja associado aos contratos de serviço.\n"
-    table3.cell(4, 1).text = "A HPE se empenha para oferecer orientação técnica geral relativa às questões e perguntas específicas sobre os tópicos destacados a seguir acerca da operação e gerenciamento dos produtos dos clientes cobertos pelo HPE Pointnext Tech Care. A orientação técnica geral está disponível pelo telefone, internet e bate-papo, está sujeita à janela de cobertura do serviço constante no contrato de serviço e será tratada como um incidente severidade 3.\nQuando for relacionada aos assuntos detalhados ou descritos a seguir, a HPE identificará documentos, vídeos e artigos da base de conhecimento para ajudar nos tópicos abordados.\nAlém de qualquer limitação ou exclusão estabelecida nesta ficha técnica, qualquer orientação técnica geral da HPE será fornecida especificamente para os tópicos detalhados aqui e apenas para os produtos HPE cobertos por esses serviços:\n	Uso ou procedimentos corretos para usar os recursos dos produtos\nAssistência na identificação de documentação relevante ou artigos da base de conhecimento\nConselhos sobre as melhores práticas da HPE para ajudar você a gerenciar e manter os seus produtos	\nNavegação básica para usar a interface de gerenciamento do produto\nConselhos sobre as opções de gerenciamento de capacidade com base nas tendências de uso dos produtos (quando disponível)\nOrientações sobre a configuração geral do produto, que pode incluir recomendações de melhores práticas com base na experiência operacional da HPE\nOrientação sobre os passos potenciais para ajudar a trazer o produto para uma configuração compatível\nOs tópicos de orientação técnica geral mencionados anteriormente podem não ser aplicáveis a todos os produtos de hardware e/ou software cobertos por este serviço.\n"
-    table3.cell(5, 1).text = "Para produtos HPE compatíveis com o HPE InfoSight (lista disponível no link a seguir), a HPE oferece suporte e orientação para a preparação, configuração e uso do HPE InfoSight.\nAdicionalmente, para esses produtos conectados, a HPE expande sua orientação técnica geral para incluir análises do HPE InfoSight, bem como os alertas e as recomendações fornecidas. Para produtos HPE configurados, mediante solicitação, a HPE oferece assistência aos clientes para que entendam os problemas, alertas e informações oferecidas pelo HPE InfoSight.\nNos casos em que as análises oferecerem recomendações incluídas nos insights da carga de trabalho HPE InfoSight, a HPE pode oferecer a qualificação da análise, recomendações e os melhores próximos passos gerais em acordo com as orientações técnicas gerais.\nPara mais informações sobre o HPE InfoSight, cobertura de dispositivos e recursos, visite infosight.hpe.com.\n"
-    table3.cell(6, 1).text = "Para os produtos HPE cobertos por um contrato de serviço, conectado a e conforme compatibilidade com o HPE InfoSight: Os clientes ganham acesso a rotinas automatizadas de monitoramento que podem identificar problemas potenciais usando assinaturas regras e determinações exclusivas da HPE. \nPara problemas identificados pelo HPE InfoSight, o HPE InfoSight alerta os clientes sobre os problemas e identifica oportunidades para ações corretivas e, de acordo com a sua criticidade, pode automaticamente submeter os incidentes à HPE com as informações diagnosticadas para acelerar os diagnósticos e reparos. \nOs recursos podem variar de acordo com o produto; os dispositivos devem ser compatíveis com o HPE InfoSight, e exige-se conectividade com o HPE InfoSight.\nNos casos em que os clientes configuram o HPE InfoSight para os produtos HPE compatíveis cobertos pelo HPE Pointnext Tech Care, eles ganham acesso aos recursos analíticos aprimorados do HPE InfoSight, que oferecem insights de produtos e alertas de problemas detalhados, além de oportunidades de uso e configuração.\n"
-    table3.cell(7, 1).text = "Para produtos HPE compatíveis usando as ferramentas de serviço proprietárias HPE (incluindo o HPE InfoSight), e quando estiverem conectados, os dispositivos podem submeter os incidentes à HPE automaticamente, com informações diagnósticas que podem acelerar os diagnósticos e reparos\nOnde o monitoramento e submissão automática de incidentes identificar problemas críticos que exijam o envolvimento da HPE, a HPE procura responder ao contato do cliente previamente identificado dentro da janela de cobertura do serviço, de acordo com as definições do nível de serviço adquirido. \nCaso o cliente não esteja disponível no momento do contato, ou caso solicite, a HPE agendará o acompanhamento para o próximo dia útil. Todos os problemas não-críticos serão acompanhados no próximo dia útil. Os clientes podem, a qualquer momento, de acordo com o seu nível de serviço, entrar em contato com a HPE para solicitar a continuidade do diagnóstico e da resolução do problema.\nPara mais informações, visite hpe.com/services/getconnected.\n"
+    table3.cell(1, 1).text = "\nOs clientes podem entrar em contato com o suporte HPE pelo telefone 24 horas por dia, 7 dias por semana, para registrar incidentes de suporte. O tempo de resposta dependerá do nível de serviço do produto coberto\nResposta aprimorada em 15 minutos, 24x7 (níveis de serviço Critical e Essential)\nPara incidentes de severidade 1, a HPE procura conectar o cliente a um especialista no produto ou ligar novamente para o cliente em até 15 minutos. Para outros incidentes, a HPE pode conectar o cliente a um especialista no produto ou ligar novamente para o cliente em até uma hora.\nResposta padrão em 2 horas (nível de serviço Basic)\nPara ligações sobre produtos cobertos por um contrato de serviço básico, a HPE fornecerá uma resposta por telefone em até 2 horas, realizada por um especialista durante a janela de cobertura. A disponibilidade pode variar para determinados produtos. Consulte hpe.com/services/expertchat para obter detalhes ou entre em contato com o representante de vendas HPE local.\n"
+    table3.cell(2, 1).text = "\nOs clientes podem iniciar um bate-papo online com um recurso técnico especialista para fazer perguntas, obter ajuda ou orientação técnica geral. O bate papo online com especialistas é oferecido para que os clientes obtenham respostas rápidas sobre questões técnicas relacionadas aos seus produtos HPE. \nQuestões complexas que exijam respostas detalhadas podem ser elevadas a incidentes de suporte conforme a necessidade. O bate-papo online com especialistas é limitado apenas ao idioma inglês e está disponível durante a janela de cobertura do serviço. A disponibilidade pode variar para determinados produtos. Consulte hpe.com/services/expertchat para obter detalhes ou entre em contato com o representante de vendas HPE local.\n"
+    table3.cell(3, 1).text = "\nOs clientes podem postar perguntas e problemas, ou discutir o uso dos produtos dentro dos fóruns da comunidade HPE. Os especialistas em produtos HPE respondem em dois dias úteis a qualquer questão não resolvida que for levantada dentro do fórum oficial da comunidade HPE para produtos cobertos pelos serviços de suporte da HPE. \nNos casos de postagens sobre tópicos que deveriam ser abordados por processos de suporte padrão, a HPE solicita que um incidente de suporte formal seja criado e segue os processos padrão de gerenciamento de incidentes da HPE. A resposta do recurso técnico especialista é limitada apenas ao idioma inglês e exige que o usuário seja registrado no HPE Support Center e esteja associado aos contratos de serviço.\n"
+    table3.cell(4, 1).text = "\nA HPE se empenha para oferecer orientação técnica geral relativa às questões e perguntas específicas sobre os tópicos destacados a seguir acerca da operação e gerenciamento dos produtos dos clientes cobertos pelo HPE Pointnext Tech Care. A orientação técnica geral está disponível pelo telefone, internet e bate-papo, está sujeita à janela de cobertura do serviço constante no contrato de serviço e será tratada como um incidente severidade 3.\nQuando for relacionada aos assuntos detalhados ou descritos a seguir, a HPE identificará documentos, vídeos e artigos da base de conhecimento para ajudar nos tópicos abordados.\nAlém de qualquer limitação ou exclusão estabelecida nesta ficha técnica, qualquer orientação técnica geral da HPE será fornecida especificamente para os tópicos detalhados aqui e apenas para os produtos HPE cobertos por esses serviços:\n	Uso ou procedimentos corretos para usar os recursos dos produtos\nAssistência na identificação de documentação relevante ou artigos da base de conhecimento\nConselhos sobre as melhores práticas da HPE para ajudar você a gerenciar e manter os seus produtos	\nNavegação básica para usar a interface de gerenciamento do produto\nConselhos sobre as opções de gerenciamento de capacidade com base nas tendências de uso dos produtos (quando disponível)\nOrientações sobre a configuração geral do produto, que pode incluir recomendações de melhores práticas com base na experiência operacional da HPE\nOrientação sobre os passos potenciais para ajudar a trazer o produto para uma configuração compatível\nOs tópicos de orientação técnica geral mencionados anteriormente podem não ser aplicáveis a todos os produtos de hardware e/ou software cobertos por este serviço.\n"
+    table3.cell(5, 1).text = "\nPara produtos HPE compatíveis com o HPE InfoSight (lista disponível no link a seguir), a HPE oferece suporte e orientação para a preparação, configuração e uso do HPE InfoSight.\nAdicionalmente, para esses produtos conectados, a HPE expande sua orientação técnica geral para incluir análises do HPE InfoSight, bem como os alertas e as recomendações fornecidas. Para produtos HPE configurados, mediante solicitação, a HPE oferece assistência aos clientes para que entendam os problemas, alertas e informações oferecidas pelo HPE InfoSight.\nNos casos em que as análises oferecerem recomendações incluídas nos insights da carga de trabalho HPE InfoSight, a HPE pode oferecer a qualificação da análise, recomendações e os melhores próximos passos gerais em acordo com as orientações técnicas gerais.\nPara mais informações sobre o HPE InfoSight, cobertura de dispositivos e recursos, visite infosight.hpe.com.\n"
+    table3.cell(6, 1).text = "\nPara os produtos HPE cobertos por um contrato de serviço, conectado a e conforme compatibilidade com o HPE InfoSight: Os clientes ganham acesso a rotinas automatizadas de monitoramento que podem identificar problemas potenciais usando assinaturas regras e determinações exclusivas da HPE. \nPara problemas identificados pelo HPE InfoSight, o HPE InfoSight alerta os clientes sobre os problemas e identifica oportunidades para ações corretivas e, de acordo com a sua criticidade, pode automaticamente submeter os incidentes à HPE com as informações diagnosticadas para acelerar os diagnósticos e reparos. \nOs recursos podem variar de acordo com o produto; os dispositivos devem ser compatíveis com o HPE InfoSight, e exige-se conectividade com o HPE InfoSight.\nNos casos em que os clientes configuram o HPE InfoSight para os produtos HPE compatíveis cobertos pelo HPE Pointnext Tech Care, eles ganham acesso aos recursos analíticos aprimorados do HPE InfoSight, que oferecem insights de produtos e alertas de problemas detalhados, além de oportunidades de uso e configuração.\n"
+    table3.cell(7, 1).text = "\nPara produtos HPE compatíveis usando as ferramentas de serviço proprietárias HPE (incluindo o HPE InfoSight), e quando estiverem conectados, os dispositivos podem submeter os incidentes à HPE automaticamente, com informações diagnósticas que podem acelerar os diagnósticos e reparos\nOnde o monitoramento e submissão automática de incidentes identificar problemas críticos que exijam o envolvimento da HPE, a HPE procura responder ao contato do cliente previamente identificado dentro da janela de cobertura do serviço, de acordo com as definições do nível de serviço adquirido. \nCaso o cliente não esteja disponível no momento do contato, ou caso solicite, a HPE agendará o acompanhamento para o próximo dia útil. Todos os problemas não-críticos serão acompanhados no próximo dia útil. Os clientes podem, a qualquer momento, de acordo com o seu nível de serviço, entrar em contato com a HPE para solicitar a continuidade do diagnóstico e da resolução do problema.\nPara mais informações, visite hpe.com/services/getconnected.\n"
 
     title92 = doc.add_heading(level=0)
     title92.add_run("\n3.2.	ZONAS DE DESLOCAMENTO ")
@@ -856,136 +856,136 @@ table13.allow_autofit = True
 for row13 in table13.rows:
     for cell13 in row13.cells:
         cell13.width = Pt(250)
-table13.cell(0, 0).text = "DECLARAÇÃO DE ACEITE DESTA PROPOSTA E ANEXOS"
+table13.cell(0, 0).text = "\nDECLARAÇÃO DE ACEITE DESTA PROPOSTA E ANEXOS\n"
 a = table13.cell(0, 0)
 b = table13.cell(0, 2)
 a.merge(b)
-table13.cell(1, 0).text = "Ao aceitar esta Proposta declaro estar ciente e de acordo com a proposta e todas as cláusulas e condições do “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, item Termos e Condições Contratuais desta proposta. "
+table13.cell(1, 0).text = "\nAo aceitar esta Proposta declaro estar ciente e de acordo com a proposta e todas as cláusulas e condições do “Portfolio Terms with Supplemental Data Sheet Terms for Support (CTPF01 and CTDS01)”, item Termos e Condições Contratuais desta proposta. \n"
 a = table13.cell(1, 0)
 b = table13.cell(1, 2)
 a.merge(b)
-table13.cell(2, 0).text = "RESPONSÁVEL PELO ACEITE DESTA PROPOSTA"
+table13.cell(2, 0).text = "\nRESPONSÁVEL PELO ACEITE DESTA PROPOSTA\n"
 a = table13.cell(2, 0)
 b = table13.cell(2, 2)
 a.merge(b)
-table13.cell(3, 0).text = "Nome:"
+table13.cell(3, 0).text = "\nNome:\n"
 a = table13.cell(3, 0)
 b = table13.cell(3, 1)
 a.merge(b)
-table13.cell(3, 2).text = "Cargo:"
-table13.cell(4, 0).text = "Departamento:"
+table13.cell(3, 2).text = "\nCargo:\n"
+table13.cell(4, 0).text = "\nDepartamento:\n"
 a = table13.cell(4, 0)
 b = table13.cell(4, 2)
 a.merge(b)
-table13.cell(5, 0).text = "Assinatura:"
+table13.cell(5, 0).text = "\nAssinatura:\n"
 a = table13.cell(5, 0)
 b = table13.cell(5, 2)
 a.merge(b)
-table13.cell(6, 0).text = "Local e Data:"
+table13.cell(6, 0).text = "\nLocal e Data:\n"
 a = table13.cell(6, 0)
 b = table13.cell(6, 2)
 a.merge(b)
-table13.cell(7, 0).text = "Razão Social:"
+table13.cell(7, 0).text = "\nRazão Social:\n"
 a = table13.cell(7, 0)
 b = table13.cell(7, 2)
 a.merge(b)
-table13.cell(8, 0).text = "INFORMAÇÃO DE FATURAMENTO"
+table13.cell(8, 0).text = "\nINFORMAÇÃO DE FATURAMENTO\n"
 a = table13.cell(8, 0)
 b = table13.cell(8, 2)
 a.merge(b)
-table13.cell(9, 0).text = "Razão Social:"
+table13.cell(9, 0).text = "\nRazão Social:\n"
 a = table13.cell(9, 0)
 b = table13.cell(9, 2)
 a.merge(b)
-table13.cell(10, 0).text = "Endereço de Faturamento:"
+table13.cell(10, 0).text = "\nEndereço de Faturamento:\n"
 a = table13.cell(10, 0)
 b = table13.cell(10, 2)
 a.merge(b)
-table13.cell(11, 0).text = "CNPJ:"
+table13.cell(11, 0).text = "\nCNPJ:\n"
 a = table13.cell(11, 0)
 b = table13.cell(11, 1)
 a.merge(b)
-table13.cell(12, 0).text = "Inscr. Estadual:"
+table13.cell(12, 0).text = "\nInscr. Estadual:\n"
 a = table13.cell(12, 0)
 b = table13.cell(12, 2)
 a.merge(b)
-table13.cell(13, 0).text = "O faturamento da presente contratação não dependerá da emissão de Pedido de Compra e/ou Contrato específico, assim, a presente Proposta será o único instrumento contratual válido entre a HPE e o Cliente. Em caso de emissão de Pedido de Compra e/ou Contrato, solicitamos assinalarem o campo ao lado: (   )\n\n** a emissão de Pedido de Compra será entendida como o aceite integral dessa Proposta, sendo que os termos e condições deste documento prevalecem sobre quaisquer outras disposições anteriormente ou posteriormente emitidas e regem a presente relação comercial entre a HPE e o Cliente.   "
+table13.cell(13, 0).text = "\nO faturamento da presente contratação não dependerá da emissão de Pedido de Compra e/ou Contrato específico, assim, a presente Proposta será o único instrumento contratual válido entre a HPE e o Cliente. Em caso de emissão de Pedido de Compra e/ou Contrato, solicitamos assinalarem o campo ao lado: (   )\n\n** a emissão de Pedido de Compra será entendida como o aceite integral dessa Proposta, sendo que os termos e condições deste documento prevalecem sobre quaisquer outras disposições anteriormente ou posteriormente emitidas e regem a presente relação comercial entre a HPE e o Cliente.\n"
 a = table13.cell(13, 0)
 b = table13.cell(13, 2)
 a.merge(b)
-table13.cell(14, 0).text = "Aceita faturamento parcial:     (   ) sim          (    ) não"
+table13.cell(14, 0).text = "\nAceita faturamento parcial:     (   ) sim          (    ) não\n"
 a = table13.cell(14, 0)
 b = table13.cell(14, 2)
 a.merge(b)
-table13.cell(15, 0).text = "Aceita diferença de centavos:     (   ) sim          (    ) não"
+table13.cell(15, 0).text = "\nAceita diferença de centavos:     (   ) sim          (    ) não\n"
 a = table13.cell(15, 0)
 b = table13.cell(15, 2)
 a.merge(b)
-table13.cell(16, 0).text = "Possui janela de faturamento:     (   ) sim          (    ) não \n\nCaso positivo informar data limite mensal para recebimento das notas fiscais: _____________"
+table13.cell(16, 0).text = "\nPossui janela de faturamento:     (   ) sim          (    ) não \n\nCaso positivo informar data limite mensal para recebimento das notas fiscais: _____________\n"
 a = table13.cell(16, 0)
 b = table13.cell(16, 2)
 a.merge(b)
-table13.cell(17, 0).text = "INFORMAÇÃO E LOCAL DE ENTREGA"
+table13.cell(17, 0).text = "\nINFORMAÇÃO E LOCAL DE ENTREGA\n"
 a = table13.cell(17, 0)
 b = table13.cell(17, 2)
 a.merge(b)
-table13.cell(18, 0).text = "Razão Social:"
+table13.cell(18, 0).text = "\nRazão Social:\n"
 a = table13.cell(18, 0)
 b = table13.cell(18, 2)
 a.merge(b)
-table13.cell(19, 0).text = "Endereço de entrega:"
+table13.cell(19, 0).text = "\nEndereço de entrega:\n"
 a = table13.cell(19, 0)
 b = table13.cell(19, 2)
 a.merge(b)
-table13.cell(20, 0).text = "CNPJ:"
+table13.cell(20, 0).text = "\nCNPJ:\n"
 a = table13.cell(20, 0)
 b = table13.cell(20, 1)
 a.merge(b)
-table13.cell(21, 0).text = "Inscr. Estadual:"
-table13.cell(22, 0).text = "Contato:"
+table13.cell(21, 0).text = "\nInscr. Estadual:\n"
+table13.cell(22, 0).text = "\nContato:\n"
 a = table13.cell(22, 0)
 b = table13.cell(22, 1)
 a.merge(b)
-table13.cell(23, 0).text = "Telefone:"
-table13.cell(24, 0).text = "E-mail para envio da mídia eletrônica de software::"
+table13.cell(23, 0).text = "\nTelefone:\n"
+table13.cell(24, 0).text = "\nE-mail para envio da mídia eletrônica de software:\n"
 a = table13.cell(24, 0)
 b = table13.cell(24, 2)
 a.merge(b)
-table13.cell(25, 0).text = "*** (Caso o CNPJ do local de entrega seja diferente do CNPJ da empresa contratante, favor informar se é um operador logístico/filial ou um datacenter e o contato: \n\n"
+table13.cell(25, 0).text = "\n*** (Caso o CNPJ do local de entrega seja diferente do CNPJ da empresa contratante, favor informar se é um operador logístico/filial ou um datacenter e o contato: \n\n"
 a = table13.cell(25, 0)
 b = table13.cell(25, 2)
 a.merge(b)
-table13.cell(26, 0).text = "Necessário pré-agendamento? (   ) sim          (    ) não"
+table13.cell(26, 0).text = "\nNecessário pré-agendamento? (   ) sim          (    ) não\n"
 a = table13.cell(26, 0)
 b = table13.cell(26, 2)
 a.merge(b)
-table13.cell(27, 0).text = "Possuim restrição de horário para recebimento do produto? (   ) sim          (    ) não\nCaso positivo, informar os horários.:\n\n"
+table13.cell(27, 0).text = "\nPossuim restrição de horário para recebimento do produto? (   ) sim          (    ) não\nCaso positivo, informar os horários.:\n\n"
 a = table13.cell(27, 0)
 b = table13.cell(27, 2)
 a.merge(b)
-table13.cell(28, 0).text = "INFORMAÇÃO DE COBRANÇA:"
+table13.cell(28, 0).text = "\nINFORMAÇÃO DE COBRANÇA:\n"
 a = table13.cell(28, 0)
 b = table13.cell(28, 2)
 a.merge(b)
-table13.cell(29, 0).text = "Endereço de Cobrança:"
+table13.cell(29, 0).text = "\nEndereço de Cobrança:\n"
 a = table13.cell(29, 0)
 b = table13.cell(29, 2)
 a.merge(b)
-table13.cell(30, 0).text = "CNPJ:"
+table13.cell(30, 0).text = "\nCNPJ:\n"
 a = table13.cell(30, 0)
 b = table13.cell(30, 1)
 a.merge(b)
-table13.cell(31, 0).text = "Inscr. Estadual:"
-table13.cell(32, 0).text = "Contato:"
+table13.cell(31, 0).text = "\nInscr. Estadual:\n"
+table13.cell(32, 0).text = "\nContato:\n"
 a = table13.cell(32, 0)
 b = table13.cell(32, 1)
 a.merge(b)
-table13.cell(33, 0).text = "Telefone:"
-table13.cell(34, 0).text = "E-mail para envio da Nota Fiscal Eletrônica:"
+table13.cell(33, 0).text = "\nTelefone:\n"
+table13.cell(34, 0).text = "\nE-mail para envio da Nota Fiscal Eletrônica:\n"
 a = table13.cell(34, 0)
 b = table13.cell(34, 2)
 a.merge(b)
-table13.cell(35, 0).text = "Comentários Adicionais:"
+table13.cell(35, 0).text = "\nComentários Adicionais:\n"
 a = table13.cell(35, 0)
 b = table13.cell(35, 2)
 a.merge(b)
