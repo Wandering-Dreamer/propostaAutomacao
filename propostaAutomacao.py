@@ -1,3 +1,4 @@
+import os
 from docx import *
 from docx.shared import Pt, Inches, Mm
 from docx.shared import RGBColor
@@ -7,8 +8,10 @@ from datetime import date
 import locale
 import ui
 
+basedir = os.path.dirname(__file__)
+
 # Pag 1
-doc = Document("Template Proposta Tecnica Comercial Servicos de Suporte_novo (003) (002).docx")
+doc = Document("C:/Users/santosga/Documents/Python/output/propostaAutomacao/_internal/template.docx")
 
 section = doc.sections[0]
 
@@ -31,7 +34,7 @@ p.add_run(ui.str_dt)
 p = doc.add_paragraph('Proposta Técnica Comercial ')
 p.add_run(ui.ope_final.get())
 p.add_run('\n\n\n')
-doc.add_picture('image_page1.jpg', width=Pt(500))
+doc.add_picture('C:/Users/santosga/Documents/Python/output/propostaAutomacao/_internal/image_page1.jpg', width=Pt(500))
 doc.add_page_break()
 
 
@@ -172,7 +175,7 @@ p5.add_run('\nEquipe de liderança experiente com histórico comprovado de desem
 p5.add_run('Nossa equipe de gerenciamento apresenta um histórico comprovado de desempenho e execução. Nossa equipe de gerenciamento sênior soma mais de 100 anos de experiência na área e possui amplo conhecimento e experiência no setor de TI comercial e nos mercados em que competimos. Além disso, possuímos um amplo banco de talentos em gerenciamento e tecnologia que — acreditamos — nos oferece pipeline sem precedentes para futuros líderes e inovadores.')
 p5.add_run('\nUm parceiro de transformação com a visão e a abrangência para ajudar os clientes a alcançar ótimos resultados comerciais').font.size = Pt(10)
 p5.paragraph_format.line_spacing = Pt(13)
-doc.add_picture('image_page5.png', width=Pt(350))
+doc.add_picture('C:/Users/santosga/Documents/Python/output/propostaAutomacao/_internal/image_page5.png', width=Pt(350))
 doc.add_page_break()
 
 # Pag 6 
@@ -993,5 +996,9 @@ title19 = doc.add_heading(level=0)
 title19.add_run("\n7.	Anexos ")
 
 # Salvar o documento
-
-doc.save('example_document.docx')
+filename = ui.file_final.get()
+print(filename)
+filep = ui.filepath_final.get()
+print(filep)
+versao = ui.ver_final.get()
+doc.save(filep + '\\' + filename + ' ' + versao + '.docx')

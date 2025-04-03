@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import messagebox, ttk
 from tkinter import *
@@ -6,8 +7,21 @@ from tkscrolledframe import ScrolledFrame
 from datetime import date
 import locale
 
+basedir = os.path.dirname(__file__)
+
+try:
+    from ctypes import windll  # Only exists on Windows.
+
+    myappid = "mycompany.myproduct.subproduct.version"
+    windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
+
 root = Tk()
 
+ver_final = StringVar()
+file_final = StringVar()
+filepath_final = StringVar()
 var_email = StringVar()
 var_telefone = StringVar()
 vendedor_final = StringVar()
@@ -33,8 +47,8 @@ pagamento_final = IntVar()
 renovacao_final = IntVar()
 
 
-logo = tk.PhotoImage(file="hp_logo.png").subsample(14, 15)
-tk.Label(root, image=logo).pack()
+""" logo = tk.PhotoImage(file="hp_logo.png").subsample(14, 15)
+tk.Label(root, image=logo).pack() """
 root.geometry("600x800+100-100")
 root.title("Alteração de Proposta")
 root.proposta = ["Privada", "Pública"]
@@ -55,6 +69,21 @@ sf.bind_arrow_keys(frame_top)
 sf.bind_scroll_wheel(frame_top)
 
 frame = sf.display_widget(tk.Frame)
+
+file_label = tk.Label(frame, text="Insira o nome da Proposta:")
+file = ttk.Entry(frame)
+file_label.pack(anchor="w", padx=10, pady=5)
+file.pack(anchor="w", padx=10, pady=5)
+
+ver_label = tk.Label(frame, text="Insira a versão da Proposta:")
+ver = ttk.Entry(frame)
+ver_label.pack(anchor="w", padx=10, pady=5)
+ver.pack(anchor="w", padx=10, pady=5)
+
+path_label = tk.Label(frame, text="Insira o caminho para salvar a Proposta:")
+path = ttk.Entry(frame)
+path_label.pack(anchor="w", padx=10, pady=5)
+path.pack(anchor="w", padx=10, pady=5)
 
 proposta_label = tk.Label(frame, text="Selecione o tipo de Proposta:")
 proposta_label.pack(anchor="w", padx=10, pady=5)
@@ -226,6 +255,9 @@ print(str_dt)
 print(str_vl)
 
 def get_data():
+    ver_final.set(ver.get())
+    file_final.set(file.get())
+    filepath_final.set(path.get())
     vendedor_final.set(vendedor.get())
     proposta_final.set(proposta_var.get())
     print(vendedor_menu.current())
@@ -249,4 +281,5 @@ def get_data():
 submit_button = Button (frame, text="Confirmar", command=get_data, height=3, width=20)
 submit_button.pack(anchor="w", padx=100, pady=50)
 
+#root.iconbitmap(os.path.join(basedir, "hp_icon.ico"))
 root.mainloop()
