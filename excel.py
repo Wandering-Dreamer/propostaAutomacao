@@ -68,17 +68,25 @@ for i in unique_values:
         x = 2
 
         fl = df.iloc[i:(unique_values[x]), 16]
+        fl = fl.drop_duplicates()
         fl.to_excel(writer, sheet_name='sheetName', index=False, startrow=1, startcol=0, header=False)
         sla = df.iloc[i-1:(unique_values[x]), 9]
+        sla = sla.drop_duplicates()
         sla.to_excel(writer, sheet_name='sheetName', index=False, startrow=2, startcol=0, header=False)
         text.to_excel(writer, sheet_name='sheetName', index=False, startrow=3, startcol=0, header=False)
         data1 = df.iloc[i:(unique_values[x]), 4]
+        data1 = data1.drop_duplicates()
         data1.to_excel(writer, sheet_name='sheetName', index=False, startrow=3, startcol=1, header=False)
         text2.to_excel(writer, sheet_name='sheetName', index=False, startrow=3, startcol=3, header=False)
         data2 = df.iloc[i:(unique_values[x]), 5]
+        data2 = data2.drop_duplicates()
         data2.to_excel(writer, sheet_name='sheetName', index=False, startrow=3, startcol=4, header=False)
         df2 = df.iloc[i:(unique_values[x] - 1), [8, 9, 11, 2, 13, 17]]
         df2.columns = ['Part Number', 'Hardware', 'Qty', 'Serial Number', 'Net Price', 'Net Value']
+        df2 = df2.assign(Net_Price = df2.groupby('Serial Number')['Net Price'].transform('sum')).drop('Net Price', axis=1)
+        df2 = df2.assign(Net_Value = df2.groupby('Serial Number')['Net Value'].transform('sum')).drop('Net Value', axis=1)
+        df2 = df2.drop_duplicates(subset=['Serial Number'])
+        print(df2)
         df2.to_excel(writer, sheet_name='sheetName', index=False, startrow=4, startcol=0)
         for column in df2:
             column_length = max(df2[column].astype(str).map(len).max(), len(column))
@@ -170,14 +178,18 @@ for i in unique_values:
     if i > 1 and i != unique_values[-1]:
         x += 1
         fl = df.iloc[i:(unique_values[x]), 16]
+        fl = fl.drop_duplicates()
         fl.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+6, startcol=0, header=False)
         sla = df.iloc[i-1:(unique_values[x]), 9]
+        sla = sla.drop_duplicates()
         sla.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+7, startcol=0, header=False)
         text.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=0, header=False)
         data1 = df.iloc[i:(unique_values[x]), 4]
+        data1 = data1.drop_duplicates()
         data1.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=1, header=False)
         text2.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=3, header=False)
         data2 = df.iloc[i:(unique_values[x]), 5]
+        data2 = data2.drop_duplicates()
         data2.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=4, header=False)
         y = 1 + lenght + 7
         merge_df.append(y)
@@ -185,12 +197,13 @@ for i in unique_values:
         print(merge_df)
         df2 = df.iloc[i:(unique_values[x] - 1), [8, 9, 11, 2, 13, 17]]
         df2.columns = ['Part Number', 'Hardware', 'Qty', 'Serial Number', 'Net Price', 'Net Value']
+        df2 = df2.drop_duplicates(subset=['Serial Number'])
         df2.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+9, startcol=0)
         for column in df2:
             column_length = max(df2[column].astype(str).map(len).max(), len(column))
             col_idx = df2.columns.get_loc(column)
             writer.sheets['sheetName'].set_column(col_idx, col_idx, column_length)
-        lenght = lenght + (len(df2)*2) + 4
+        lenght = lenght + (len(df2)) + 8
 
         t = doc.add_table(df2.shape[0]+4, 6)
         t.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -276,14 +289,18 @@ for i in unique_values:
             
     if i == unique_values[-1]:
         fl = df.iloc[i:, 16]
+        fl = fl.drop_duplicates()
         fl.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+6, startcol=0, header=False)
         sla = df.iloc[i-1:, 9]
+        sla = sla.drop_duplicates()
         sla.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+7, startcol=0, header=False)
         text.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=0, header=False)
         data1 = df.iloc[i:, 4]
+        data1 = data1.drop_duplicates()
         data1.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=1, header=False)
         text2.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=3, header=False)
         data2 = df.iloc[i:, 5]
+        data2 = data2.drop_duplicates()
         data2.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+8, startcol=4, header=False)
         y = 1 + lenght + 7
         merge_df.append(y)
@@ -291,6 +308,7 @@ for i in unique_values:
         print(merge_df)
         df2 = df.iloc[i:, [8, 9, 11, 2, 13, 17]]
         df2.columns = ['Part Number', 'Hardware', 'Qty', 'Serial Number', 'Net Price', 'Net Value']
+        df2 = df2.drop_duplicates(subset=['Serial Number'])
         df2.to_excel(writer, sheet_name='sheetName', index=False, startrow=1+lenght+9, startcol=0)
         for column in df2:
             column_length = max(df2[column].astype(str).map(len).max(), len(column))

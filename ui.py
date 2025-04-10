@@ -5,6 +5,7 @@ from tkinter import *
 from tkcalendar import DateEntry
 from tkscrolledframe import ScrolledFrame
 from datetime import date
+from tkinter import filedialog
 import locale
 
 basedir = os.path.dirname(__file__)
@@ -19,9 +20,10 @@ except ImportError:
 
 root = Tk()
 
+word = StringVar()
+excel = StringVar()
 ver_final = StringVar()
 file_final = StringVar()
-filepath_final = StringVar()
 var_email = StringVar()
 var_telefone = StringVar()
 vendedor_final = StringVar()
@@ -47,8 +49,8 @@ pagamento_final = IntVar()
 renovacao_final = IntVar()
 
 
-logo = tk.PhotoImage(file="./_internal/hp_logo.png").subsample(14, 15)
-tk.Label(root, image=logo).pack()
+#logo = tk.PhotoImage(file="./_internal/hp_logo.png").subsample(14, 15)
+#tk.Label(root, image=logo).pack()
 root.geometry("600x800+100-100")
 root.title("Alteração de Proposta")
 root.proposta = ["Privada", "Pública"]
@@ -80,10 +82,31 @@ ver = ttk.Entry(frame)
 ver_label.pack(anchor="w", padx=10, pady=5)
 ver.pack(anchor="w", padx=10, pady=5)
 
+def UploadActionWord(event=None):
+    word.set(filedialog.askdirectory())
+    print('Selected:', word)
+    return word
+
 path_label = tk.Label(frame, text="Insira o caminho para salvar a Proposta:")
-path = ttk.Entry(frame)
+path_button = tk.Button(frame, text='Inserir', command=UploadActionWord)
 path_label.pack(anchor="w", padx=10, pady=5)
-path.pack(anchor="w", padx=10, pady=5)
+path_button.pack(anchor="w", padx=10, pady=5)
+
+word_label = tk.Label(frame, textvariable=word)
+word_label.pack(anchor="w", padx=10, pady=5)
+
+def UploadActionExcel(event=None):
+    excel.set(filedialog.askopenfilename())
+    print('Selected:', excel)
+    return excel
+
+tabela_label = tk.Label(frame, text="Insira o arquivo excel para criar a tabela:")
+tabela_button = tk.Button(frame, text='Inserir', command=UploadActionExcel)
+tabela_label.pack(anchor="w", padx=10, pady=5)
+tabela_button.pack(anchor="w", padx=10, pady=5)
+
+excel_label = tk.Label(frame, textvariable=excel)
+excel_label.pack(anchor="w", padx=10, pady=5)
 
 proposta_label = tk.Label(frame, text="Selecione o tipo de Proposta:")
 proposta_label.pack(anchor="w", padx=10, pady=5)
@@ -257,7 +280,6 @@ print(str_vl)
 def get_data():
     ver_final.set(ver.get())
     file_final.set(file.get())
-    filepath_final.set(path.get())
     vendedor_final.set(vendedor.get())
     proposta_final.set(proposta_var.get())
     print(vendedor_menu.current())
